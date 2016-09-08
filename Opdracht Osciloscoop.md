@@ -7,6 +7,7 @@ Wat zijn de verschillen binnen de 22xx serie
 Wat is de bandbreedte van de Picoscoop 2205
 
 > 2204: 10Mhz
+> 
 > 2205: 25Mhz
 
 Wat is de meerprijs van de 2205?
@@ -34,7 +35,9 @@ Met hoeveel samples per seconde samplet de Picoscoop 2204
 Het is ook mogelijk een weergave op te slaan. Op deze manier kan je later de resultaten bekijken van je meting. Met het programma PicoScope is het dus ook mogelijk metingen later terug te kijken en te analyseren zonder dat je de scoop zelf nog nodig hebt. Zoek op wat voor "metingen" je kan verrichten op een signaal en wat deze betekenen. Kies drie mogelijkheden en beschrijf deze.
 
 > 1: **Frequentie:**	Bij deze meting wordt de frequentie van het signaal gemeten.
+> 
 > 2: **DC Gemiddlede:** Bij deze meting wordt het gemiddelde voltage van het                        signaal gemeten.
+> 
 > 3: **Maximum:** 		Hierbij wordt de maximale spanning van een golf (de bovenkant van de wave) gemeten.
 
 # Vraag 7
@@ -43,21 +46,32 @@ horizontale as, de X-as staat de tijd in microseconden. Bespreek met elkaar hoe 
 frequentie van deze blokgolf berekent. Wat is de (uitgerekende) frequentie van het signaal?
 
 >**Sterkte van het signaal in Volt:**	2Volt
+>
 >**Tijd die een periode duurt:**		100 microSeconden
+>
 >**Berekende Frequentie:**				1/.0001 = 10000Hz = 10kHz
 
 # Vraag 8
 Onderzoek de instellingen. Welke type golfvormen kan je genereren vanuit de signaalgenerator?
 
 >Arbitrary
+>
 >Sinus
+>
 >Vierkant
+>
 >Driehoek
+>
 >Schans omhoog
+>
 >Schans naar beneden
+>
 >Sin (X)/X
+>
 >Gaussi curve
+>
 >Halve Sinus
+>
 >DC Spanning
 
 
@@ -72,11 +86,11 @@ Zoek uit welke vormen van triggeren je kan doen met de scoop en beschrijf het ve
 verschillende soorten is (zie hiervoor de helpfunctie):
 
 >**Automatisch:**	Selecteert automatisch het trigger punt en laat de 						meting doorlopen
-
+>`
 >**Herhaal:**		Selecteer zelf het trigger punt en laat hem doorlopen
-
+>
 >**Enkel:**		  Selecteer automatisch het trigger punt en meet een 						keer zodra deze berijkt wordt
-
+>
 >**ETS:**		Gemiddelde van een aantal samples samen
 
 
@@ -97,8 +111,11 @@ gebruik van de scoop. Bedenk een 3 aantal toepassingen die je de komende jaren i
 gebruiken:
 
 >Piekspanningen meten zodat de arduino niet opgeblazen wordt
+>
 >Analyse van geluidsignalen
+>
 >Debuggen van seriele communicatie tussen chips
+
 
 
 
