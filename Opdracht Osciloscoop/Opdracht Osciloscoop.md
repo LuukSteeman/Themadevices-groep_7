@@ -149,6 +149,8 @@ spanning onder de nullijn (schat de waarde als het beeld niet goed stil staat):
 > 381.5 mV
 > Screenshot: Vraag_4_1.jpg
 
+![Vraag_4_1.jpg]( https://raw.githubusercontent.com/LuukSteeman/Themadevices-groep_7/master/Opdracht%20Osciloscoop/Vraag_4_1.jpg "Screenshot 4")
+
 Kijk in de specificatie van de voeding (staat op Sharepoint). Welke informatie is er gegeven over de
 grootte van de rimpel? Reken de grootte om naar mV:
 
@@ -165,6 +167,9 @@ Wat is de frequentie van de zender?
 
 > 36 KHz
 > Screenshot: Vraag_6_1.jpg
+
+![Vraag_6_1.jpg]( https://raw.githubusercontent.com/LuukSteeman/Themadevices-groep_7/master/Opdracht%20Osciloscoop/Vraag_6_1.jpg "Screenshot 6")
+
 
 ## Vraag 7
 Bereken uit het plaatje serieel.jpg de bitsnelheid (probeer voor de bitsnelheid het aantal bits te delen op
@@ -186,6 +191,7 @@ Hoe ziet de meting van de letter w eruit?
 
 > Screenshot: Vraag_9_1.png
 
+![Vraag_9_1.jpg]( https://raw.githubusercontent.com/LuukSteeman/Themadevices-groep_7/master/Opdracht%20Osciloscoop/Vraag_9_1.png "Screenshot 4")
 
 
 ## Vraag 10
@@ -193,62 +199,4 @@ Hoe ziet de meting van de letter w eruit?
 > 3.5Khz
 > Screenshot: Vraag_10_1.jpg
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+![Vraag_10_1.jpg]( https://raw.githubusercontent.com/LuukSteeman/Themadevices-groep_7/master/Opdracht%20Osciloscoop/Vraag_10_1.jpg "Screenshot 4")
