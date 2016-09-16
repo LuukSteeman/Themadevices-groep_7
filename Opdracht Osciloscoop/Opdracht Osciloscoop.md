@@ -111,7 +111,7 @@ Nu je een idee hebt hoe de scope werkt zou je een aantal toepassingen kunnen bed
 gebruik van de scoop. Bedenk een 3 aantal toepassingen die je de komende jaren in je studie zou kunnen
 gebruiken:
 
->Piekspanningen meten zodat de arduino niet te veel spanning krijgt
+>Piekspanningen meten zodat de arduino niet opgeblazen wordt
 >
 >Analyse van geluidsignalen
 >
