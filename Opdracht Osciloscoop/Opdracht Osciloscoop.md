@@ -111,7 +111,7 @@ Nu je een idee hebt hoe de scope werkt zou je een aantal toepassingen kunnen bed
 gebruik van de scoop. Bedenk een 3 aantal toepassingen die je de komende jaren in je studie zou kunnen
 gebruiken:
 
->Piekspanningen meten zodat de arduino niet opgeblazen wordt
+>Piekspanningen meten zodat de arduino niet te veel spanning krijgt
 >
 >Analyse van geluidsignalen
 >
@@ -140,7 +140,7 @@ belasting levert de voeding ook een grote stroom. Een spanningsbron mag niet wor
 gaat er (theoretisch) een oneindig grote stroom lopen. Hoe komt dat? Tip, verklaar dit aan de hand van de
 wet van Ohm.
 
-> Wet van Ohm: U = I * R. Omdat U constant is en R 0 moet I oneindig benaderen om hieraan te voldoen.
+> Wet van Ohm: U = I * R. Omdat U constant is en R 0 benadert moet I oneindig benaderen om hieraan te voldoen.
 
 ## Vraag 4
 Geef het antwoord van top tot top (Vtt) in millivolt. Dat is dus de spanning boven de nullijn plus de
@@ -160,7 +160,7 @@ grootte van de rimpel? Reken de grootte om naar mV:
 Open je camera van je mobiel en schijn met de handzender in de camera. Welke kleur is het licht van de
 IR-LED als je deze met de camera bekijkt?
 
-> Blauw roze paars
+> Het licht is paarsachtig
 
 ## Vraag 6
 Wat is de frequentie van de zender?
