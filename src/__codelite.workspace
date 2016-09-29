@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CodeLite_Workspace Name="example code" Database="">
-  <Project Name="IR_message" Path="IR_message/_codelite.project" Active="Yes"/>
+  <Project Name="_codelite" Path="Project/_codelite.project" Active="No"/>
   <BuildMatrix>
     <WorkspaceConfiguration Name="Release" Selected="yes">
-      <Project Name="IR_message" ConfigName="Release"/>
+      <Environment/>
+      <Project Name="Project" ConfigName="Release"/>
     </WorkspaceConfiguration>
   </BuildMatrix>
 </CodeLite_Workspace>
