@@ -4,6 +4,7 @@
 #include "infrared.hpp"
 #include "sam.h"
 #include "hwlib.hpp"
+#include "IRMessage.hpp"
 
 /// Get class parameters
 //
@@ -36,6 +37,7 @@ int infrared::get_data(){
 /// the array into a integervalue, because it's hard to pass an array as parameter
 int infrared::check(){
 	static char code[15];
+	short msg = 0;
 	int ir_value = 0;
 	int id_value = 0;
 	int data_value = 0;
@@ -47,19 +49,20 @@ int infrared::check(){
     /// appends the array with a '0'. We're working with the RC-5 protocol, which means an input is ready in 1.778 milliseconds. A high value looks like '-|_' 
     /// and a low value look slike '_|-'. When the value switches up, it waits 3/4 of the time it takes to get ready.
 	if((ir_pin.get() == true)){ // Start bit received
+		msg = msg | (1<<15);
 		for(int j = 0; j < 15; j++){
 			if((ir_pin.get() == true)){
                 hwlib::wait_ns(900'000);
                 if(ir_pin.get() == true){
-                    code[j] = '1';
-                    hwlib::cout << code[j] << hwlib::endl;                  
+                    msg = msg | (1<<(14-j);
+                    hwlib::cout << msg << hwlib::endl;                  
                 }
 			}	
 			else{
                 hwlib::wait_ns(900'000);
                 if(ir_pin.get() == false){
-                    code[j] = '0';      
-                    hwlib::cout << code[j] << hwlib::endl;         
+					msg = msg | (0<<(14-j);      
+                    hwlib::cout << msg << hwlib::endl;         
                 }
 			}
             
