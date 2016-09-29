@@ -59,14 +59,16 @@ bool IRMessage::checkChecksum(short data){
     return true;
 };
 
-void IRMessage::decode(short data){
+bool IRMessage::decode(short data){
+    _error = 0;
     if(!checkChecksum(data)){
         _error |= CHECKSUMERROR;
-        return;
     }
-    if(!getBit(0,data)==1){
+    if(!getBit(0,data)){
         _error |= STARTBITERROR;
-        return;
+    }
+    if(_error){
+        return false;
     }
 };
 
@@ -75,7 +77,7 @@ void IRMessage::setId(int id){
         _id = id;
     }else{
         _id = -1;
-        error = true;
+        _error |= OUTOFRANGE;
     }
 }
 
@@ -88,7 +90,7 @@ void IRMessage::setData(int data){
         _data = data;
     }else{
         _data = -1;
-        error = true;
+        _error |= OUTOFRANGE;
     }
 }
 
