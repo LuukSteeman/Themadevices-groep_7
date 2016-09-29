@@ -59,14 +59,30 @@ bool IRMessage::checkChecksum(short data){
     return true;
 };
 
-void IRMessage::decode(short data){
-    if(!checkChecksum(data)){
+void IRMessage::decode(short msg){
+    if(!checkChecksum(msg)){
         _error |= CHECKSUMERROR;
         return;
     }
-    if(!getBit(0,data)==1){
+    if(!getBit(0,msg)==1){
         _error |= STARTBITERROR;
         return;
+    }
+    
+    unsigned int _id = 0;
+    for(int i = 1; i<=5; i++){
+        _id = _id | getBit(i,msg);
+        if(i<5){
+            _id = _id « 1;
+        }
+    }
+    
+    unsigned int _data = 0;
+    for(int i = 6; i<=10; i++){
+        _data = _data | getBit(i,msg);
+        if(i<5){
+            _data = _data « 1;
+        }
     }
 };
 
