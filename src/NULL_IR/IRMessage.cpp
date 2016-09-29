@@ -72,19 +72,17 @@ bool IRMessage::decode(short msg){
         return false;
     }
     
-    unsigned int _id = 0;
     for(int i = 1; i<=5; i++){
         _id = _id | getBit(i,msg);
         if(i<5){
-            _id = _id « 1;
+            _id = _id << 1;
         }
     }
     
-    unsigned int _data = 0;
     for(int i = 6; i<=10; i++){
         _data = _data | getBit(i,msg);
-        if(i<5){
-            _data = _data « 1;
+        if(i<10){
+            _data = _data << 1;
         }
     }
 };
