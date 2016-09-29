@@ -25,13 +25,23 @@ bool getBit(int position, short data){
 }
 
 short IRMessage::encode(){
+
+    //Initial value of data
+    //short = 16 bits
     short returnData = 0;
+
+    //Set Bit 0 to 1
     returnData = returnData | (1<<15);
+
+    //Convert id to short and place it on position 1-5
     short id = _id << 10;
     returnData = returnData | id;
+
+    //Convert data to short and place it on position 5-10
     short data = _data << 5;
     returnData = returnData | data;
     
+    //Create checksum
     for(int i = 1; i<=5;i++){
         short checksum = getBit(i,returnData) ^ getBit(i+5,returnData);
         checksum = checksum << 5 - i;
