@@ -5,14 +5,14 @@ IRMessage::IRMessage(int id, int data){
         _id = id;
     }else{
         _id = -1;
-        error = true;
+        _error |= OUTOFRANGE;
     }
 
     if(data>=0 && data<=31){
         _data = data;
     }else{
         _data = -1;
-        error = true;
+        _error |= OUTOFRANGE;
     }
 };
 
@@ -61,11 +61,11 @@ bool IRMessage::checkChecksum(short data){
 
 void IRMessage::decode(short data){
     if(!checkChecksum(data)){
-        error = true;
+        _error |= CHECKSUMERROR;
         return;
     }
     if(!getBit(0,data)==1){
-        error = true;
+        _error |= STARTBITERROR;
         return;
     }
 };
@@ -94,4 +94,8 @@ void IRMessage::setData(int data){
 
 int IRMessage::getData(){
     return _data;
+}
+
+int IRMessage::getError(){
+	return _error;
 }
