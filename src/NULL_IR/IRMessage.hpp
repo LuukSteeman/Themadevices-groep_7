@@ -2,14 +2,14 @@ class IRMessage{
     private:
         int _id; //0 = spelleider 1-31 = speler
         int _data;
-        unsigned int _error;
+        unsigned int _error = 0;
         bool checkChecksum(short data);
     public:
         IRMessage(int id, int data);
         IRMessage(short input);
         short encode();
         bool decode(short input);
-        bool getError();
+        int getError();
 
         void setId(int id);
         int getId();
@@ -17,7 +17,7 @@ class IRMessage{
         void setData(int data);
         int getData();
 		
-		const unsigned int STARTBITERROR = 1;
-		const unsigned int OUTOFRANGE = 2;
-		const unsigned int CHECKSUMERROR = 4;
+		static const unsigned int STARTBITERROR = 1;
+		static const unsigned int OUTOFRANGE = 2;
+		static const unsigned int CHECKSUMERROR = 4;
 };
