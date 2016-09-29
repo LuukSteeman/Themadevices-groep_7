@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeLite_Workspace Name="example code" Database="">
+  <Project Name="Message_Writer" Path="Message_Writer/_codelite.project" Active="No"/>
+  <BuildMatrix>
+    <WorkspaceConfiguration Name="Release" Selected="yes">
+      <Project Name="Message_Writer" ConfigName="Release"/>
+    </WorkspaceConfiguration>
+  </BuildMatrix> 
+  <Project Name="Text_Writer" Path="Text_Writer/_codelite.project" Active="No"/>
+  <BuildMatrix>
+    <WorkspaceConfiguration Name="Release" Selected="yes">
+      <Project Name="Text_Writer" ConfigName="Release"/>
+    </WorkspaceConfiguration>
+  </BuildMatrix> 
+  <Project Name="Week_1" Path="Week_1/_codelite.project" Active="No"/>
+  <BuildMatrix>
+    <WorkspaceConfiguration Name="Release" Selected="yes">
+      <Project Name="Week_1" ConfigName="Release"/>
+    </WorkspaceConfiguration>
+  </BuildMatrix> 
+</CodeLite_Workspace>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Session Name="D:\School\2016-2017\Blok_1\CPSE1\Opdrachten\Opdrachten.workspace">
+  <int Value="1" Name="m_selectedTab"/>
+  <wxString Value="D:\School\2016-2017\Blok_1\CPSE1\Opdrachten\Opdrachten.workspace" Name="m_workspaceName"/>
+  <TabInfoArray Name="TabInfoArray">
+    <TabInfo>
+      <wxString Value="D:\School\2016-2017\Blok_1\CPSE1\Opdrachten\Week_1\decode.cpp" Name="FileName"/>
+      <int Value="142" Name="FirstVisibleLine"/>
+      <int Value="168" Name="CurrentLine"/>
+      <wxArrayString Name="Bookmarks"/>
+      <IntVector Name="CollapsedFolds"/>
+    </TabInfo>
+    <TabInfo>
+      <wxString Value="D:\School\2016-2017\Blok_1\CPSE1\Opdrachten\Week_1\lsp_player.hpp" Name="FileName"/>
+      <int Value="0" Name="FirstVisibleLine"/>
+      <int Value="15" Name="CurrentLine"/>
+      <wxArrayString Name="Bookmarks"/>
+      <IntVector Name="CollapsedFolds"/>
+    </TabInfo>
+    <TabInfo>
+      <wxString Value="D:\School\2016-2017\Blok_1\CPSE1\Opdrachten\Week_1\main.cpp" Name="FileName"/>
+      <int Value="0" Name="FirstVisibleLine"/>
+      <int Value="0" Name="CurrentLine"/>
+      <wxArrayString Name="Bookmarks"/>
+      <IntVector Name="CollapsedFolds"/>
+    </TabInfo>
+    <TabInfo>
+      <wxString Value="D:\School\2016-2017\Blok_1\CPSE1\Opdrachten\Week_1\Makefile" Name="FileName"/>
+      <int Value="0" Name="FirstVisibleLine"/>
+      <int Value="14" Name="CurrentLine"/>
+      <wxArrayString Name="Bookmarks"/>
+      <IntVector Name="CollapsedFolds"/>
+    </TabInfo>
+    <TabInfo>
+      <wxString Value="D:\School\2016-2017\Blok_1\CPSE1\Opdrachten\Week_1\note.hpp" Name="FileName"/>
+      <int Value="0" Name="FirstVisibleLine"/>
+      <int Value="32" Name="CurrentLine"/>
+      <wxArrayString Name="Bookmarks"/>
+      <IntVector Name="CollapsedFolds"/>
+    </TabInfo>
+    <TabInfo>
+      <wxString Value="D:\School\2016-2017\Blok_1\CPSE1\Opdrachten\Week_1\melody.cpp" Name="FileName"/>
+      <int Value="0" Name="FirstVisibleLine"/>
+      <int Value="6" Name="CurrentLine"/>
+      <wxArrayString Name="Bookmarks"/>
+      <IntVector Name="CollapsedFolds"/>
+    </TabInfo>
+    <TabInfo>
+      <wxString Value="D:\School\2016-2017\Blok_1\CPSE1\Opdrachten\Week_1\melody.hpp" Name="FileName"/>
+      <int Value="0" Name="FirstVisibleLine"/>
+      <int Value="7" Name="CurrentLine"/>
+      <wxArrayString Name="Bookmarks"/>
+      <IntVector Name="CollapsedFolds"/>
+    </TabInfo>
+    <TabInfo>
+      <wxString Value="D:\School\2016-2017\Blok_1\CPSE1\Opdrachten\Week_1\message.cpp" Name="FileName"/>
+      <int Value="0" Name="FirstVisibleLine"/>
+      <int Value="6" Name="CurrentLine"/>
+      <wxArrayString Name="Bookmarks"/>
+      <IntVector Name="CollapsedFolds"/>
+    </TabInfo>
+    <TabInfo>
+      <wxString Value="D:\School\2016-2017\Blok_1\CPSE1\Opdrachten\Week_1\message.hpp" Name="FileName"/>
+      <int Value="0" Name="FirstVisibleLine"/>
+      <int Value="3" Name="CurrentLine"/>
+      <wxArrayString Name="Bookmarks"/>
+      <IntVector Name="CollapsedFolds"/>
+    </TabInfo>
+  </TabInfoArray>
+  <SerializedObject Name="m_breakpoints">
+    <long Value="0" Name="Count"/>
+  </SerializedObject>
+</Session>
