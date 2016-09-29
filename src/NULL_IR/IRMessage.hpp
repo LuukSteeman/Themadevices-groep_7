@@ -10,4 +10,10 @@ class IRMessage{
         short encode();
         bool decode(short input);
         bool errors();
+
+        void setId(int id);
+        int getId();
+
+        void setData(int data);
+        int getData();
 }

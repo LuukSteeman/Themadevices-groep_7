@@ -59,3 +59,29 @@ void IRMessage::decode(short data){
         return;
     }
 };
+
+void IRMessage::setId(int id){
+    if(id>=0 && id<=31){
+        _id = id;
+    }else{
+        _id = -1;
+        error = true;
+    }
+}
+
+int IRMessage::getId(){
+    return _id;
+}
+
+void IRMessage::setData(int data){
+    if(data>=0 && data<=31){
+        _data = data;
+    }else{
+        _data = -1;
+        error = true;
+    }
+}
+
+int IRMessage::getData(){
+    return _data;
+}
