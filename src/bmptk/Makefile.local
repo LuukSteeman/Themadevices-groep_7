@@ -61,7 +61,7 @@ ifeq ($(OS),Windows_NT)
 else
 
    # on Linux the path can in most cases be omitted
-   GCC-ARM         ?= /usr/
+   GCC-ARM         ?= 
    GCC-AVR         ?=
    GCC-MSP430      ?= 
    

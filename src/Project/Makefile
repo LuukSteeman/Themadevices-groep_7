@@ -8,5 +8,5 @@ HEADERS := infrared.hpp game.hpp
 SEARCH  := 
 
 # set BMPTK to the next higher directory and defer to the Makefile.due
-BMPTK := $(BMPTK)../
+BMPTK := $(BMPTK)./
 include $(BMPTK)Makefile.due

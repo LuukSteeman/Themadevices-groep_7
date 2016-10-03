@@ -64,7 +64,7 @@ bool IRMessage::decode(short msg){
     _error = 0;
     if(!checkChecksum(msg)){
         _error |= CHECKSUMERROR;
-    }
+    }	
     if(!getBit(0,msg)){
         _error |= STARTBITERROR;
     }
@@ -72,7 +72,7 @@ bool IRMessage::decode(short msg){
         return false;
     }
     
-    for(int i = 1; i<=5; i++){
+	for(int i = 1; i<=5; i++){
         _id = _id | getBit(i,msg);
         if(i<5){
             _id = _id << 1;
