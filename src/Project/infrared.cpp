@@ -42,6 +42,8 @@ int infrared::check(){
 	int id_value = 0;
 	int data_value = 0;
 	
+	int last_bit;
+	
     auto ir_pin = hwlib::target::pin_in(hwlib::target::pins::d3);
     /// Check for input and process it
     //
@@ -50,10 +52,13 @@ int infrared::check(){
     /// and a low value look slike '_|-'. When the value switches up, it waits 3/4 of the time it takes to get ready.
 	if((ir_pin.get() == true)){ // Start bit received
 		msg = msg | (1<<15);
+		hwlib::wait_ns(2'400'000);
 		for(int j = 0; j < 15; j++){
 			if((ir_pin.get() == true)){
                 hwlib::wait_ns(900'000);
                 if(ir_pin.get() == true){
+					
+					last_bit = 1;
                     msg = msg | (1<<(14-j);
                     hwlib::cout << msg << hwlib::endl;                  
                 }
@@ -61,6 +66,7 @@ int infrared::check(){
 			else{
                 hwlib::wait_ns(900'000);
                 if(ir_pin.get() == false){
+					last_bit = 0;
 					msg = msg | (0<<(14-j);      
                     hwlib::cout << msg << hwlib::endl;         
                 }
@@ -68,13 +74,12 @@ int infrared::check(){
             
 
             while(1){
-                if((code[j] == '1') && (ir_pin.get() == false)){
-                    hwlib::wait_ns(1'600'000);
+                if((last_bit == 1) && (ir_pin.get() == false)){
+                    hwlib::wait_ns(800'000);
                     break;
                 }
                 
-                else if((code[j] == '0') && (ir_pin.get() == true)){
-                    hwlib::wait_ns(1'600'000);
+                else if((last_bit == 0) && (ir_pin.get() == true)){
                     break;
                 }
             }
