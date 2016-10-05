@@ -77,7 +77,7 @@ int infrared::check(){
 
         IRMessage irm(msg);
         
-        hwlib::cout << hwlib::left << hwlib::setw( 5 ) << code << "  |  " << irm.getId() << "." << irm.getData() << "\n\n";
+        hwlib::cout << hwlib::left << hwlib::setw( 5 ) << " userId :  " << irm.getId() << ". message Data:" << irm.getData() << "\n\n";
         
 	}
 	
