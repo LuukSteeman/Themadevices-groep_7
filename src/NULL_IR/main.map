@@ -1080,7 +1080,7 @@ END GROUP
                 [!provide]                PROVIDE (__ram_size, __ram_size)
                 [!provide]                PROVIDE (__ram_end, __ram_end)
 
-.text           0x00000000      0xd2c
+.text           0x00000000      0xd38
                 0x00000000                . = ALIGN (0x4)
                 0x00000000                __text_start = .
                 [!provide]                PROVIDE (__text_start, __text_start)
@@ -1154,117 +1154,117 @@ END GROUP
                 0x000004f8       0x30 infrared.o
                 0x000004f8                infrared::init()
  .text._ZN8infrared5checkEv
-                0x00000528      0x130 infrared.o
+                0x00000528      0x128 infrared.o
                 0x00000528                infrared::check()
  .text._ZN3due7pin_out3setEb
-                0x00000658        0xe hwlib.o
-                0x00000658                due::pin_out::set(bool)
- *fill*         0x00000666        0x2 
+                0x00000650        0xe hwlib.o
+                0x00000650                due::pin_out::set(bool)
+ *fill*         0x0000065e        0x2 
  .text._ZN5hwlib9uart_putcEc
-                0x00000668       0x3c hwlib.o
-                0x00000668                hwlib::uart_putc(char)
- .text          0x000006a4       0x24 switch_to.o
-                0x000006a4                switch_from_to
+                0x00000660       0x3c hwlib.o
+                0x00000660                hwlib::uart_putc(char)
+ .text          0x0000069c       0x24 switch_to.o
+                0x0000069c                switch_from_to
  .text._ZN4rtos9task_base7releaseEv
-                0x000006c8       0x24 rtos.o
-                0x000006c8                rtos::task_base::release()
+                0x000006c0       0x24 rtos.o
+                0x000006c0                rtos::task_base::release()
  .text._ZN4rtos9task_base5blockEv
-                0x000006ec       0x70 rtos.o
-                0x000006ec                rtos::task_base::block()
+                0x000006e4       0x70 rtos.o
+                0x000006e4                rtos::task_base::block()
  .text._ZN4rtos12waitable_set4waitEj
-                0x0000075c       0x64 rtos.o
-                0x0000075c                rtos::waitable_set::wait(unsigned int)
+                0x00000754       0x64 rtos.o
+                0x00000754                rtos::waitable_set::wait(unsigned int)
  .text._ZN4rtos9task_base5sleepEj
-                0x000007c0       0x20 rtos.o
-                0x000007c0                rtos::task_base::sleep(unsigned int)
+                0x000007b8       0x20 rtos.o
+                0x000007b8                rtos::task_base::sleep(unsigned int)
  .text._ZN5hwlib7wait_usEi
-                0x000007e0       0x40 rtos.o
-                0x000007e0                hwlib::wait_us(int)
+                0x000007d8       0x40 rtos.o
+                0x000007d8                hwlib::wait_us(int)
  .text._ZN5hwlib7wait_nsEi
-                0x00000820       0x10 rtos.o
-                0x00000820                hwlib::wait_ns(int)
+                0x00000818       0x10 rtos.o
+                0x00000818                hwlib::wait_ns(int)
  .text.startup.main
-                0x00000830       0x24 main.o
-                0x00000830                main
+                0x00000828       0x24 main.o
+                0x00000828                main
  .text.Int27_Handler
-                0x00000854        0x2 bmptk_cortex.o
-                0x00000854                Int27_Handler
- *fill*         0x00000856        0x2 
+                0x0000084c        0x2 bmptk_cortex.o
+                0x0000084c                Int27_Handler
+ *fill*         0x0000084e        0x2 
  .text.__startup
-                0x00000858       0x48 bmptk_cortex.o
-                0x00000858                __startup
+                0x00000850       0x48 bmptk_cortex.o
+                0x00000850                __startup
  .text.SysTick_Handler
-                0x000008a0        0x2 bmptk_cortex.o
-                0x000008a0                SysTick_Handler
-                0x000008a4                . = ALIGN (0x4)
- *fill*         0x000008a2        0x2 
+                0x00000898        0x2 bmptk_cortex.o
+                0x00000898                SysTick_Handler
+                0x0000089c                . = ALIGN (0x4)
+ *fill*         0x0000089a        0x2 
  *(.glue_7t .glue_7)
- .glue_7        0x000008a4        0x0 linker stubs
- .glue_7t       0x000008a4        0x0 linker stubs
-                0x000008a4                . = ALIGN (0x4)
+ .glue_7        0x0000089c        0x0 linker stubs
+ .glue_7t       0x0000089c        0x0 linker stubs
+                0x0000089c                . = ALIGN (0x4)
  *(.rodata .rodata.* .gnu.linkonce.r.*)
  .rodata._ZTVN5hwlib20cout_using_uart_putcE
-                0x000008a4       0x10 game.o
-                0x000008a4                vtable for hwlib::cout_using_uart_putc
+                0x0000089c       0x10 game.o
+                0x0000089c                vtable for hwlib::cout_using_uart_putc
  .rodata.str1.1
-                0x000008b4       0x3d game.o
+                0x000008ac       0x3d game.o
                                  0x3f (size before relaxing)
  .rodata._ZZN3due8pin_infoENS_4pinsEE14pin_info_array
-                0x000008f1       0xa4 game.o
- *fill*         0x00000995        0x3 
+                0x000008e9       0xa4 game.o
+ *fill*         0x0000098d        0x3 
  .rodata._ZTVN3due6pin_inE
-                0x00000998        0xc infrared.o
-                0x00000998                vtable for due::pin_in
+                0x00000990        0xc infrared.o
+                0x00000990                vtable for due::pin_in
  .rodata.str1.1
-                0x000009a4       0x31 infrared.o
-                                 0x4d (size before relaxing)
- *fill*         0x000009d5        0x3 
+                0x0000099c       0x45 infrared.o
+                                 0x61 (size before relaxing)
+ *fill*         0x000009e1        0x3 
  .rodata._ZTVN3due7pin_outE
-                0x000009d8        0xc hwlib.o
-                0x000009d8                vtable for due::pin_out
+                0x000009e4        0xc hwlib.o
+                0x000009e4                vtable for due::pin_out
  .rodata.str1.1
-                0x000009e4      0x348 rtos.o
+                0x000009f0      0x348 rtos.o
                                 0x364 (size before relaxing)
-                0x00000d2c                . = ALIGN (0x4)
+                0x00000d38                . = ALIGN (0x4)
  *(.ARM.extab* .gnu.linkonce.armextab.*)
-                0x00000d2c                . = ALIGN (0x4)
+                0x00000d38                . = ALIGN (0x4)
  *(.gcc_except_table)
-                0x00000d2c                . = ALIGN (0x4)
+                0x00000d38                . = ALIGN (0x4)
  *(.eh_frame_hdr)
-                0x00000d2c                . = ALIGN (0x4)
+                0x00000d38                . = ALIGN (0x4)
  *(.eh_frame)
-                0x00000d2c                . = ALIGN (0x4)
-                0x00000d2c                __text_end = .
+                0x00000d38                . = ALIGN (0x4)
+                0x00000d38                __text_end = .
                 [!provide]                PROVIDE (__text_end, __text_end)
 
-.vfp11_veneer   0x00000d2c        0x0
- .vfp11_veneer  0x00000d2c        0x0 linker stubs
+.vfp11_veneer   0x00000d38        0x0
+ .vfp11_veneer  0x00000d38        0x0 linker stubs
 
-.v4_bx          0x00000d2c        0x0
- .v4_bx         0x00000d2c        0x0 linker stubs
+.v4_bx          0x00000d38        0x0
+ .v4_bx         0x00000d38        0x0 linker stubs
 
-.iplt           0x00000d2c        0x0
- .iplt          0x00000d2c        0x0 IRMessage.o
+.iplt           0x00000d38        0x0
+ .iplt          0x00000d38        0x0 IRMessage.o
 
-.rel.dyn        0x00000d2c        0x0
- .rel.iplt      0x00000d2c        0x0 IRMessage.o
+.rel.dyn        0x00000d38        0x0
+ .rel.iplt      0x00000d38        0x0 IRMessage.o
 
 .IF_YOU_SEE_THIS_YOU_HAVE_ONE_OR_MORE_GLOBAL_OBJECT_CONSTRUCTORS
  *(.init)
  *(.preinit_array)
  *(SORT(.init_array.*))
  *(.init_array)
-                0x00000d2c                . = ALIGN (0x4)
-                0x00000d2c                __exidx_start = .
+                0x00000d38                . = ALIGN (0x4)
+                0x00000d38                __exidx_start = .
                 [!provide]                PROVIDE (__exidx_start, __exidx_start)
 
 .ARM.exidx
  *(.ARM.exidx* .gnu.linkonce.armexidx.*)
-                0x00000d2c                . = ALIGN (0x4)
-                0x00000d2c                __exidx_end = .
+                0x00000d38                . = ALIGN (0x4)
+                0x00000d38                __exidx_end = .
                 [!provide]                PROVIDE (__exidx_end, __exidx_end)
 
-.bss            0x20000000    0x14044
+.bss            0x20000000    0x14038
                 0x20000000                . = ALIGN (0x4)
                 0x20000000                __bss_start = .
                 [!provide]                PROVIDE (__bss_start, __bss_start)
@@ -1291,63 +1291,62 @@ END GROUP
                 0x20014010        0x4 game.o
  .bss._ZZN3due9now_ticksEvE9init_done
                 0x20014014        0x1 game.o
- .bss._ZZN8infrared5checkEvE4code
-                0x20014015        0xf infrared.o
+ *fill*         0x20014015        0x3 
  .bss._ZGVZN5hwlib9uart_putcEcE3pin
-                0x20014024        0x4 hwlib.o
+                0x20014018        0x4 hwlib.o
  .bss._ZZN5hwlib9uart_putcEcE3pin
-                0x20014028        0xc hwlib.o
+                0x2001401c        0xc hwlib.o
  .bss._ZN17coroutine_context7main_spE
-                0x20014034        0x4 coroutine.o
-                0x20014034                coroutine_context::main_sp
+                0x20014028        0x4 coroutine.o
+                0x20014028                coroutine_context::main_sp
  .bss._ZN4rtos17scheduler_runningE
-                0x20014038        0x1 rtos.o
-                0x20014038                rtos::scheduler_running
- *fill*         0x20014039        0x3 
+                0x2001402c        0x1 rtos.o
+                0x2001402c                rtos::scheduler_running
+ *fill*         0x2001402d        0x3 
  .bss._ZN4rtos17rtos_current_taskE
-                0x2001403c        0x4 rtos.o
-                0x2001403c                rtos::rtos_current_task
+                0x20014030        0x4 rtos.o
+                0x20014030                rtos::rtos_current_task
  .bss._ZN4rtos5flagsE
-                0x20014040        0x4 rtos.o
-                0x20014040                rtos::flags
-                0x20014044                . = ALIGN (0x4)
+                0x20014034        0x4 rtos.o
+                0x20014034                rtos::flags
+                0x20014038                . = ALIGN (0x4)
  *(COMMON)
-                0x20014044                . = ALIGN (0x4)
-                0x20014044                __bss_end = .
+                0x20014038                . = ALIGN (0x4)
+                0x20014038                __bss_end = .
                 [!provide]                PROVIDE (__bss_end, __bss_end)
 
-.data           0x20014044       0x1c load address 0x00000d2c
-                0x20014044                . = ALIGN (0x4)
-                0x00000d2c                __data_init_start = LOADADDR (.data)
+.data           0x20014038       0x1c load address 0x00000d38
+                0x20014038                . = ALIGN (0x4)
+                0x00000d38                __data_init_start = LOADADDR (.data)
                 [!provide]                PROVIDE (__data_init_start, __data_init_start)
-                0x20014044                __data_start = .
+                0x20014038                __data_start = .
                 [!provide]                PROVIDE (__data_start, __data_start)
-                0x20014044                . = ALIGN (0x4)
+                0x20014038                . = ALIGN (0x4)
  *(.data .data.* .gnu.linkonce.d.*)
  .data._ZN6sam3xa15SystemCoreClockE
-                0x20014044        0x4 game.o
-                0x20014044                sam3xa::SystemCoreClock
+                0x20014038        0x4 game.o
+                0x20014038                sam3xa::SystemCoreClock
  .data._ZN5hwlib4coutE
-                0x20014048       0x14 game.o
-                0x20014048                hwlib::cout
+                0x2001403c       0x14 game.o
+                0x2001403c                hwlib::cout
  .data._ZN17coroutine_context24current_coroutine_sp_ptrE
-                0x2001405c        0x4 coroutine.o
-                0x2001405c                coroutine_context::current_coroutine_sp_ptr
-                0x20014060                . = ALIGN (0x4)
-                0x20014060                __data_end = .
+                0x20014050        0x4 coroutine.o
+                0x20014050                coroutine_context::current_coroutine_sp_ptr
+                0x20014054                . = ALIGN (0x4)
+                0x20014054                __data_end = .
                 [!provide]                PROVIDE (__data_end, __data_end)
-                0x00000d2c                __data_init_end = LOADADDR (.data)
+                0x00000d38                __data_init_end = LOADADDR (.data)
                 [!provide]                PROVIDE (__data_init_end, __data_init_end)
                 0x0000001c                PROVIDE (__data_size, (__data_end - __data_start))
                 0x0000001c                PROVIDE (__data_init_size, __data_size)
                 [!provide]                PROVIDE (__data_init_end, (__data_init_start + __data_init_size))
 
-.igot.plt       0x20014060        0x0 load address 0x00000d48
- .igot.plt      0x20014060        0x0 IRMessage.o
-                0x20014060                . = ALIGN (0x4)
-                0x20014060                __heap_start = .
+.igot.plt       0x20014054        0x0 load address 0x00000d54
+ .igot.plt      0x20014054        0x0 IRMessage.o
+                0x20014054                . = ALIGN (0x4)
+                0x20014054                __heap_start = .
                 [!provide]                PROVIDE (__heap_start, __heap_start)
-                0x20014060                . = ALIGN (0x4)
+                0x20014054                . = ALIGN (0x4)
                 0x20018000                __heap_end = __ram_end
                 [!provide]                PROVIDE (__heap_end, __heap_end)
 

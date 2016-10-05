@@ -28,7 +28,6 @@ void infrared::init(){
 /// takes to get ready. We do this because of the delay between hitting the button on the remote and when it's available on the Arduino to work with. In the end we convert
 /// the array into a integervalue, because it's hard to pass an array as parameter
 int infrared::check(){
-	static char code[15];
 	short msg = 0;
 	int ir_value = 0;
 	
