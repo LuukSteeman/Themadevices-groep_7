@@ -31,8 +31,6 @@ int infrared::check(){
 	static char code[15];
 	short msg = 0;
 	int ir_value = 0;
-	int id_value = 0;
-	int data_value = 0;
 	
 	int last_bit;
 	
@@ -77,33 +75,9 @@ int infrared::check(){
             }
 		}
 
-        /// Check the checksum
-        //
-        /// A proper explanation on how to handle the checksum
-
-        for(int x = 0; x < 15; x++){
-            if(code[(x+10)] != (code[x] ^ code[(x+5)])){
-                break; // Not sure though
-            }
-        }   
-
-
-
-        /// Convert array to integer value
-        //
-		/// Here we convert the array to an integer value, which makes it easier to pass as parameter and use in a switch statement. I chose 8192 as divider, because 2^13 =
-        /// 8192. We also print this value as a simple test, if you get random codes, you probably use a remote which doesn't support the RC-5 protocol. Try using a older
-        /// Philips remote.
-		
-		for(int k = 0; k < 5; k++){
-			id_value = id_value + ((code[k] - '0') * (32 / k));
-		}
-		
-		for(int k = 5; k < 10; k++){
-			data_value = data_value + ((code[k] - '0') * (32 / k));
-		}
+        IRMessage irm(msg);
         
-        hwlib::cout << hwlib::left << hwlib::setw( 5 ) << code << "  |  " << id_value << "." << data_value << "\n\n";
+        hwlib::cout << hwlib::left << hwlib::setw( 5 ) << code << "  |  " << irm.getId() << "." << irm.getData() << "\n\n";
         
 	}
 	
@@ -111,8 +85,8 @@ int infrared::check(){
     //
     /// If the Arduino receives no input from the pin or remote, it returns a '0'. If you do press a button, make sure your infrared receiver is connected correctly
 	else{
-		for(int i = 0; i < 15; i++){
-			code[i] = 0;
+		for(int i = 0; i < 16; i++){
+			msg = msg | (1<<(15-i));
 		}
 		ir_value = 0;
 	}

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Session Name="C:\Users\luuks\OneDrive\Documenten\HBO-ICT_jaar_2\THDE\Themadevices-groep_7\src\__codelite.workspace">
-  <int Value="3" Name="m_selectedTab"/>
+  <int Value="2" Name="m_selectedTab"/>
   <wxString Value="C:\Users\luuks\OneDrive\Documenten\HBO-ICT_jaar_2\THDE\Themadevices-groep_7\src\__codelite.workspace" Name="m_workspaceName"/>
   <TabInfoArray Name="TabInfoArray">
     <TabInfo>
@@ -12,15 +12,15 @@
     </TabInfo>
     <TabInfo>
       <wxString Value="C:\Users\luuks\OneDrive\Documenten\HBO-ICT_jaar_2\THDE\Themadevices-groep_7\src\Project\infrared.cpp" Name="FileName"/>
-      <int Value="42" Name="FirstVisibleLine"/>
-      <int Value="51" Name="CurrentLine"/>
+      <int Value="9" Name="FirstVisibleLine"/>
+      <int Value="22" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
     </TabInfo>
     <TabInfo>
       <wxString Value="C:\Users\luuks\OneDrive\Documenten\HBO-ICT_jaar_2\THDE\Themadevices-groep_7\src\Project\IRMessage.cpp" Name="FileName"/>
-      <int Value="24" Name="FirstVisibleLine"/>
-      <int Value="0" Name="CurrentLine"/>
+      <int Value="69" Name="FirstVisibleLine"/>
+      <int Value="87" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
     </TabInfo>
@@ -28,6 +28,13 @@
       <wxString Value="C:\Users\luuks\OneDrive\Documenten\HBO-ICT_jaar_2\THDE\Themadevices-groep_7\src\Project\Makefile" Name="FileName"/>
       <int Value="0" Name="FirstVisibleLine"/>
       <int Value="10" Name="CurrentLine"/>
+      <wxArrayString Name="Bookmarks"/>
+      <IntVector Name="CollapsedFolds"/>
+    </TabInfo>
+    <TabInfo>
+      <wxString Value="C:\Users\luuks\OneDrive\Documenten\HBO-ICT_jaar_2\THDE\Themadevices-groep_7\src\Project\main.cpp" Name="FileName"/>
+      <int Value="3" Name="FirstVisibleLine"/>
+      <int Value="1" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
     </TabInfo>

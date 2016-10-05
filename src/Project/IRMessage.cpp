@@ -12,7 +12,7 @@ IRMessage::IRMessage(int id, int data){
         _data = data;
     }else{
         _data = -1;
-        _error |= OUTOFRANGE;
+        _error|= OUTOFRANGE;
     }
 };
 
@@ -85,6 +85,7 @@ bool IRMessage::decode(short msg){
             _data = _data << 1;
         }
     }
+	return true;
 };
 
 void IRMessage::setId(int id){

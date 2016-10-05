@@ -44,7 +44,7 @@ short IRMessage::encode(){
     //Create checksum
     for(int i = 1; i<=5;i++){
         short checksum = getBit(i,returnData) ^ getBit(i+5,returnData);
-        checksum = checksum << 5 - i;
+        checksum = checksum << (5 - i);
         returnData = returnData | checksum;
     }
     return returnData;
@@ -52,7 +52,7 @@ short IRMessage::encode(){
 
 bool IRMessage::checkChecksum(short data){
     for(int i = 1; i<=5;i++){
-        if(!( getBit(10+i,data) == getBit(i,data) ^ getBit(i+5,data))){
+        if(!( getBit(10+i,data) == (getBit(i,data) ^ getBit(i+5,data)))){
             return false;
         }
     }
@@ -85,6 +85,8 @@ bool IRMessage::decode(short msg){
             _data = _data << 1;
         }
     }
+
+    return true;
 };
 
 void IRMessage::setId(int id){
