@@ -15,6 +15,7 @@ int main(void){
     /// Killing the watchdog, so the program doesn't think it crashes
 	WDT->WDT_MR = WDT_MR_WDDIS;
 	
+	hwlib::wait_ms(500);
 	/// Creating infrared object
     //
     /// Created infrared object ir, which is directly initialized by init(); 
