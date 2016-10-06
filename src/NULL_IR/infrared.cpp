@@ -1,6 +1,7 @@
 /// @file
 /// Infrared Library
 
+// #include "player.hpp"
 #include "infrared.hpp"
 #include "sam.h"
 #include "hwlib.hpp"
@@ -29,6 +30,7 @@ void infrared::init(){
 /// the array into a integervalue, because it's hard to pass an array as parameter
 int infrared::check(){
 	short msg = 0;
+    short last_msg = 0;
 	int ir_value = 0;
 	
 	int last_bit;
@@ -40,6 +42,7 @@ int infrared::check(){
     /// appends the array with a '0'. We're working with the RC-5 protocol, which means an input is ready in 1.778 milliseconds. A high value looks like '-|_' 
     /// and a low value look slike '_|-'. When the value switches up, it waits 3/4 of the time it takes to get ready.
 	if((ir_pin.get() == true)){ // Start bit received
+        last_msg = msg;
 		msg = msg | (1<<15);
 		hwlib::wait_ns(2'400'000);
 		for(int j = 0; j < 15; j++){
@@ -74,7 +77,32 @@ int infrared::check(){
             }
 		}
 
+
         IRMessage irm(msg);
+
+        if (msg == last_msg) 
+        {
+            hwlib::cout << hwlib::left << "Message already received" << hwlib::endl;
+            return 0;
+        }
+
+        else if (irm.getData() == 2)
+        {
+            hwlib::cout << hwlib::left << "Command received " << irm.getData() << hwlib::endl;
+            return 0;
+        }
+
+        else if (irm.getData() == 1)
+        {
+            hwlib::cout << hwlib::left << "Hit by: " << irm.getId() << hwlib::endl;
+            return 0;
+        }
+
+        else
+        {
+            return 0;
+        }
+
         
         hwlib::cout << hwlib::left << hwlib::setw( 5 ) << " userId :  " << irm.getId() << ". message Data:" << irm.getData() << "\n\n";
         
