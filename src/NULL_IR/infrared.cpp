@@ -2,14 +2,12 @@
 /// Infrared Library
 
 #include "infrared.hpp"
-#include "sam.h"
-#include "hwlib.hpp"
-#include "IRMessage.hpp"
 
 /// Get class parameters
 //
 /// Get the parameters which were given when creating the class
-infrared::infrared(int state):
+infrared::infrared(int state, char *name):
+    task(name),
     state(state)
 {}
 
@@ -18,6 +16,12 @@ infrared::infrared(int state):
 /// Initialize infrared function by declaring the force lights and printing the code below, easy way to find out if the cout command and the connection between the car work
 void infrared::init(){
 	hwlib::cout << hwlib::left << hwlib::setw( 5 ) << "Initializing Infrared function | State: " << state << "\n";
+}
+
+void infrared::Main(){
+	for(;;){
+		check();
+	}
 }
 
 /// Infrared::check(int pin) [RC-5 protocol]
@@ -41,10 +45,12 @@ int infrared::check(){
     /// and a low value look slike '_|-'. When the value switches up, it waits 3/4 of the time it takes to get ready.
 	if((ir_pin.get() == true)){ // Start bit received
 		msg = msg | (1<<15);
-		hwlib::wait_ns(2'400'000);
+		sleep(2'400 * rtos::us);
+		// hwlib::wait_ns(2'400'000);
 		for(int j = 0; j < 15; j++){
 			if((ir_pin.get() == true)){
-                hwlib::wait_ns(900'000);
+                // hwlib::wait_ns(900'000);
+                sleep(900 * rtos::us);
                 if(ir_pin.get() == true){
 					
 					last_bit = 1;
@@ -53,7 +59,7 @@ int infrared::check(){
                 }
 			}	
 			else{
-                hwlib::wait_ns(900'000);
+                sleep(900 * rtos::us);
                 if(ir_pin.get() == false){
 					last_bit = 0;
 					msg = msg | (0<<(14-j));      
@@ -64,7 +70,7 @@ int infrared::check(){
 
             while(1){
                 if((last_bit == 1) && (ir_pin.get() == false)){
-                    hwlib::wait_ns(800'000);
+                    sleep(800 * rtos::us);
                     break;
                 }
                 
@@ -91,18 +97,4 @@ int infrared::check(){
 	}
 	
 	return ir_value;
-}
-
-/// Infared::drive(int ir_value)
-//
-/// The drive function receives a ir_value as parameter, which resembles the button you pressed on the remote. It casts the ir_value to a command from the wheel library
-void infrared::drive(int ir_value){
-    /// Create wheels object
-    //
-    /// Creating and inializing a wheels object, so we can use the library. Values are as follow
-    /// Wheels(int state);
-//    game g(1);
-//	g.init();
-    /// Casting command
-    
 }
