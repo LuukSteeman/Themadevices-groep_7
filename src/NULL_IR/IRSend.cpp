@@ -23,11 +23,13 @@ void IRSend::sendBit(bool bit)
 
 void IRSend::main()
 {
+    auto trigger = hwlib::target::pin_out(hwlib::target::pins::d53);
     while (true)
     {
         auto m = messages.read();
         short data = m.encode();
         hwlib::wait_us(1); // It's magic but it fixes issue #1
+        trigger.set(1);
         for (int ii = 0; ii < 2; ii++)
         {
             for (int i = 0; i < 16; i++)
@@ -39,6 +41,7 @@ void IRSend::main()
                 sleep(3 * rtos::ms);
             }
         }
+        trigger.set(0);
     }
 };
 
