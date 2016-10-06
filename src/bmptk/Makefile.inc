@@ -91,14 +91,20 @@ else
    COPY          ?= cp
    
    # distributed with bmptk
-   IMAGE_SIZES   ?= $(BMPTK)/tools/image_sizes/image_sizes
-   CHECK_PORT    ?= $(BMPTK)/tools/check_serial_port/check_serial_port
-   CHECK_DRIVE   ?= $(BMPTK)/tools/check_drive_name/check_drive_name
+   #IMAGE_SIZES   ?= $(BMPTK)/tools/image_sizes/image_sizes
+   CHECK_PORT    ?= $(BMPTK)/tools/check_serial_port/check_serial_port_linux
+   #CHECK_DRIVE   ?= $(BMPTK)/tools/check_drive_name/check_drive_name
    # COPY_TO_DRIVE ?= $(BMPTK)/tools/copy_to_drive/copy_to_drive
-   LPC21ISP      ?= $(BMPTK)/tools/lpc21isp_197/lpc21isp_hr_linux.exe
    
    # installed separately
    AVRDUDE       ?= avrdude
+   
+   #CUSTOMS
+   BOSSAC        ?= "$(BMPTK)/tools/bossac-linux"
+   DUE_BOOTMODE  ?= python -c "import serial;serial.Serial(port='$(SERIAL_PORT)',baudrate=1200,parity=serial.PARITY_NONE,stopbits=serial.STOPBITS_ONE,bytesize=serial.EIGHTBITS)"
+   PAUSE		 ?= sleep
+   LPC21ISP      ?= $(BMPTK)/tools/lpc21isp_197/lpc21isp_hr_linux.exe
+   ROOT          ?= sudo
    
 endif
 
@@ -731,16 +737,26 @@ define Atmel_SAM3
    ROM_START      ?= 0x00000000   
    RAM_START      ?= 0x20000000     
    INCLUDES       += -I$(BMPTK)/targets/cortex/atmel
-   PORT_CHECK     ?= $(CHECK_PORT) $(SERIAL_PORT)  
-   RUN_PRE        := $(DUE_BOOTMODE)
    # was al gezet?
    RESULTS        += $(BIN)
-   RUN            := $(BOSSAC) -p $(SERIAL_PORT) -U false -e -w -v -b $(BIN) -R
+
+   #CUSTOM
+   ifeq ($(OS),Windows_NT)
+      PORT_CHECK     ?= $(CHECK_PORT) $(SERIAL_PORT)  
+      RUN_PRE        := $(DUE_BOOTMODE)
+      RUN            := $(BOSSAC) -p $(SERIAL_PORT) -U false -e -w -v -b $(BIN) -R
+      RUN_TERMINAL   ?= $(LPC21ISP) -termonly -term $(HEX) $(SERIAL_PORT) $(CONSOLE_BAUDRATE) 12000   
+   else
+      PORT_CHECK     ?= sudo $(CHECK_PORT) $(SERIAL_PORT)  
+      RUN            := sudo $(BOSSAC) -p $(notdir $(SERIAL_PORT)) -U false -e -w -v -b $(BIN) -R
+      RUN_PRE        := sudo $(DUE_BOOTMODE)
+      RUN_TERMINAL   ?= sudo $(LPC21ISP) -termonly -term $(HEX) $(SERIAL_PORT) $(CONSOLE_BAUDRATE) 12000   
+   endif
+   
    # RUN            := $(BOSSAC) -e -w -v -b $(BIN)   
    DEFINES        += -DDONT_USE_CMSIS_INIT 
    DEFINES        += -DBMPTK_INCLUDE_CHIP=sam.h 
    LDFLAGS        += -I$(BMPTK)/targets/cortex/atmel/sam3xa/source/as_gcc
-   RUN_TERMINAL   ?= $(LPC21ISP) -termonly -term $(HEX) $(SERIAL_PORT) $(CONSOLE_BAUDRATE) 12000   
    
 endef     
 
