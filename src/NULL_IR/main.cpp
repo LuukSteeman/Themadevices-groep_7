@@ -1,5 +1,5 @@
 /// @file
-#include "infrared.hpp"
+#include "IRReceiver.hpp"
 /// Main function
 //
 /// The main function where the watchdog is being killed, the object IR from class infrared is being made and initialized. 
@@ -18,7 +18,7 @@ int main(){
     /// Created infrared object ir, which is directly initialized by init(); 
     /// infrared(int state); 
 
-	auto y = infrared((1), (char *) "Infared Receiver");
+	auto y = IRReceiver();
     
     /// Infinite for loop
     //
