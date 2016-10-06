@@ -1,24 +1,5 @@
 /// @file
 #include "infrared.hpp"
-
-class Main: rtos::task<>{
-    private:
-    	infrared ir;
-        void main(){
-				sleep(1 * rtos::s);
-				while(1){
-				 sleep(1 * rtos::s);
-				};
-        };
-    public:
-        Main(infrared ir, char * name):
-        task(name),
-        ir(ir)
-        {
-        	ir.init();
-        };
-};
-
 /// Main function
 //
 /// The main function where the watchdog is being killed, the object IR from class infrared is being made and initialized. 
@@ -38,7 +19,6 @@ int main(){
     /// infrared(int state); 
 
 	auto y = infrared((1), (char *) "Infared Receiver");
-	auto x = Main(y, (char *) "main");
     
     /// Infinite for loop
     //
