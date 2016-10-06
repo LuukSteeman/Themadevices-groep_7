@@ -19,7 +19,7 @@ public:
 	int check();
 	int get_id();
 	int get_data();
-    void Main();
+    void main();
 	void init();
 	void drive(int ir_value);
 };

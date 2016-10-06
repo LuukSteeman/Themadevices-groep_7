@@ -18,7 +18,7 @@ void infrared::init(){
 	hwlib::cout << hwlib::left << hwlib::setw( 5 ) << "Initializing Infrared function | State: " << state << "\n";
 }
 
-void infrared::Main(){
+void infrared::main(){
 	for(;;){
 		check();
 	}

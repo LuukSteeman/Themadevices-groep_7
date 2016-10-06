@@ -4,7 +4,7 @@
 class Main: rtos::task<>{
     private:
     	infrared ir;
-        void Main(){
+        void main(){
 				sleep(1 * rtos::s);
 				while(1){
 				 sleep(1 * rtos::s);

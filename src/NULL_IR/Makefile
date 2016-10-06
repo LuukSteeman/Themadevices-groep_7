@@ -9,10 +9,10 @@
 #############################################################################
 
 # source files in this project (main.cpp is automatically assumed)
-SOURCES := IRMessage.cpp game.cpp infrared.cpp
+SOURCES := IRMessage.cpp infrared.cpp
 
 # header files in this project
-HEADERS := IRMessage.hpp game.hpp infrared.hpp
+HEADERS := IRMessage.hpp infrared.hpp
 
 # other places to look for files for this project
 SEARCH  := 
