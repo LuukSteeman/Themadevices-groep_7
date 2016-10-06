@@ -8,9 +8,9 @@ class Main: rtos::task<>{
     private:
         void main(){
                  sleep(1 * rtos::s);
-                 send.add(IRMessage(0b11111, 0b11111));
                  while(1){
-                     sleep(10 * rtos::s);
+                    send.add(IRMessage(0b11111, 0b11111));
+                    sleep(1* rtos::s);
                  };
         };
     public:
@@ -30,8 +30,5 @@ int main()
     auto y = IRSend((char *)"Blinker");
     auto x = Main(y,(char *)"main");
     rtos::run();
-    //hwlib::wait_ms(5000);
-    //hwlib::cout << "sending message\n";
-    //y.add(IRMessage(5, 2));
     return 0;
 }
