@@ -20,6 +20,8 @@ IRMessage::IRMessage(short input){
     decode(input);
 };
 
+IRMessage::IRMessage(){};
+
 bool getBit(int position, short data){
     return (data >> (15-position))&1;
 }
@@ -62,6 +64,8 @@ bool IRMessage::checkChecksum(short data){
 
 bool IRMessage::decode(short msg){
     _error = 0;
+    _id = 0;
+    _data =0;
     if(!checkChecksum(msg)){
         _error |= CHECKSUMERROR;
     }	
@@ -85,7 +89,6 @@ bool IRMessage::decode(short msg){
             _data = _data << 1;
         }
     }
-
     return true;
 };
 

@@ -2,21 +2,18 @@
 #ifndef IRRECEIVER_HPP
 #define IRRECEIVER_HPP
 
+#include "IRMessage.hpp"
 #include "hwlib.hpp"
 #include "rtos.hpp"
 
 class IRReceiver : public rtos::task<>
 {
-private:
-	int ir_pin;
-	int out_pin;
-	short msg;
-	int last_bit;
-
-public: 
-	void detect();
-	void main();
-
+  private:
+  	IRMessage im;
+  public:
+    void detect();
+    void main();
+	IRReceiver():im(){};
 };
 
 #endif //IRRECEIVER_HPP
