@@ -17,12 +17,15 @@ void IRReceiver::detect()
     int bit = 0;
     int highs = 0;
     int waits = 0;
-    bool fail = false;
-    while (bit != bits && !fail)
+    while (bit != bits)
     {
         while (ir_pin.get())
         {
             sleep(pollTimeout * rtos::us);
+            waits++;
+            if((failTimeout/pollTimeout)>waits){
+                return;
+            }
         }
 
         for (int i = 0; i < samplesPerBit; i++)
