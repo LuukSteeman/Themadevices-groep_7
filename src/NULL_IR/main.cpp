@@ -10,7 +10,7 @@ class Main: rtos::task<>{
         void main(){
                  sleep(1 * rtos::s);
                  while(1){
-                    send.add(IRMessage(0b11111, 0b11111));
+                    send.add(IRMessage(10, 5));
                     sleep(1* rtos::s);
                  };
         };
