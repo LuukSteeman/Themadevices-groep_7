@@ -1,4 +1,5 @@
 #pragma once
+
 class IRMessage{
     private:
         int _id; //0 = spelleider 1-31 = speler

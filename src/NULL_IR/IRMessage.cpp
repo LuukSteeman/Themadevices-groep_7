@@ -20,7 +20,11 @@ IRMessage::IRMessage(short input){
     decode(input);
 };
 
-IRMessage::IRMessage(){};
+
+IRMessage::IRMessage(){
+    _id = 0;
+    _data = 0;
+}
 
 bool getBit(int position, short data){
     return (data >> (15-position))&1;
@@ -32,7 +36,7 @@ short IRMessage::encode(){
     //short = 16 bits
     short returnData = 0;
 
-    //Set Bit 0 to 1
+    //Set Bit 0 to :
     returnData = returnData | (1<<15);
 
     //Convert id to short and place it on position 1-5
