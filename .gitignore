@@ -28,5 +28,9 @@
 *.out
 *.app
 
+# Project specific files
 *.bin
 *.elf
+*.map
+*.ld
+bmptk_fixed_size_stack.c
