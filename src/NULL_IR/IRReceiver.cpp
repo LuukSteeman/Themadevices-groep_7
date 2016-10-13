@@ -4,7 +4,6 @@
 #include "IRReceiver.hpp"
 #include "IRMessage.hpp"
 #include "bitTools.hpp"
-using bittools
 
 const int pollTimeout = 200;
 const int bits = 16;

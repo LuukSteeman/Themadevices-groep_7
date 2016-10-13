@@ -1,6 +1,5 @@
 #include "IRSend.hpp"
 #include "bitTools.hpp"
-using bittools
 
 IRSend::IRSend(char *name) : task(name),
                              messages(this, "IR Message Channel")

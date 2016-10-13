@@ -12,7 +12,7 @@
 SOURCES := IRMessage.cpp IRReceiver.cpp IRSend.cpp
 
 # header files in this project
-HEADERS := IRMessage.hpp IRReceiver.hpp IRSend.hpp
+HEADERS := IRMessage.hpp IRReceiver.hpp IRSend.hpp bitTools.hpp
 
 # other places to look for files for this project
 SEARCH  := 

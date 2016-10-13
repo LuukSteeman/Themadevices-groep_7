@@ -1,6 +1,5 @@
 #include "IRMessage.hpp"
 #include "bitTools.hpp"
-using bittools;
 
 IRMessage::IRMessage(int id, int data){
     if(id>=0 && id<=31){
