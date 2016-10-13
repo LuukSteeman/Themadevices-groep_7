@@ -1,4 +1,6 @@
 #include "IRMessage.hpp"
+#include "bitTools.hpp"
+using bittools;
 
 IRMessage::IRMessage(int id, int data){
     if(id>=0 && id<=31){
@@ -24,10 +26,6 @@ IRMessage::IRMessage(short input){
 IRMessage::IRMessage(){
     _id = 0;
     _data = 0;
-}
-
-bool getBit(int position, short data){
-    return (data >> (15-position))&1;
 }
 
 short IRMessage::encode(){

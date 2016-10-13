@@ -3,6 +3,8 @@
 /// TODO FAIL AFTER 4MS
 #include "IRReceiver.hpp"
 #include "IRMessage.hpp"
+#include "bitTools.hpp"
+using bittools
 
 const int pollTimeout = 200;
 const int bits = 16;
@@ -23,8 +25,9 @@ void IRReceiver::detect()
         {
             sleep(pollTimeout * rtos::us);
             waits++;
-            if((failTimeout/pollTimeout)>waits){
-                return;
+            if ((failTimeout / pollTimeout) > waits)
+            {
+                hwlib::cout << "fail\n";
             }
         }
 
@@ -43,6 +46,11 @@ void IRReceiver::detect()
         }
         highs = 0;
     }
+    for (int i = 0; i < 16; i++)
+    {
+        hwlib::cout << getBit(i, data);
+    }
+    hwlib::cout << "\n";
     if (im.decode(data))
     {
         hwlib::cout << "Id: " << im.getId() << " data: " << im.getData() << "\n";

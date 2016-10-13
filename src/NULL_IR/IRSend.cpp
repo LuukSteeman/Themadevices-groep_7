@@ -1,9 +1,6 @@
 #include "IRSend.hpp"
-
-bool getBit2(int position, short data)
-{
-    return (data >> (15 - position)) & 1;
-}
+#include "bitTools.hpp"
+using bittools
 
 IRSend::IRSend(char *name) : task(name),
                              messages(this, "IR Message Channel")
@@ -34,7 +31,7 @@ void IRSend::main()
         {
             for (int i = 0; i < 16; i++)
             {
-                sendBit(getBit2(i, data));
+                sendBit(getBit(i, data));
             }
             if (ii == 0)
             {

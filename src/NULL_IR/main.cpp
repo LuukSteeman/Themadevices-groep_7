@@ -4,21 +4,25 @@
 #include "IRSend.hpp"
 #include "IRMessage.hpp"
 
-class Main: rtos::task<>{
-    IRSend & send;
-    private:
-        void main(){
-                 sleep(1 * rtos::s);
-                 while(1){
-                    send.add(IRMessage(10, 5));
-                    sleep(1* rtos::s);
-                 };
+class Main : rtos::task<>
+{
+    IRSend &send;
+
+  private:
+    void main()
+    {
+        while (1)
+        {
+        sleep(10 * rtos::s);
+            send.add(IRMessage(31, 31));
+            hwlib::cout << "Sending\n";
+            sleep(10 * rtos::s);
         };
-    public:
-        Main(IRSend & send,char * name):
-        task(name),
-        send(send)
-        {};
+    };
+
+  public:
+    Main(IRSend &send, char *name) : task(name),
+                                     send(send){};
 };
 
 int main()
@@ -28,9 +32,9 @@ int main()
 
     // wait for the PC console to start
     hwlib::wait_ms(500);
-    auto IRSenderTask = IRSend((char *)"Blinker");
-    auto MainTask = Main(IRSenderTask,(char *)"main");
-    auto IRReceiverTask = IRReceiver();
+    auto IRSenderTask = IRSend((char *)"IRSender");
+    auto IRReceiverTask = IRReceiver((char *)"IRReceiver");
+    auto MainTask = Main(IRSenderTask, (char *)"main");
     rtos::run();
     return 0;
 }

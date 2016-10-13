@@ -13,7 +13,7 @@ class IRReceiver : public rtos::task<>
   public:
     void detect();
     void main();
-	IRReceiver():im(){};
+	IRReceiver(char * taskName):task(taskName),im(){};
 };
 
 #endif //IRRECEIVER_HPP
