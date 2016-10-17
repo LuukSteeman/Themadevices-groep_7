@@ -19,25 +19,30 @@ void IRSend::sendBit(bool bit)
 
 void IRSend::main()
 {
-    auto trigger = hwlib::target::pin_out(hwlib::target::pins::d53);
+    auto sending = hwlib::target::pin_out(hwlib::target::pins::d48);
+    auto bit = hwlib::target::pin_out(hwlib::target::pins::d47);
+    auto bitclock = hwlib::target::pin_out(hwlib::target::pins::d46);
     while (true)
     {
         auto m = messages.read();
         short data = m.encode();
         hwlib::wait_us(1); // It's magic but it fixes issue #1
-        trigger.set(1);
+        sending.set(1);
         for (int ii = 0; ii < 2; ii++)
         {
             for (int i = 0; i < 16; i++)
             {
+                bitclock.set(1);
                 sendBit(getBit(i, data));
+                bit.set(getBit(i, data));
+                bitclock.set(0);
             }
             if (ii == 0)
             {
                 sleep(3 * rtos::ms);
             }
         }
-        trigger.set(0);
+        sending.set(0);
     }
 };
 

@@ -14,9 +14,9 @@ class Main : rtos::task<>
         while (1)
         {
         sleep(10 * rtos::s);
-            send.add(IRMessage(31, 31));
+            send.add(IRMessage(12, 12));
             hwlib::cout << "Sending\n";
-            sleep(10 * rtos::s);
+            sleep(1 * rtos::s);
         };
     };
 
