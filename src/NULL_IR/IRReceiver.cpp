@@ -3,50 +3,36 @@
 /// TODO FAIL AFTER 4MS
 #include "IRReceiver.hpp"
 #include "IRMessage.hpp"
-#include "bitTools.hpp"
 
 const int pollTimeout = 200;
 const int bits = 16;
-const int samplesPerBit = 16;
-const int sampleTime = 2390;
-// const int failTimeout = 4000000;
+const int samplesPerBit = 8;
+const int sampleTime = 2300;
+const int failTimeout = 40000;
 
 void IRReceiver::detect()
 {
+    //create listening pin
     auto ir_pin = hwlib::target::pin_in(hwlib::target::pins::d3);
-    
-    
-    auto listening = hwlib::target::pin_out(hwlib::target::pins::d53);
-    listening.set(ir_pin.get());
-    auto sleeping = hwlib::target::pin_out(hwlib::target::pins::d52);
-    sleeping.set(0);
-    auto sampling = hwlib::target::pin_out(hwlib::target::pins::d51);
-    sampling.set(0);
-    auto bitOut = hwlib::target::pin_out(hwlib::target::pins::d50);
-    bitOut.set(0);
-    auto bitOutClock = hwlib::target::pin_out(hwlib::target::pins::d49);
-    bitOutClock.set(0);
 
+    //create data short and bit counter
     unsigned short data = 0;
     int bit = 0;
-    int highs = 0;
-    int waits = 0;
-    while (bit != bits)
+    while (bit != bits) //while amount of bits is not reached
     {
-        listening.set(1);
-        sleeping.set(1);
-        while (ir_pin.get())
+        int waits = 0; // hold amount of waits
+        while (ir_pin.get()) // wait as long as ir pin is not low
         {
             sleep(pollTimeout * rtos::us);
             waits++;
-            // if ((failTimeout / pollTimeout) > waits)
-            // {
-            //     return;
-            // }
+            if ((failTimeout / pollTimeout) > waits) // if fail timeout is reached fail
+            {
+                // return;
+            }
         }
-        sleeping.set(0);
-
-        sampling.set(1);
+        
+        //sample the pin x times and calculate if it was a 1 or 0
+        int highs = 0;
         for (int i = 0; i < samplesPerBit; i++)
         {
             if (!ir_pin.get())
@@ -55,19 +41,16 @@ void IRReceiver::detect()
             }
             sleep((sampleTime / samplesPerBit) * rtos::us);
         };
-        sampling.set(0);
-        bitOutClock.set(1);
-        if (highs > (samplesPerBit / 2))
+
+        //store 1 or 0 in data 
+        if (highs >= (samplesPerBit / 2))
         {
-            bitOut.set(1);
             data |= (1 << (bits - bit));
         }
-        bitOut.set(0);
-        bitOutClock.set(0);
         bit++;
-        highs = 0;
-        listening.set(0);
+        // hwlib::cout << highs << "\n";
     }
+    hwlib::cout << "Received " << data << "\n";
     if (im.decode(data))
     {
         hwlib::cout << "Id: " << im.getId() << " data: " << im.getData() << "\n";

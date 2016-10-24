@@ -1,3 +1,4 @@
+#include "hwlib.hpp"
 #include "IRMessage.hpp"
 #include "bitTools.hpp"
 
@@ -43,13 +44,13 @@ short IRMessage::encode(){
     //Convert data to short and place it on position 5-10
     short data = _data << 5;
     returnData = returnData | data;
-    
     //Create checksum
     for(int i = 1; i<=5;i++){
         short checksum = getBit(i,returnData) ^ getBit(i+5,returnData);
         checksum = checksum << (5 - i);
         returnData = returnData | checksum;
     }
+    hwlib::cout << "checksumed data " << returnData << "\n";
     return returnData;
 };
 

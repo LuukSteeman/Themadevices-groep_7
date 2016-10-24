@@ -25,8 +25,9 @@ void IRSend::main()
     while (true)
     {
         auto m = messages.read();
-        short data = m.encode();
+        unsigned short data = m.encode();
         hwlib::wait_us(1); // It's magic but it fixes issue #1
+        hwlib::cout << "Sending " << data << "\n";
         sending.set(1);
         for (int ii = 0; ii < 2; ii++)
         {
