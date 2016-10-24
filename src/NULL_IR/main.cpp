@@ -13,9 +13,9 @@ class Main : rtos::task<>
     {
         while (1)
         {
-        sleep(10 * rtos::s);
+            // sleep(10 * rtos::s);
             send.add(IRMessage(31, 31));
-            sleep(5 * rtos::s);
+            sleep(2 * rtos::s);
         };
     };
 
