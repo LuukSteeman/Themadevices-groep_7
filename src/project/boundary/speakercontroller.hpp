@@ -27,7 +27,7 @@ public:
 	//It will initialize its own channel.
 	Speakercontroller(char * name, Speaker & speak) : task(name), speak(speak), hits(this, "hitschannel"){};
 
-	//The add() function is the interface other tasks can use to send messages to this task.
+	//The add() function is the interface other tasks can use to interact with this task.
 	void add(int hit);
 };
 
