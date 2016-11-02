@@ -9,10 +9,10 @@
 #############################################################################
 
 # source files in this project (main.cpp is automatically assumed)
-SOURCES := IRMessage.cpp
+SOURCES := IRMessage.cpp IRReceiver.cpp IRSend.cpp
 
 # header files in this project
-HEADERS := IRMessage.hpp
+HEADERS := IRMessage.hpp IRReceiver.hpp IRSend.hpp bitTools.hpp
 
 # other places to look for files for this project
 SEARCH  := 

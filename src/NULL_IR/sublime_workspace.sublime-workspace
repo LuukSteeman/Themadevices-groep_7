@@ -1,0 +1,711 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"border-top-radius",
+				"border-top-left-radius"
+			],
+			[
+				"margin",
+				"margin-top"
+			],
+			[
+				"is",
+				"isdigit"
+			],
+			[
+				"end",
+				"end_x"
+			],
+			[
+				"stat",
+				"start_y"
+			],
+			[
+				"start",
+				"start_x"
+			],
+			[
+				"w",
+				"wachtwoord"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "infrared.cpp",
+			"settings":
+			{
+				"buffer_size": 4238,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "main.cpp",
+			"settings":
+			{
+				"buffer_size": 798,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/D/School/2016-2017/Blok_1/CPSE1/Opdrachten/Makefile.due",
+			"settings":
+			{
+				"buffer_size": 898,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/Users/Asus Realsense/AppData/Local/Temp/Rar$DIa0.456/main.cpp",
+			"settings":
+			{
+				"buffer_size": 1713,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/C/Users/Asus Realsense/AppData/Local/Temp/Rar$DIa0.771/main.cpp",
+			"settings":
+			{
+				"buffer_size": 8115,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/D/School/2016-2017/Blok_1/Devices_Project/Github/Themadevices-groep_7/src/Makefile.due",
+			"settings":
+			{
+				"buffer_size": 967,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "Packages/User/C++.sublime-build",
+	"build_system_choices":
+	[
+		[
+			[
+				[
+					"Packages/C++/C++ Single File.sublime-build",
+					""
+				],
+				[
+					"Packages/C++/C++ Single File.sublime-build",
+					"Run"
+				]
+			],
+			[
+				"Packages/C++/C++ Single File.sublime-build",
+				"Run"
+			]
+		],
+		[
+			[
+				[
+					"Packages/User/C++.sublime-build",
+					""
+				],
+				[
+					"Packages/User/C++.sublime-build",
+					"Run"
+				]
+			],
+			[
+				"Packages/User/C++.sublime-build",
+				"Run"
+			]
+		]
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 297.0,
+		"last_filter": "git add",
+		"selected_items":
+		[
+			[
+				"git add",
+				"Git: Add All"
+			],
+			[
+				"git commit",
+				"Git: Quick Commit (repo)"
+			],
+			[
+				"git add .",
+				"Git: Add..."
+			],
+			[
+				"git init",
+				"Git: Init"
+			],
+			[
+				"",
+				"Git: Checkout Tag"
+			],
+			[
+				"Snippet: ",
+				"Snippet: Do While Loop"
+			],
+			[
+				"git show tags",
+				"Git: Show Tags"
+			],
+			[
+				"git status",
+				"Git: Status"
+			],
+			[
+				"git checkout",
+				"Git: Checkout Tag"
+			],
+			[
+				"git pull",
+				"Git: Pull"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 549.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"git checkout NULL_IR_RECEIVER",
+			"bmptk-make",
+			"git add .",
+			"import urllib.request,os,hashlib; h = 'df21e130d211cfc94d9b0905775a7c0f' + '1e3d39e33b79698005270310898eea76'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/D/School/2016-2017/Blok_1/Devices_Project/Github/Themadevices-groep_7/src/NULL_IR/IRSend.cpp",
+		"/D/School/2016-2017/Blok_1/Devices_Project/Github/Themadevices-groep_7/src/NULL_IR/main.cpp",
+		"/D/School/2016-2017/Blok_1/CPSE1/Opdrachten/Week_4/main.cpp",
+		"/D/School/2016-2017/Blok_1/CPSE1/Opdrachten/Week_2/print_things.asm",
+		"/D/School/2016-2017/Blok_1/Devices_Project/Github/Themadevices-groep_7/src/Makefile.due",
+		"/D/School/2016-2017/Blok_1/CPSE1/Opdrachten/Week_5_1/Week_5_1.mk",
+		"/D/School/2016-2017/Blok_1/CPSE1/Opdrachten/Week_5_1/Week_5_1.txt",
+		"/D/School/2016-2017/Blok_1/CPSE1/Opdrachten/Week_2/Makefile",
+		"/D/School/2016-2017/Blok_1/CPSE1/Opdrachten/Makefile.due",
+		"/D/School/2016-2017/Blok_1/CPSE1/Opdrachten/Catch/include/catch.hpp",
+		"/C/Users/Asus Realsense/AppData/Local/Temp/Rar$DIa0.037/main.cpp",
+		"/D/School/2015-2016/Blok_4/C++/CPP_Huiswerk/Makefile.due",
+		"/D/School/2015-2016/Blok_4/C++/CPP_Huiswerk/Week_2_3/main.cpp",
+		"/D/School/2015-2016/Blok_4/C++/CPP_Huiswerk/Catch/include/catch.hpp",
+		"/D/School/2015-2016/Blok_4/C++/CPP_Huiswerk/Catch/include/catch_with_main.hpp",
+		"/D/School/2015-2016/Blok_4/C++/CPP_Huiswerk/Catch/single_include/catch.hpp",
+		"/D/School/2015-2016/Blok_4/C++/CPP_Huiswerk/Week_2_2/Makefile",
+		"/D/School/2015-2016/Blok_4/C++/CPP_Huiswerk/Makefile",
+		"/D/School/2016-2017/Blok_1/CPSE1/Opdrachten/rtos/rtos.hpp",
+		"/D/School/2016-2017/Blok_1/CSM/Les Opdrachten/5.1.cpp",
+		"/D/School/2016-2017/Blok_1/CPSE1/Opdrachten/Week_3/Makefile",
+		"/C/Users/Asus Realsense/AppData/Local/Temp/Rar$DIa0.485/stringprint.hpp",
+		"/C/Users/Asus Realsense/AppData/Local/Temp/Rar$DIa0.095/main.cpp",
+		"/C/Users/Asus Realsense/AppData/Local/Temp/Rar$DIa0.228/main.cpp",
+		"/C/Users/Asus Realsense/AppData/Local/Temp/Rar$DIa0.152/main.cpp",
+		"/C/Users/Asus Realsense/AppData/Local/Temp/Rar$DIa0.536/main.cpp",
+		"/D/School/2016-2017/Blok_1/CPSE1/Opdrachten/Catch/include/catch_with_main.hpp",
+		"/D/School/2016-2017/Blok_1/CPSE1/Opdrachten/Week_3/Week_3.txt",
+		"/C/Users/Asus Realsense/AppData/Local/Temp/Rar$DIa0.899/CPSE1_w3.txt",
+		"/C/Users/ASUSRE~1/AppData/Local/Temp/Rar$DRa0.073/CPSE1_w4_2/Makefile",
+		"/D/School/2016-2017/Blok_1/CPSE1/Opdrachten/Week_5/Makefile",
+		"/D/School/2016-2017/Blok_1/CPSE1/Opdrachten/Week_5/wilhelmus.txt",
+		"/D/School/2016-2017/Blok_1/CPSE1/Opdrachten/Week_5/compressed.txt",
+		"/D/School/2016-2017/Blok_1/CPSE1/Opdrachten/Week_5/main.cpp",
+		"/C/Users/Asus Realsense/AppData/Local/Temp/Rar$DIa0.958/main.cpp",
+		"/D/School/2016-2017/Blok_1/CPSE1/Opdrachten/Week_5/wilhelmus2.txt",
+		"/C/Users/Asus Realsense/AppData/Roaming/Sublime Text 3/Packages/User/Arduino_Build_C++.sublime-build",
+		"/C/Users/Asus Realsense/AppData/Local/Temp/Rar$DIa0.025/main.cpp",
+		"/D/School/2016-2017/Blok_1/Devices_Project/Code/code/01-02-oled/main.cpp",
+		"/C/Users/Asus Realsense/AppData/Local/Temp/Rar$DIa1.456/main.cpp",
+		"/C/Users/Asus Realsense/AppData/Local/Temp/Rar$DIa0.424/main.cpp",
+		"/C/Users/Asus Realsense/AppData/Local/Temp/Rar$DIa0.456/main.cpp",
+		"/D/School/2016-2017/Blok_1/Devices_Project/Code/code/Makefile.due",
+		"/D/School/2016-2017/Blok_1/Devices_Project/Github/Themadevices-groep_7/src/NULL_IR/infrared.cpp",
+		"/D/School/2016-2017/Blok_1/Devices_Project/Github/Themadevices-groep_7/src/NULL_IR/IRMessage.cpp",
+		"/D/School/2016-2017/Blok_1/Devices_Project/Github/Themadevices-groep_7/src/NULL_IR/IRMessage.hpp",
+		"/D/School/2016-2017/Blok_1/Devices_Project/Github/Themadevices-groep_7/src/NULL_IR/Makefile",
+		"/D/School/2016-2017/Blok_1/Devices_Project/Github/Themadevices-groep_7/src/NULL_IR/main.bin",
+		"/D/School/2016-2017/Blok_1/Devices_Project/Github/Themadevices-groep_7/src/NULL_IR/infrared.hpp",
+		"/D/School/2016-2017/Blok_1/Devices_Project/Github/Themadevices-groep_7/src/rtos/rtos.hpp",
+		"/D/School/2016-2017/Blok_1/Devices_Project/Github/Themadevices-groep_7/src/rtos/rtos.cpp",
+		"/D/School/2016-2017/Blok_1/Devices_Project/Github/Themadevices-groep_7/src/NULL_IR/game.hpp",
+		"/D/School/2016-2017/Blok_1/Devices_Project/Github/Themadevices-groep_7/src/NULL_IR/game.cpp",
+		"/D/School/2016-2017/Blok_1/Devices_Project/Code/code/02-01-blink/main.cpp",
+		"/D/School/2016-2017/Blok_1/Devices_Project/Code/code/01-07-cin/main.cpp",
+		"/D/School/2016-2017/Blok_1/Devices_Project/Github/Themadevices-groep_7/src/rtos/Makefile.due",
+		"/D/School/2016-2017/Blok_1/Devices_Project/Github/Themadevices-groep_7/src/rtos/README.md",
+		"/C/xampp/htdocs/_htdocs/Sitebucket_USB/Sitebucket/index.php",
+		"/C/xampp/htdocs/_htdocs/Leaf/assets/scripts/email.php",
+		"/D/School/2016-2017/Blok_1/CPSE1/Opdrachten/Week_4/Makefile",
+		"/D/School/2016-2017/Blok_1/CPSE1/Opdrachten/hwlib/hwlib-wait.hpp",
+		"/D/School/2016-2017/Blok_1/CPSE1/Opdrachten/hwlib/hwlib-font-default-16x16.hpp",
+		"/D/School/2016-2017/Blok_1/CPSE1/Opdrachten/hwlib/Doxyfile",
+		"/D/School/2016-2017/Blok_1/CPSE1/Opdrachten/Message_Writer/main.cpp",
+		"/D/School/2016-2017/Blok_1/CPSE1/Opdrachten/Week_4/print_line.cpp",
+		"/D/School/2015-2016/Blok_4/C++/TCTI-V1OOPC-15-BASE/05-07-rectangle/line.cpp",
+		"/D/School/2015-2016/Blok_4/C++/TCTI-V1OOPC-15-BASE/05-07-rectangle/line.hpp",
+		"/C/Users/Asus Realsense/AppData/Roaming/Dopamine/ColorSchemes/Red 2.xml",
+		"/C/Users/Asus Realsense/AppData/Roaming/Dopamine/ColorSchemes/Red.xml",
+		"/C/Users/Asus Realsense/AppData/Roaming/Dopamine/ColorSchemes/Blue2.xml",
+		"/D/School/2016-2017/Blok_1/Devices_Project/Github/Themadevices-groep_7/Opdrachten/Project/infrared.cpp",
+		"/D/School/2016-2017/Blok_1/Devices_Project/Github/Themadevices-groep_7/Opdrachten/Makefile.due",
+		"/C/Users/Asus Realsense/AppData/Local/Temp/Rar$DIa0.440/main.cpp",
+		"/C/Users/Asus Realsense/AppData/Local/Temp/Rar$DIa0.829/print_things.asm",
+		"/C/Users/Asus Realsense/AppData/Local/Temp/Rar$DIa0.892/print_things.asm",
+		"/C/Users/Asus Realsense/AppData/Roaming/Sublime Text 3/Packages/x86 Assembly.tmbundle/Syntaxes/x86 Assembly.tmLanguage",
+		"/C/Users/Asus Realsense/AppData/Local/Temp/Rar$DIa0.313/main.cpp",
+		"/C/Users/Asus Realsense/AppData/Local/Temp/Rar$DIa0.202/convert.cpp",
+		"/C/Users/Asus Realsense/AppData/Local/Temp/Rar$DIa0.444/play_tones.hpp",
+		"/C/Users/Asus Realsense/AppData/Local/Temp/Rar$DIa0.128/convert.cpp",
+		"/C/Users/Asus Realsense/AppData/Local/Temp/Rar$DIa0.528/ringtone.hpp",
+		"/C/Users/Asus Realsense/AppData/Local/Temp/Rar$DIa0.785/main.cpp",
+		"/C/Users/Asus Realsense/AppData/Local/Temp/Rar$DIa0.382/ringtone.cpp",
+		"/D/School/2016-2017/Blok_1/Devices_Project/Github/Themadevices-groep_7/src/IR_message/IRMessage.cpp",
+		"/D/School/2016-2017/Blok_1/Devices_Project/Code/Opdrachten/Project/main.cpp",
+		"/D/School/2015-2016/Blok_4/IPASS/Project/infrared.cpp",
+		"/C/Users/Asus Realsense/AppData/Local/Temp/Rar$DIa0.526/main.cpp",
+		"/C/Users/Asus Realsense/AppData/Local/Temp/Rar$DIa0.207/play_tones.hpp",
+		"/C/Users/Asus Realsense/AppData/Local/Temp/Rar$DIa0.144/Makefile",
+		"/C/Users/Asus Realsense/AppData/Local/Temp/Rar$DIa0.575/ringtone.hpp",
+		"/C/Users/Asus Realsense/AppData/Local/Temp/Rar$DIa0.695/play_tones.hpp",
+		"/C/Users/Asus Realsense/AppData/Local/Temp/Rar$DIa1.695/convert.cpp",
+		"/C/Users/Asus Realsense/AppData/Local/Temp/Rar$DIa0.114/ringtone.hpp",
+		"/D/School/2016-2017/Blok_1/Devices_Project/Github/Themadevices-groep_7/src/IR_message/IRMessage.hpp",
+		"/D/School/2016-2017/Blok_1/Devices_Project/Github/Themadevices-groep_7/src/IR_message/main.cpp",
+		"/D/School/2015-2016/Blok_4/IPASS/Project/infrared.hpp",
+		"/D/School/2015-2016/Blok_4/IPASS/Project/main.cpp",
+		"/D/School/2016-2017/Blok_1/Devices Project/Code/Opdracht/Main.cpp",
+		"/D/School/2016-2017/Blok_1/Devices Project/Code/Opdracht/Game.cpp",
+		"/D/School/2016-2017/Blok_1/Devices Project/Code/Opdracht/Game.hpp",
+		"/D/School/2016-2017/Blok_1/Devices Project/Code/Opdracht/Infrared.cpp",
+		"/D/School/2016-2017/Blok_1/Devices Project/Code/Opdracht/Infrared.hpp",
+		"/D/School/2016-2017/Blok_1/CPSE1/Opdrachten/Week_1/melody.cpp",
+		"/D/School/2015-2016/Blok_4/IPASS/Project/infrared_backup.cpp",
+		"/D/School/2016-2017/Blok_1/CPSE1/Opdrachten/Week_1/melody.hpp",
+		"/D/School/2016-2017/Blok_1/CPSE1/Week_2/2016-2017-V2CPSE1-03-01-print/main.cpp",
+		"/D/School/2016-2017/Blok_1/CPSE1/Week_2/Makefile.due",
+		"/D/School/2016-2017/Blok_1/CPSE1/Week_2/2016-2017-V2CPSE1-01-02-ringtone/main.cpp",
+		"/D/School/2016-2017/Blok_1/CPSE1/Opdrachten/hwlib/hwlib-matrix-keypad.hpp",
+		"/C/TileCreator/ApprovedApps.config",
+		"/D/School/2015-2016/Blok_4/C++/TCTI-V1OOPC-15-BASE/21-05-mirror/main.cpp",
+		"/D/School/2016-2017/Blok_1/CPSE1/Week_1/Codelite/Makefile.due",
+		"/D/School/2016-2017/Blok_1/CSM/Opdrachten/Visual Studio/Week_1/main.cpp",
+		"/D/School/2016-2017/Blok_1/CPSE1/Opdrachten/Week_1/main.cpp",
+		"/D/School/2015-2016/Blok_4/C++/Huiswerk/Week_3_3/main.cpp",
+		"/D/School/2015-2016/Blok_4/C++/Huiswerk/Week_3_3/rectangle.hpp",
+		"/D/School/2016-2017/Blok_1/CPSE1/Opdrachten/Week_1/Makefile",
+		"/D/School/2016-2017/Blok_1/CPSE1/Week_1/Codelite/2016-2017-V2CPSE1-01-02-ringtone/Makefile",
+		"/C/xampp/htdocs/assets/css/fonts.css",
+		"/C/xampp/htdocs/.htaccess",
+		"/D/Games/Minecraft Server/server.properties",
+		"/C/xampp/htdocs/assets/css/main.css",
+		"/C/xampp/htdocs/assets/includes/header.php",
+		"/C/xampp/htdocs/index.php",
+		"/C/xampp/htdocs/_htaccess",
+		"/D/School/2015-2016/Blok 3/Algorithms and Datastructures in C/Huiswerk/Week 3/Week 3/Week 3.vcxproj",
+		"/D/School/2015-2016/Blok 3/Algorithms and Datastructures in C/Huiswerk/Week 2/Week 2/main.c",
+		"/D/School/2015-2016/Blok 3/Algorithms and Datastructures in C/Huiswerk/Week 3/Week 3/Week 3.c"
+	],
+	"find":
+	{
+		"height": 43.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"task",
+			"task'",
+			"task",
+			"flag",
+			" - 90",
+			"scaled_sine_from_degrees",
+			")",
+			"){\n",
+			"hwlib",
+			"ostream",
+			"putc",
+			"sleep",
+			"10",
+			"rtos::ch",
+			"w",
+			"time",
+			"wheels",
+			"kitt",
+			"forcelight",
+			"blinklight",
+			", ",
+			"/// ",
+			"///",
+			"decodeRC5",
+			"receive",
+			"micro",
+			"RC5",
+			"5",
+			"int MAT",
+			"int MATCH",
+			"#link",
+			"exec",
+			"!exe",
+			"link",
+			"AppSixButton",
+			".png",
+			"Variables",
+			"CRLF",
+			"WMP",
+			"english",
+			"60",
+			"360px",
+			"width",
+			"zorggroep",
+			"1",
+			"mg_isotope-item mg_shown\"",
+			"mg_box col1_6 row1_6 m_col1_2 m_row1_3 mgi_943 mg_image mg_transitions mg_closed   mg_isotope-item mg_shown\"",
+			"true",
+			"Denekamp",
+			"navbar",
+			"navbar-header",
+			"container-fluid",
+			"f9f9f9",
+			"background",
+			"navbar",
+			"navbar_brand",
+			"191919",
+			"include",
+			"janvetq144.144.axc.nl",
+			"tiles",
+			"main",
+			"li",
+			"ul",
+			"menu"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"",
+			"scaled_cosine_from_degrees",
+			" - 90)",
+			"- 90)",
+			"game",
+			"Forcelight",
+			"Blinklight",
+			"    = ",
+			"",
+			"localhost",
+			"arithmetic",
+			"menu"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 4,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "infrared.cpp",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4238,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 9.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "main.cpp",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 798,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								300,
+								300
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/D/School/2016-2017/Blok_1/CPSE1/Opdrachten/Makefile.due",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 898,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								396,
+								396
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/C/Users/Asus Realsense/AppData/Local/Temp/Rar$DIa0.456/main.cpp",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1713,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1713,
+								1713
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"tab_size": 3,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 675.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "/C/Users/Asus Realsense/AppData/Local/Temp/Rar$DIa0.771/main.cpp",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 8115,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3064,
+								3064
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 840.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "/D/School/2016-2017/Blok_1/Devices_Project/Github/Themadevices-groep_7/src/Makefile.due",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 967,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								396,
+								396
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 30.0
+	},
+	"input":
+	{
+		"height": 38.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 130.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.git":
+	{
+		"height": 130.0
+	},
+	"pinned_build_system": "Packages/User/Arduino_Build_C++.sublime-build",
+	"project": "",
+	"replace":
+	{
+		"height": 62.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 188.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

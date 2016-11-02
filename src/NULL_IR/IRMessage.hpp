@@ -1,3 +1,5 @@
+#pragma once
+
 class IRMessage{
     private:
         int _id; //0 = spelleider 1-31 = speler
@@ -7,6 +9,7 @@ class IRMessage{
     public:
         IRMessage(int id, int data);
         IRMessage(short input);
+        IRMessage();
         short encode();
         bool decode(short input);
         int getError();

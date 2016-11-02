@@ -1,4 +1,6 @@
+#include "hwlib.hpp"
 #include "IRMessage.hpp"
+#include "bitTools.hpp"
 
 IRMessage::IRMessage(int id, int data){
     if(id>=0 && id<=31){
@@ -20,8 +22,10 @@ IRMessage::IRMessage(short input){
     decode(input);
 };
 
-bool getBit(int position, short data){
-    return (data >> (15-position))&1;
+
+IRMessage::IRMessage(){
+    _id = 0;
+    _data = 0;
 }
 
 short IRMessage::encode(){
@@ -30,7 +34,7 @@ short IRMessage::encode(){
     //short = 16 bits
     short returnData = 0;
 
-    //Set Bit 0 to 1
+    //Set Bit 0 to :
     returnData = returnData | (1<<15);
 
     //Convert id to short and place it on position 1-5
@@ -40,11 +44,10 @@ short IRMessage::encode(){
     //Convert data to short and place it on position 5-10
     short data = _data << 5;
     returnData = returnData | data;
-    
     //Create checksum
     for(int i = 1; i<=5;i++){
         short checksum = getBit(i,returnData) ^ getBit(i+5,returnData);
-        checksum = checksum << 5 - i;
+        checksum = checksum << (5 - i);
         returnData = returnData | checksum;
     }
     return returnData;
@@ -52,7 +55,7 @@ short IRMessage::encode(){
 
 bool IRMessage::checkChecksum(short data){
     for(int i = 1; i<=5;i++){
-        if(!( getBit(10+i,data) == getBit(i,data) ^ getBit(i+5,data))){
+        if(!( getBit(10+i,data) == (getBit(i,data) ^ getBit(i+5,data)))){
             return false;
         }
     }
@@ -62,9 +65,11 @@ bool IRMessage::checkChecksum(short data){
 
 bool IRMessage::decode(short msg){
     _error = 0;
+    _id = 0;
+    _data =0;
     if(!checkChecksum(msg)){
         _error |= CHECKSUMERROR;
-    }
+    }	
     if(!getBit(0,msg)){
         _error |= STARTBITERROR;
     }
@@ -72,7 +77,7 @@ bool IRMessage::decode(short msg){
         return false;
     }
     
-    for(int i = 1; i<=5; i++){
+	for(int i = 1; i<=5; i++){
         _id = _id | getBit(i,msg);
         if(i<5){
             _id = _id << 1;
@@ -85,6 +90,7 @@ bool IRMessage::decode(short msg){
             _data = _data << 1;
         }
     }
+    return true;
 };
 
 void IRMessage::setId(int id){
