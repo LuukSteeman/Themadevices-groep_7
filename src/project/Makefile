@@ -9,11 +9,10 @@
 #############################################################################
 
 # source files in this project (main.cpp is automatically assumed)
-SOURCES := IRMessage.cpp IRReceiver.cpp IRSend.cpp
+SOURCES := boundary/speaker.cpp
 
 # header files in this project
-HEADERS := IRMessage.hpp IRReceiver.hpp IRSend.hpp bitTools.hpp
-
+HEADERS := boundary/speaker.hpp
 # other places to look for files for this project
 SEARCH  := 
 
