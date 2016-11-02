@@ -51,27 +51,3 @@ void Speaker::set(bool b)
          TC0->TC_CHANNEL[ 0 ].TC_CMR &= ~ ( 0x3 << 18);
      }
 }
-
-
-
-void Speakercontroller::main()
-{
-	while (1) {
-		int noteLength = hits.read();
-		if (noteLength > 0)
-		{
-			speak.set(1);
-
-			sleep( noteLength * rtos::ms);
-
-			speak.set(0);
-
-			sleep( noteLength * rtos::ms);
-		}
-	}
-}
-
-void Speakercontroller::add(int hit)
-{
-	hits.write(hit);
-}

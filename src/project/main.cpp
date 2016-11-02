@@ -1,4 +1,4 @@
-#include "boundary/speaker.hpp"
+#include "boundary/speakercontroller.hpp"
 #include "hwlib.hpp"
 #include "rtos.hpp"
 

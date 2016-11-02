@@ -9,10 +9,10 @@
 #############################################################################
 
 # source files in this project (main.cpp is automatically assumed)
-SOURCES := boundary/speaker.cpp
+SOURCES := boundary/speaker.cpp boundary/speakercontroller.cpp
 
 # header files in this project
-HEADERS := boundary/speaker.hpp
+HEADERS := boundary/speaker.hpp boundary/speakercontroller.cpp
 # other places to look for files for this project
 SEARCH  := 
 
