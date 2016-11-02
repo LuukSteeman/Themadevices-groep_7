@@ -50,7 +50,6 @@ short IRMessage::encode(){
         checksum = checksum << (5 - i);
         returnData = returnData | checksum;
     }
-    hwlib::cout << "checksumed data " << returnData << "\n";
     return returnData;
 };
 
