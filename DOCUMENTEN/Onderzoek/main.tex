@@ -1,0 +1,193 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[dutch]{babel}
+\usepackage{minted}
+\usepackage{color}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linktoc=all,
+    linkcolor=black,
+    citecolor = blue,
+    urlcolor = blue,
+}
+\usepackage{apacite}
+\bibliographystyle{apacite}
+
+\title{RTOS research}
+\author{Robert Bezem, Luuk Steeman, \\
+Ricardo Bouwman, Jeroen van Hattem}
+\date{Oktober 2016}
+\begin{document}
+
+\begin{titlepage}
+\maketitle
+Research naar verschillende RTOS-en en vergelijking met het Arduino RTOS
+\end{titlepage}
+
+\setcounter{page}{2}
+\tableofcontents
+\newpage
+
+\part{Introductie}
+Door de Hoge School Utrecht zijn wij gevraagd om onderzoek te doen naar verschillende Real-Time Operating Systems. In dit onderzoeksrapport beschrijven wij onze bevindingen over de verschillende RTOS-en die beschikbaar zijn voor ARM-processoren. 
+\section{Hoofdvraag}
+Met behulp van welk open source real-time operating system kunnen tasks en de concurrency mechanismen pool, channel, flag(group), clock, timer en mutex, zoals aangeboden door het Arduino RTOS, met zo weinig mogelijk overhead worden gerealiseerd?
+\section{Deelvragen}
+\begin{itemize}
+\item Wat zijn de kenmerkende eigenschappen van tasks en de concurrency mechanismen van het Arduino RTOS?
+\item Welke open source RTOS-en zijn beschikbaar?
+\item Welke van de beschikbare RTOS-en biedt de meeste van de concurrency mechanismen van het Arduino RTOS aan zonder enige modificatie en biedt dezelfde functionaliteit om taken te realiseren?
+\item Welke mechanismen van het Arduino RTOS worden niet ondersteund door de beschikbare RTOS-en?
+\item Hoe kunnen de mechanismen van het Arduino RTOS die niet direct worden ondersteund door de beschikbare RTOS-en worden gerealiseerd m.b.v. van deze RTOS-en?
+\end{itemize}
+
+\newpage
+
+\part{Onderzoek}
+
+\section{Kenmerkende eigenschappen Arduino RTOS}
+Wat zijn de kenmerkende eigenschappen van tasks en de concurrency mechanismen van het Arduino RTOS
+\subsection{Onderzoeksmethode}
+Om de eigenschappen van het Arduino RTOS te onderzoeken is gekeken naar de Doxygen documentatie en de source code zelf.
+De Doxygen documentatie is te genereren door het volgende commando uit te voeren in de bestandsmap waar de sourcecode zich bevindt
+\begin{minted}{console}
+doxygen rtos.hpp
+\end{minted}
+de documentatie is daarna te vinden in \textit{html/index.html} in HTML voormaat.
+\subsection{Onderzoeksresultaten}
+Het ArduinoRTOS is een cooperative RTOS geschreven in C++ en assembly. Er worden verschillende concurrecy mechanismen geboden door dit RTOS, bij namen:
+\begin{itemize}
+\item Pool
+\item Mutex
+\item Channel
+\item Mailbox
+\item Timer
+\item Clock
+\item Flag
+\end{itemize}
+
+\section{Beschikbare open source RTOS-en}
+Welke open source RTOS-en zijn beschikbaar.
+\subsection{Onderzoeksmethode}
+Omdat het aantal bestaande open source RTOS-en ontzettend groot is zijn er een aantal initiele criteria opgesteld om een eerste selectie te maken.
+\begin{itemize}
+\item Het RTOS moet beschikbaar zijn voor het arm platform
+\item Het RTOS moet C en C++ ondersteunen
+\item Het RTOS moet binnen het afgelopen jaar een update hebben gekregen
+\item Het RTOS moet beschikken over documentatie waarin de geboden functionaliteit is beschreven
+\end{itemize}
+Omdat er na deze eerste selectie nog te veel verschillende RTOS-en over blijven zijn er 8 willekeurige RTOS-en uitgezocht voor nader onderzoek.
+Wij hebben de volgende twee sites gebruikt om opensource RTOS-en te vinden:
+\begin{itemize}
+    \item Comparison of real-time operating systems \cite{WikipediaRTOS}
+    \item osRTOS \cite{OSRTOS}
+\end{itemize}
+\subsection{Onderzoeksresultaten}
+Na de selectie gemaakt te hebben is er gekozen om de volgende RTOS-en te onderzoeken.
+\begin{itemize}
+\item StratifyOS \cite{StratifyGithub}
+\item NuttX \cite{NuttX}
+\item Zephyr \cite{Zephyr}
+\item Mark3OS \cite{Mark3OS}
+\item Free-RTOS\cite{free-rtos}
+\item Distortos \cite{Distortos}
+\item RTEMS      \cite{RTEMS}
+\item mbedOS      \cite{mbedOS}
+\end{itemize}
+
+\section{Vergelijking beschikbare mechanismen}
+In dit hoofdstuk worden twee deelvragen tegelijk beantwoord:
+Welke van de beschikbare RTOS-en biedt de meeste van de concurrency mechanismen van het Arduino RTOS aan zonder enige modificatie en biedt dezelfde functionaliteit om taken te realiseren?
+en Welke mechanismen van het Arduino RTOS worden niet ondersteund door de beschikbare RTOS-en?
+\subsection{Ondzoeksmethode}
+Om de verschillende mechanismen ondersteund door de RTOS-en te vinden is er gekeken naar de documentatie van deze RTOS-en.
+\subsection{Onderzoeksresultaten}
+\begin{tabular}{|c|c|c|c|c|c|c|c|}
+\hline 
+Naam RTOS & Pool & Mutex & Channel & Mailbox & Timer & Clock & Flag \\ 
+\hline 
+\hline
+StratifyOS &  & • & • &  & • & • & • \\ 
+\hline
+NuttX &  & • & • &  & • & • & • \\ 
+\hline 
+Zephyr & • & • & • & • & • & • & • \\ 
+\hline 
+Mark3OS & • & • & • & • & • & • & • \\ 
+\hline 
+Free-RTOS &  & • & • &  & • & • & • \\ 
+\hline 
+DistortOS &  & • & • &  & • & • & • \\ 
+\hline 
+RTEMS\cite{RTEMSDOCS} &  & • & • & • & • & • & • \\ 
+\hline 
+mbedOS\cite{mbedOSDOCS} & • & • & • & • & • & • &  • \\ 
+\hline 
+\end{tabular} 
+
+\section{Vervanging niet ondersteunde mechanismen}
+Hoe kunnen de mechanismen van het Arduino RTOS die niet direct worden ondersteund door de beschikbare RTOS-en worden gerealiseerd m.b.v. van deze RTOS-en?
+\subsection{Ondzoeksmethode}
+Hiervoor is de implementatie van niet beschikbare mechanismen in het RTOS bestudeerd.
+\subsection{Onderzoeksresultaten}
+
+\subsubsection{Pool}
+Een pool kan worden geïmiteerd door middel van een globale variabele en een mutex. Een pool kan worden gezien als een variabele die kan gelezen en overschreven kan worden door meerdere tasks, maar dit niet tegelijk. Door middel van een globale variabele en een mutex kan dit ook. Wanneer een task de variabele wilt schrijven, locked hij de mutex, wanneer hij klaar is, geeft hij hem vrij. Hetzelfde geldt voor lezen. Dit is zo zodat de variabel niet kan worden veranderd wanneer hij wordt gelezen. 
+
+
+\subsubsection{Channel}
+Een channel kan ge\"{i}mplementeerd worden door middel van een flag, mutex en een array. Deze C++ code geeft een opzet aan hoe een channel ge\"{i}mplementeerd kan worden
+\begin{minted}{c++}
+template <typename T, int L>
+class Channel
+{
+    T queue[L];
+    int length;
+    flag theFlag;
+
+    void addToQueue(T elem)
+    {
+        mutex.lock();
+        queue.add(elem);
+        length++;
+        flag.signal();
+        mutex.unlock();
+    }
+
+    T wait()
+    {
+        theFlag.wait();
+        T returnVal = queue[0];
+        for (int i = 0; i < length; i++)
+        {
+            queue[i] = queue[i + 1];
+        }
+        len--;
+        return returnVal;
+    }
+}
+\end{minted}
+
+\subsubsection{Mailbox}
+Een mailbox kan worden nagebootst door middel van channel en een binary semaphore. Een mailbox houdt in dat er data in kan worden gezet en kan worden uitgelezen. Een binary semaphore kan worden gezien als een mutex met een counter. Deze counter wordt op een nummer gezet, de task die iets wilt doen, moet de semaphore daarom vragen. Elke keer dat er iets aan de semaphore wordt gevraagd, wordt deze counter met 1 verlaagd. Dit kan als mailbox worden gebruikt door de channel te "vergrendelen” wanneer erin is geschreven. De lezer zal dan eerst meerdere keren moeten proberen het te kunnen lezen. Op die manier wordt het systeem, net als bij een mailbox, geblokkeerd voor een bepaalde periode.
+
+\part{Conclusie \& aanbeveling}
+\section{Conlclusie}
+Van alle RTOS-en waren er drie die alle concurrency mechanismen hadden die we zochten.
+\begin{itemize}
+\item Zephyr
+\item Mark3OS
+\item mbedOS
+\end{itemize}
+Om een volledige conclusie te kunnen trekken, kan er gekeken worden naar de documentatie en hoe ingewikkeld het is om het RTOS te implementeren.\\
+Mark3OS en mbedOS zijn zeer goed gedocumenteerd. Bij alles staat heel duidelijk wat het doet en hoe het toegepast moet worden. Ze hebben ook een uitgebreid "getting started" deel om programmeurs op weg te helpen. In de documentatie op de website van mbedOS staan ook afbeeldingen om concurrency mechanismen uit te leggen, maar het is soms ingewikkeld om de documentatie van een specifiek deel te vinden.\\
+Mark3OS heeft geen plaatjes, maar de documentatie is beter gestructureerd en het is dus makkelijker om van een specifiek onderdeel te vinden hoe het werkt en hoe je het moet toepassen.
+\section{Aanbeveling}
+Wij bevelen Mark3OS aan als het meest geschikte RTOS. Het bevat alle benodigde concurrency mechanismen, het is goed gedocumenteerd en goed begrijpbaar voor programmeurs die nog niet eerder met RTOS-en hebben gewerkt. 
+
+\medskip
+ 
+\bibliography{bronnen}
+
+\end{document}
