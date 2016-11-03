@@ -9,10 +9,10 @@
 #############################################################################
 
 # source files in this project (main.cpp is automatically assumed)
-SOURCES := boundary/idJumper.cpp
+SOURCES := boundary/keypad.cpp controllers/keypadHandler.cpp
 
 # header files in this project
-HEADERS := boundary/idJumper.hpp
+HEADERS := boundary/keypad.hpp controllers/keypadHandler.hpp interfaces/keypadListener.hpp
 
 # other places to look for files for this project
 SEARCH  := 
