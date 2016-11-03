@@ -6,11 +6,11 @@ void Speakercontroller::main()
 		int noteLength = hits.read();
 		if (noteLength > 0)
 		{
-			speak.set(1);
+			speak.play();
 
 			sleep( noteLength * rtos::ms);
 
-			speak.set(0);
+			speak.play();
 
 			sleep( noteLength * rtos::ms);
 		}

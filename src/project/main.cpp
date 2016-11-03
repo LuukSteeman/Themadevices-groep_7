@@ -33,7 +33,7 @@ int main (void)
 
 	hwlib::wait_ms(500);
 	
-	auto speak = Speaker();
+	auto speak = Speaker(2, 23);
 
 	speak.set_frequency(1500);
 	auto speakctrl = Speakercontroller((char *) "speaker", speak);
