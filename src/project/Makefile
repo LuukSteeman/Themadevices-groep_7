@@ -9,10 +9,10 @@
 #############################################################################
 
 # source files in this project (main.cpp is automatically assumed)
-SOURCES := boundary/idJumper.cpp
+SOURCES := boundary/receiver.cpp controllers/receiverHandler.cpp
 
 # header files in this project
-HEADERS := boundary/idJumper.hpp
+HEADERS := boundary/receiver.hpp interfaces/receiverListener.hpp
 
 # other places to look for files for this project
 SEARCH  := 
