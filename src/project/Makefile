@@ -9,13 +9,13 @@
 #############################################################################
 
 # source files in this project (main.cpp is automatically assumed)
-SOURCES := IRMessage.cpp IRReceiver.cpp IRSend.cpp
+SOURCES := entity/damageStorage.cpp
 
 # header files in this project
-HEADERS := IRMessage.hpp IRReceiver.hpp IRSend.hpp bitTools.hpp
+HEADERS := entity/Damage.hpp entity/damageStorage.hpp
 
 # other places to look for files for this project
-SEARCH  := 
+SEARCH  := entity/
 
 # set BMPTK to the next higher directory and defer to the Makefile.due
 BMPTK := $(BMPTK)../
