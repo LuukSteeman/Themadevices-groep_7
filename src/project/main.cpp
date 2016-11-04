@@ -1,16 +1,24 @@
 #include <hwlib.hpp>
-#include "interfaces/keypadListener.hpp"
-#include "controllers/keypadHandler.hpp"
-#include "boundary/keypad.hpp"
+#include "IRMessage.hpp"
+#include "transmitterctrl.hpp"
+#include "IRMessage.hpp"
+#include "transmitter.hpp"
 #include <rtos.hpp>
 
-class x : public KeypadListener
+class Maintask : public rtos::task<>
 {
-  private:
-    void keyPressed(char key)
+private:
+    transmitterctrl & transctrl;
+    IRMessage msg;
+    void main()
     {
-        hwlib::cout << key << "\n";
-    };
+        transctrl.add(msg);
+    }
+public:
+    Maintask(transmitterctrl & transctrl, IRMessage msg) :
+    transctrl(transctrl),
+    msg(msg)
+    {}
 };
 
 int main()
@@ -18,9 +26,9 @@ int main()
     WDT->WDT_MR = WDT_MR_WDDIS;
     hwlib::wait_ms(500);
 
-    x X;
-    Keypad k;
-    k.addKeypadListener(&X);
-    KeypadHandler kh(k);
+    transmitter trans;
+    transmitterctrl transctrl((char *) "Transmittercontroller and task", trans);
+    IRMessage message(10,5);
+    Maintask main(transctrl, message);
     rtos::run();
 }

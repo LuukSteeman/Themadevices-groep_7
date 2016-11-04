@@ -9,13 +9,13 @@
 #############################################################################
 
 # source files in this project (main.cpp is automatically assumed)
-SOURCES := boundary/keypad.cpp controllers/keypadHandler.cpp
+SOURCES := transmitter.cpp transmitterctrl.cpp IRMessage.cpp
 
 # header files in this project
-HEADERS := boundary/keypad.hpp controllers/keypadHandler.hpp interfaces/keypadListener.hpp
+HEADERS := transmitter.hpp transmitterctrl.hpp IRMessage.hpp
 
 # other places to look for files for this project
-SEARCH  := 
+SEARCH  := boundary/ controllers/ applicationLogic/ entity/
 
 # set BMPTK to the next higher directory and defer to the Makefile.due
 BMPTK := $(BMPTK)../
