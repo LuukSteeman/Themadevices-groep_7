@@ -9,10 +9,10 @@
 #############################################################################
 
 # source files in this project (main.cpp is automatically assumed)
-SOURCES := entity/damageStorage.cpp
+SOURCES := boundary/speaker.cpp boundary/speakercontroller.cpp boundary/receiver.cpp controllers/receiverHandler.cpp entity/damageStorage.cpp
 
 # header files in this project
-HEADERS := entity/damage.hpp entity/damageStorage.hpp
+HEADERS := boundary/speaker.hpp boundary/speakercontroller.cpp boundary/receiver.hpp interfaces/receiverListener.hpp entity/damage.hpp entity/damageStorage.hpp
 
 # other places to look for files for this project
 SEARCH  :=
