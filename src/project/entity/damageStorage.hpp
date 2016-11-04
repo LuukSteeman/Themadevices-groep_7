@@ -14,15 +14,13 @@ private:
 	Damage damageArray[100];
 public:
 	//! Called when a player takes damage. Creates a Damage object and puts it in the damageArray
+	//! @param The amount of damage the player took
+	//! @param the playerID of the shooter
 	void addDamage(int damageAmount, int playerID);
 	
-	//! Given array is filled with Damage Objects from the damageStorage
-	/*! Function is given the pointer to the start of the TransferArray.
-	 *  Loops through [Length] amount of times copying objects from the damageStorage array to the TransferArray
-	 *  Length may never be greater than currentLength since there will be no valid data in those indexes
-	 */
-	void getDamage(Damage *TransferArray, int Length);
-	
+	//! Returns a reference to a Damage object
+	//! @param The index of the Damage object you want to return
+	Damage& getDamage(int index);
 };
 
 #endif // DAMAGESTORAGE_HPP

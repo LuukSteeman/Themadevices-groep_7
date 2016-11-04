@@ -12,10 +12,10 @@
 SOURCES := entity/damageStorage.cpp
 
 # header files in this project
-HEADERS := entity/Damage.hpp entity/damageStorage.hpp
+HEADERS := entity/damage.hpp entity/damageStorage.hpp
 
 # other places to look for files for this project
-SEARCH  := entity/
+SEARCH  :=
 
 # set BMPTK to the next higher directory and defer to the Makefile.due
 BMPTK := $(BMPTK)../
