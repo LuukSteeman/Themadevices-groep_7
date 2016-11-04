@@ -1,42 +1,60 @@
+#include <hwlib.hpp>
+#include <rtos.hpp>
+
+#include "boundary/receiver.hpp"
+#include "controllers/receiverHandler.hpp"
+#include "interfaces/receiverListener.hpp"
 #include "boundary/speakercontroller.hpp"
-#include "hwlib.hpp"
-#include "rtos.hpp"
+
+class x : public ReceiverListener
+{
+public:
+  void msgReceived(short msg)
+  {
+    hwlib::cout << msg;
+  }
+};
 
 class Main : rtos::task<>
 {
-    Speakercontroller &spctrl;
+  Speakercontroller &spctrl;
 
-  private:
-    void main()
+private:
+  void main()
+  {
+    while (1)
     {
-        while (1)
-        {
-            // sleep(10 * rtos::s);
-            spctrl.add(700);
-            sleep(2 * rtos::s);
-            spctrl.add(200);
-            sleep(2 * rtos::s);
-        };
+      // sleep(10 * rtos::s);
+      spctrl.add(700);
+      sleep(2 * rtos::s);
+      spctrl.add(200);
+      sleep(2 * rtos::s);
     };
+  };
 
-  public:
-    Main(Speakercontroller &spctrl, char *name) : task(name),
-                                     spctrl(spctrl){};
+public:
+  Main(Speakercontroller &spctrl, char *name) : task(name),
+                                                spctrl(spctrl){};
 };
 
-
-int main (void)
+int main()
 {
-	WDT->WDT_MR = WDT_MR_WDDIS;
+  WDT->WDT_MR = WDT_MR_WDDIS;
+  hwlib::wait_ms(500);
 
-	hwlib::wait_ms(500);
-	
+  Receiver r(hwlib::target::pins::d12);
+  ReceiverHandler rh(r);
+
+  x X;
+  r.addReceiverListener(&X);
+
   auto speak_pin = hwlib::target::pin_out(hwlib::target::pins::d52);
-	auto speak = Speaker(speak_pin);
-	auto speakctrl = Speakercontroller((char *) "speaker", speak);
+  auto speak = Speaker(speak_pin);
+  auto speakctrl = Speakercontroller((char *)"speaker", speak);
   speakctrl.set_frequency(1500);
-	auto Maintask = Main(speakctrl, (char *)"Testmaintask");
+  auto Maintask = Main(speakctrl, (char *)"Testmaintask");
 
-	rtos::run();
-	return 0;
+  rtos::run();
+
+  return 0;
 }
