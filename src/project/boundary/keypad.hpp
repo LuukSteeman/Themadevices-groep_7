@@ -2,6 +2,10 @@
 
 #include <hwlib.hpp>
 #include "../interfaces/keypadListener.hpp"
+
+/**
+  Class that creates the keypad pins and provides a way to update KeypadListeners
+*/
 class Keypad
 {
   private:
@@ -25,7 +29,18 @@ class Keypad
     int listenerCount = 0;
 
   public:
+    /**
+      Initialise keypad and pins
+    */
     Keypad();
+    /**
+      check if key is pressed and update
+    */
     void update();
+    /**
+      Add a listener class to list of listeners;
+
+      @param pointer to listener
+    */
     void addKeypadListener(KeypadListener *listener);
 };
