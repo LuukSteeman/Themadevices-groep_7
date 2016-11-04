@@ -21,7 +21,7 @@ public:
 	 *  Loops through [Length] amount of times copying objects from the damageStorage array to the TransferArray
 	 *  Length may never be greater than currentLength since there will be no valid data in those indexes
 	 */
-	void getDamage(Damage* TransferArray, int Length);
+	void getDamage(Damage *TransferArray, int Length);
 	
 };
 
