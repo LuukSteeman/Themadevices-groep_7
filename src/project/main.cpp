@@ -1,13 +1,26 @@
 #include <hwlib.hpp>
-#include "boundary/idJumper.hpp"
+#include "interfaces/keypadListener.hpp"
+#include "controllers/keypadHandler.hpp"
+#include "boundary/keypad.hpp"
+#include <rtos.hpp>
+
+class x : public KeypadListener
+{
+  private:
+    void keyPressed(char key)
+    {
+        hwlib::cout << key << "\n";
+    };
+};
+
 int main()
 {
     WDT->WDT_MR = WDT_MR_WDDIS;
     hwlib::wait_ms(500);
-    auto id = idJumper::getID();
-    hwlib::cout << "ID: " << id << "\n";
-    // auto pinin = hwlib::target::pin_in(hwlib::target::pins::d3);
-    // auto pinout = hwlib::target::pin_out(hwlib::target::pins::d2);
-    // pinout.set(1);
-    // hwlib::cout << pinin.get()<<"\n";
+
+    x X;
+    Keypad k;
+    k.addKeypadListener(&X);
+    KeypadHandler kh(k);
+    rtos::run();
 }
