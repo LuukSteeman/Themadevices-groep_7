@@ -5,6 +5,8 @@
 #include "controllers/receiverHandler.hpp"
 #include "interfaces/receiverListener.hpp"
 #include "boundary/speakercontroller.hpp"
+#include "entity/damageStorage.hpp"
+#include "entity/Damage.hpp"
 
 class x : public ReceiverListener
 {
@@ -41,6 +43,16 @@ int main()
 {
   WDT->WDT_MR = WDT_MR_WDDIS;
   hwlib::wait_ms(500);
+
+    DamageStorage d;
+    d.addDamage(10, 3);
+    d.addDamage(5, 4);
+    d.addDamage(6, 5);
+    for (int i=0;i<3;i++){
+        Damage damageEntity = d.getDamage(i);
+        hwlib::cout << damageEntity.getDamageAmount();
+        hwlib::cout << damageEntity.getPlayerID();
+    }
 
   Receiver r(hwlib::target::pins::d12);
   ReceiverHandler rh(r);
