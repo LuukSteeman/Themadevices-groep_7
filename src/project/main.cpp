@@ -1,26 +1,42 @@
-#include <hwlib.hpp>
-#include "interfaces/keypadListener.hpp"
-#include "controllers/keypadHandler.hpp"
-#include "boundary/keypad.hpp"
-#include <rtos.hpp>
+#include "boundary/speakercontroller.hpp"
+#include "hwlib.hpp"
+#include "rtos.hpp"
 
-class x : public KeypadListener
+class Main : rtos::task<>
 {
+    Speakercontroller &spctrl;
+
   private:
-    void keyPressed(char key)
+    void main()
     {
-        hwlib::cout << key << "\n";
+        while (1)
+        {
+            // sleep(10 * rtos::s);
+            spctrl.add(700);
+            sleep(2 * rtos::s);
+            spctrl.add(200);
+            sleep(2 * rtos::s);
+        };
     };
+
+  public:
+    Main(Speakercontroller &spctrl, char *name) : task(name),
+                                     spctrl(spctrl){};
 };
 
-int main()
-{
-    WDT->WDT_MR = WDT_MR_WDDIS;
-    hwlib::wait_ms(500);
 
-    x X;
-    Keypad k;
-    k.addKeypadListener(&X);
-    KeypadHandler kh(k);
-    rtos::run();
+int main (void)
+{
+	WDT->WDT_MR = WDT_MR_WDDIS;
+
+	hwlib::wait_ms(500);
+	
+  auto speak_pin = hwlib::target::pin_out(hwlib::target::pins::d52);
+	auto speak = Speaker(speak_pin);
+	auto speakctrl = Speakercontroller((char *) "speaker", speak);
+  speakctrl.set_frequency(1500);
+	auto Maintask = Main(speakctrl, (char *)"Testmaintask");
+
+	rtos::run();
+	return 0;
 }
