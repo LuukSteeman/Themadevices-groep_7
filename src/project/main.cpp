@@ -10,10 +10,9 @@
 class x : public ReceiverListener
 {
 public:
-  void msgReceived(short msg)
+  void msgReceived(MessageLogic msg)
   {
-    MessageLogic msglg(msg);
-    hwlib::cout << msglg.getData();
+    hwlib::cout << msg.getData();
   }
 };
 
