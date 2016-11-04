@@ -30,7 +30,7 @@ void ReceiverHandler::listenForMessage()
         int highs = 0;
         for (int i = 0; i < samplesPerBit; i++)
         {
-            if (!ir_pin.get())
+            if (!rec.get())
             {
                 highs++;
             }
