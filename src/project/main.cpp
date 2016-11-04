@@ -5,13 +5,15 @@
 #include "controllers/receiverHandler.hpp"
 #include "interfaces/receiverListener.hpp"
 #include "boundary/speakercontroller.hpp"
+#include "applicationLogic/messageLogic.hpp"
 
 class x : public ReceiverListener
 {
 public:
   void msgReceived(short msg)
   {
-    hwlib::cout << msg;
+    MessageLogic msglg(msg);
+    hwlib::cout << msglg.getData();
   }
 };
 

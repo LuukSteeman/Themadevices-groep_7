@@ -9,10 +9,10 @@
 #############################################################################
 
 # source files in this project (main.cpp is automatically assumed)
-SOURCES := boundary/speaker.cpp boundary/speakercontroller.cpp boundary/receiver.cpp controllers/receiverHandler.cpp
+SOURCES := boundary/speaker.cpp boundary/speakercontroller.cpp boundary/receiver.cpp controllers/receiverHandler.cpp applicationLogic/messageLogic.cpp
 
 # header files in this project
-HEADERS := boundary/speaker.hpp boundary/speakercontroller.cpp boundary/receiver.hpp interfaces/receiverListener.hpp
+HEADERS := boundary/speaker.hpp boundary/speakercontroller.cpp boundary/receiver.hpp interfaces/receiverListener.hpp applicationLogic/messageLogic.hpp
 
 # other places to look for files for this project
 SEARCH  := 
