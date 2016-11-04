@@ -13,6 +13,7 @@ SOURCES := boundary/speaker.cpp boundary/speakercontroller.cpp
 
 # header files in this project
 HEADERS := boundary/speaker.hpp boundary/speakercontroller.cpp
+
 # other places to look for files for this project
 SEARCH  := 
 
