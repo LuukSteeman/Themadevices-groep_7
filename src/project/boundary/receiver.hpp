@@ -3,6 +3,9 @@
 #include <hwlib.hpp>
 #include "../interfaces/receiverListener.hpp"
 
+/**
+  Receiver class. Contains functions to get status of the receiver pin and functions to notify listeners
+*/
 class Receiver : public hwlib::target::pin_in
 {
   private:
@@ -10,7 +13,19 @@ class Receiver : public hwlib::target::pin_in
     ReceiverListener *listeners[maxListeners];
     int listenerCount = 0;
   public:
+    /**
+      Create a receiver
+      @param pin the sensor is connected on
+    */
     Receiver(hwlib::target::pins sensorPin) : hwlib::target::pin_in(sensorPin){};
+    /**
+      When a message is received broadcast to listeners
+      @param message that is received 
+    */
     void update(short msg);
+    /**
+      add Listener to list of listeners
+      @param pointer to the listener
+    */
     void addReceiverListener(ReceiverListener *listener);
 };
