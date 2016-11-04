@@ -3,16 +3,14 @@
 Speaker::Speaker(hwlib::pin_out & lsp) : lsp(lsp)
 {}
 
-void Speaker::set_frequency(int freq)
+void Speaker::set(int m)
 {
-	frequency = freq;
-}
-
-void Speaker::play()
-{
-
-	lsp.set(1);
-	hwlib::wait_ms(1000/frequency);
-	lsp.set(0);
-	hwlib::wait_ms(1000/frequency);
+	if (m == 0)
+	{
+		lsp.set(0);
+	}
+	else
+	{
+		lsp.set(1);
+	}
 }

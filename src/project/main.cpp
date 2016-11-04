@@ -16,8 +16,6 @@ class Main : rtos::task<>
             sleep(2 * rtos::s);
             spctrl.add(200);
             sleep(2 * rtos::s);
-
-
         };
     };
 
@@ -33,12 +31,13 @@ int main (void)
 
 	hwlib::wait_ms(500);
 	
-	auto speak = Speaker(2, 23);
-
-	speak.set_frequency(1500);
+  auto speak_pin = hwlib::target::pin_out(hwlib::target::pins::d52);
+	auto speak = Speaker(speak_pin);
 	auto speakctrl = Speakercontroller((char *) "speaker", speak);
+  speakctrl.set_frequency(1500);
 	auto Maintask = Main(speakctrl, (char *)"Testmaintask");
 
 	rtos::run();
 	return 0;
 }
+

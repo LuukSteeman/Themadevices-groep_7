@@ -9,27 +9,23 @@
 
 ///Speakerclass
 //
-///The speaker class is an implementation of hwlib::pin_out. It uses similiar code to the d2_36kHz class to set pin d2 to an adjustable output.
+///The speaker class serves as a boundary I/O object to produce a sound of a set frequency and variable time when called.
+///While intended for speakers, this class can also be used for other devices with a single input which require a modulated output.
 
 class Speaker
 {
 private:
+	///lsp is a reference to the pin to which the output is send.
 	hwlib::pin_out & lsp;
-	int frequency = 0;
+
 public:
 
-	///The speaker constructor is empty as it's hard coded on pin d2.
+	///When making a speaker object, provide an output pin to initialize the object.
 	Speaker(hwlib::pin_out & lsp);
 
-	///Using the set_frequency() function sets the PWM output on the frequency you give as parameter.
-	///speaker.set_frequency(1500) for instance, sets the frequency on 1500Hz.
-	///@param an integer to determine the frequency
-	void set_frequency(int freq);
-
-
-	///The play() function produces a signal of the set frequency on the designated pin.
-	///@param note_length determines the length of the sound in ms.
-	void play();
+	///set() sets the output of the lsp pin
+	///@param 1 sets the output high, 0 sets it low.
+	void set(int m);
 };
 
 #endif //SPEAKER_HPP
