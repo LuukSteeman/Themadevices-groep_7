@@ -4,7 +4,7 @@
 
 //! Damage Storage Class
 
-class damageStorage
+class DamageStorage
 {
 private:
 	//! An integer that keeps track of how many objects are stored in the array

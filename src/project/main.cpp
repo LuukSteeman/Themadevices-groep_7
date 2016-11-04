@@ -4,7 +4,7 @@
 
 int main()
 {
-	damageStorage d;
+	DamageStorage d;
 	d.addDamage(10, 3);
     d.addDamage(5, 4);
     d.addDamage(6, 5);
