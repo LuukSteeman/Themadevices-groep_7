@@ -1,72 +1,72 @@
 #include <hwlib.hpp>
 #include <rtos.hpp>
 
-#include "boundary/receiver.hpp"
-#include "controllers/receiverHandler.hpp"
-#include "interfaces/receiverListener.hpp"
-#include "boundary/speakercontroller.hpp"
 #include "entity/damageStorage.hpp"
 #include "entity/Damage.hpp"
+#include "nanopb/game.pb.h"
+#include "nanopb/pb_encode.h"
 
-class x : public ReceiverListener
+bool damageCallback(pb_ostream_t *stream, const pb_field_t *field, void *const *arg)
 {
-public:
-  void msgReceived(short msg)
+  Damage damage = Damage_init_zero;
+  for (int i = 0; i < 3; i++)
   {
-    hwlib::cout << msg;
-  }
-};
-
-class Main : rtos::task<>
-{
-  Speakercontroller &spctrl;
-
-private:
-  void main()
-  {
-    while (1)
+    if (!pb_encode_tag_for_field(stream, field))
     {
-      // sleep(10 * rtos::s);
-      spctrl.add(700);
-      sleep(2 * rtos::s);
-      spctrl.add(200);
-      sleep(2 * rtos::s);
-    };
-  };
+      return false;
+    }
 
-public:
-  Main(Speakercontroller &spctrl, char *name) : task(name),
-                                                spctrl(spctrl){};
-};
+    damage.originatingPlayerId = ((DamageStorage *)*arg)->getDamage(i).getPlayerID();
+    damage.amountOfDamage = ((DamageStorage *)*arg)->getDamage(i).getDamageAmount();
+
+    if (!pb_encode_submessage(stream, Damage_fields, &damage))
+    {
+      return false;
+    }
+  }
+  return true;
+}
+
+void writeProtobuf(DamageStorage ds)
+{
+  uint8_t buffer[1024];
+  size_t message_length;
+  bool status;
+
+  GameData message = GameData_init_zero;
+
+  message.originalPlayerId = 13;
+  message.damagesDone.funcs.encode = &damageCallback;
+  message.damagesDone.arg = &ds;
+
+  pb_ostream_t stream = pb_ostream_from_buffer(buffer, sizeof(buffer));
+  status = pb_encode(&stream, GameData_fields, &message);
+  message_length = stream.bytes_written;
+
+  if (!status)
+  {
+    hwlib::cout << "Encoding failed: " << PB_GET_ERROR(&stream) << "\n";
+    return;
+  }
+  hwlib::cout << message_length << "\n";
+  for (unsigned int i = 0; i < message_length; i++)
+  {
+    hwlib::uart_putc(buffer[i]);
+  }
+}
 
 int main()
 {
   WDT->WDT_MR = WDT_MR_WDDIS;
   hwlib::wait_ms(500);
 
-    DamageStorage d;
-    d.addDamage(10, 3);
-    d.addDamage(5, 4);
-    d.addDamage(6, 5);
-    for (int i=0;i<3;i++){
-        Damage damageEntity = d.getDamage(i);
-        hwlib::cout << damageEntity.getDamageAmount();
-        hwlib::cout << damageEntity.getPlayerID();
-    }
+  DamageStorage ds;
 
-  Receiver r(hwlib::target::pins::d12);
-  ReceiverHandler rh(r);
+  ds.addDamage(10, 3);
+  ds.addDamage(5, 4);
+  ds.addDamage(6, 5);
 
-  x X;
-  r.addReceiverListener(&X);
-
-  auto speak_pin = hwlib::target::pin_out(hwlib::target::pins::d52);
-  auto speak = Speaker(speak_pin);
-  auto speakctrl = Speakercontroller((char *)"speaker", speak);
-  speakctrl.set_frequency(1500);
-  auto Maintask = Main(speakctrl, (char *)"Testmaintask");
-
-  rtos::run();
-
+  while(hwlib::cin.getc() != '\n');
+  writeProtobuf(ds);
   return 0;
 }

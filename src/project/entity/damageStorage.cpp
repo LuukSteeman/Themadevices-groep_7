@@ -2,11 +2,11 @@
 
 void DamageStorage::addDamage(int damageAmount, int playerID){
 	if (currentLength < 100){
-		damageArray[currentLength] = Damage(damageAmount, playerID);
+		damageArray[currentLength] = DamageEntity(damageAmount, playerID);
 		currentLength++;
 	}
 }
 
-Damage& DamageStorage::getDamage(int index){
+DamageEntity& DamageStorage::getDamage(int index){
 	return damageArray[index];
 }
