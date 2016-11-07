@@ -26,6 +26,8 @@ void Transmitterctrl::main()
             }
             if (ii == 0)
             {
+            hwlib::cout << "HIER GAAT HET NIET FOUT\n";
+                
                 sleep(3 * rtos::ms);
             }
         }

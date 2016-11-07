@@ -24,9 +24,10 @@ public:
 	template<class T>
 	void sendBit(bool bit, T * task)
 	{
-		set(true);
+		set(1);
     	task->sleep((bit ? 1600 : 800) * rtos::us);
-    	set(false);
+    	hwlib::cout << "HIER GAAT HET NIET FOUT";
+    	set(0);
     	task->sleep((bit ? 800 : 1600) * rtos::us);
 	}
 };
