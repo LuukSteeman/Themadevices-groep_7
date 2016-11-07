@@ -2,7 +2,7 @@
 #include "IRMessage.hpp"
 #include "transmitterctrl.hpp"
 #include "IRMessage.hpp"
-#include "Transmitter.hpp"
+#include "transmitter.hpp"
 #include <rtos.hpp>
 
 class Maintask : public rtos::task<>
@@ -15,7 +15,6 @@ private:
     	while(1)
     	{
 	        transctrl.add(msg);
-	        rtos::display_statistics();
 	        sleep(2 * rtos::s);
 	    }
     }
