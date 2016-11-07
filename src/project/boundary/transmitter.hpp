@@ -21,12 +21,10 @@ public:
 	///@param bool bit is the bit that will be send. If bit is true, the function will put a high signal on the pin for 1600 microseconds
 	///then set it to low for 800 microseconds.
 	///If the bit is false instead this is reversed.
-	template<class T>
-	void sendBit(bool bit, T * task)
+	void sendBit(bool bit, rtos::task_base * task)
 	{
 		set(1);
     	task->sleep((bit ? 1600 : 800) * rtos::us);
-    	hwlib::cout << "HIER GAAT HET NIET FOUT";
     	set(0);
     	task->sleep((bit ? 800 : 1600) * rtos::us);
 	}

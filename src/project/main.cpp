@@ -15,6 +15,7 @@ private:
     	while(1)
     	{
 	        transctrl.add(msg);
+	        rtos::display_statistics();
 	        sleep(2 * rtos::s);
 	    }
     }
