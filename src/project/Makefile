@@ -9,7 +9,7 @@
 #############################################################################
 
 # source files in this project (main.cpp is automatically assumed)
-SOURCES := transmitter.cpp transmitterctrl.cpp IRMessage.cpp
+SOURCES := transmitterctrl.cpp IRMessage.cpp
 
 # header files in this project
 HEADERS := transmitter.hpp transmitterctrl.hpp IRMessage.hpp

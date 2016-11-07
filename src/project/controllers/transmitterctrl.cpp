@@ -1,18 +1,19 @@
 #include "transmitterctrl.hpp"
 #include "bitTools.hpp"
 
-transmitterctrl::transmitterctrl(char * name, transmitter & trans):
+Transmitterctrl::Transmitterctrl(char * name, Transmitter & trans):
 task(name),
 trans(trans),
+flag(this, "Gamestart flag")
 chan(this, "MessageLogic channel")
 {}
 
-void transmitterctrl::add(IRMessage m)
+void Transmitterctrl::add(IRMessage m)
 {
 	chan.write(m);
 }
 
-void transmitterctrl::main()
+void Transmitterctrl::main()
 {
 	while(1)
 	{
