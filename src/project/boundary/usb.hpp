@@ -1,3 +1,4 @@
+#pragma once
 #include "../entity/damageStorage.hpp"
 #include "../nanopb/pb_encode.h"
 
