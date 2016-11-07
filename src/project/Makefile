@@ -9,10 +9,10 @@
 #############################################################################
 
 # source files in this project (main.cpp is automatically assumed)
-SOURCES := boundary/idJumper.cpp
+SOURCES := controllers/oled_controller.cpp drawables/text.cpp
 
 # header files in this project
-HEADERS := boundary/idJumper.hpp
+HEADERS := controllers/oled_controller.hpp interface/gui.hpp drawables/text.hpp boundary/oled.hpp
 
 # other places to look for files for this project
 SEARCH  := 

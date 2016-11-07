@@ -1,11 +1,18 @@
 #include <hwlib.hpp>
-#include "boundary/idJumper.hpp"
+#include "controllers/oled_controller.hpp"
+#include "drawables/text.hpp"
+
 int main()
 {
     WDT->WDT_MR = WDT_MR_WDDIS;
     hwlib::wait_ms(500);
-    auto id = idJumper::getID();
-    hwlib::cout << "ID: " << id << "\n";
+
+    oled_controller oled;
+    oled.init();
+
+    text t(&window1, "Hi");
+    t.draw();
+
     // auto pinin = hwlib::target::pin_in(hwlib::target::pins::d3);
     // auto pinout = hwlib::target::pin_out(hwlib::target::pins::d2);
     // pinout.set(1);
