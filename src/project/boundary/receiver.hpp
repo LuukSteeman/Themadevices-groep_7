@@ -2,6 +2,7 @@
 
 #include <hwlib.hpp>
 #include "../interfaces/receiverListener.hpp"
+#include "../applicationLogic/messageLogic.hpp"
 
 /**
   Receiver class. Contains functions to get status of the receiver pin and functions to notify listeners
@@ -22,7 +23,7 @@ class Receiver : public hwlib::target::pin_in
       When a message is received broadcast to listeners
       @param message that is received 
     */
-    void update(short msg);
+    void update(MessageLogic msg);
     /**
       add Listener to list of listeners
       @param pointer to the listener
