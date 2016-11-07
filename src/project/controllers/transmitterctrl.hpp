@@ -24,8 +24,6 @@ private:
 	///chan is the channel on which the task receives its IRMessages.
 	rtos::channel<IRMessage, 10> chan;
 
-	rtos::flag flag;
-
 	///The main is an infinite while loop.
 	///The main of a transmitterctrl task is automatically run when you use rtos::run in your main.cpp
 	///First the main checks the channel, unless there's something in it, it just keeps repeating the loop.

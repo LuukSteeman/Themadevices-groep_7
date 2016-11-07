@@ -12,7 +12,10 @@ private:
     IRMessage msg;
     void main()
     {
-        transctrl.add(msg);
+    	while(1)
+    	{
+	        transctrl.add(msg);
+	    }
     }
 public:
     Maintask(Transmitterctrl & transctrl, IRMessage msg) :
