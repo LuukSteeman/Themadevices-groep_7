@@ -5,13 +5,15 @@
 #include "../controllers/oled_controller.hpp"
 
 class GUI {
-protected:
-	oled_controller oled;
-	int screen;
 public:
-	GUI(auto & oled, int screen):
+	oled_controller * oled;
+	int screen;
+	char * t;
+	
+	GUI(oled_controller * oled, int screen, char * t):
 		oled(oled),
-		screen(screen)
+		screen(screen),
+		t(t)
 	{}
 
 	virtual void draw() = 0;

@@ -5,41 +5,6 @@ void oled_controller::main(){
 }
 
 void oled_controller::init(int health){
-    oled_buffered_d18_d21 oled_class;
-    auto hw = oled_buffered_d18_d21();
-    auto & oled = hw.oled;
-
-
-    auto window1 = hwlib::window_part( 
-        oled, 
-        hwlib::location( 0, 0 ),
-        hwlib::location( 96, 32));
-    auto window2 = hwlib::window_part( 
-        oled, 
-        hwlib::location( 0, 32 ),
-        hwlib::location( 96, 32));
-    auto window3 = hwlib::window_part( 
-        oled, 
-        hwlib::location( 0, 64 ),
-        hwlib::location( 32, 64));
-     
-
-    auto font_small = hwlib::font_default_8x8();
-    auto font_big = hwlib::font_default_16x16();
-
-
-    static auto outstream1 = hwlib::window_ostream( window1, font_big );
-    static auto outstream2 = hwlib::window_ostream( window2, font_small );
-    static auto outstream3 = hwlib::window_ostream( window3, font_small );
-   
-    outstream1 << "\f"
-                    << "Out1";
-    outstream2 << "\f"
-                    << "Out2";
-    outstream3 << "\f"
-                    << "Out3";
-
-    oled.flush();
       
     // for(;;){
     //    hwlib::wait_ms(100);
@@ -47,7 +12,6 @@ void oled_controller::init(int health){
     //    oled.flush();
     // }      
 }
-
 
 
 // void OLED_Controller::count_down(auto &oled, int N){

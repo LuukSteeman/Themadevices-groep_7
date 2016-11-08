@@ -5,20 +5,16 @@
 #include "../controllers/oled_controller.hpp"
 
 class text : public GUI {
-protected:	
-	char * t;
-	int screen;
 public:
-	oled_controller oled;
+	oled_controller * oled;
+	int screen;
+	char * t;
 
-	text(auto & oled, int screen, char * t):
-		GUI(oled, screen),
+	text(oled_controller * oled, int screen, char * t):
+		oled(oled),
+		screen(screen),
 		t(t)
 	{}
-
-	oled_controller getController(){
-		return *oled;
-	}
 
 	void draw() override;
 
