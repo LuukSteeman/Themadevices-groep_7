@@ -9,10 +9,10 @@
 #############################################################################
 
 # source files in this project (main.cpp is automatically assumed)
-SOURCES := speaker.cpp speakercontroller.cpp receiver.cpp receiverHandler.cpp messageLogic.cpp damageStorage.cpp transmitterctrl.cpp shootCtrl.cpp
+SOURCES := speaker.cpp speakercontroller.cpp receiver.cpp receiverHandler.cpp messageLogic.cpp damageStorage.cpp transmitterctrl.cpp shootCtrl.cpp keypad.cpp keypadHandler.cpp
 
 # header files in this project
-HEADERS := speaker.hpp speakercontroller.cpp receiver.hpp interfaces/receiverListener.hpp messageLogic.hpp damageStorage.hpp transmitter.hpp transmitterctrl.hpp shootCtrl.hpp keypadListener.hpp
+HEADERS := speaker.hpp speakercontroller.cpp receiver.hpp interfaces/receiverListener.hpp messageLogic.hpp damageStorage.hpp transmitter.hpp transmitterctrl.hpp shootCtrl.hpp keypadListener.hpp keypad.hpp keypadHandler.hpp
 
 # other places to look for files for this project
 SEARCH  := boundary/ controllers/ applicationLogic/ entity/ interfaces/
