@@ -9,16 +9,14 @@
 
 ///Transmitterctrl
 //
-///Transmitterctrl is an implementation of the rtos::task<> template.
-///It knows a Transmitter and tells it what bits to send.
-///Use the channel to communicate with this task from other tasks.
-///The channel is made for IRMessages, it can contain up to 10.
-///The channel is read as part of the main, if it contains an IRMessage, it will tell the transmitter what bits to send.
+///Transmitterctrl knows a Transmitter and tells it what bits to send.
+///The run function is only called by the shootCtrl and is therefore part of the same task.
 
 class Transmitterctrl
 {
 private:
-	///trans is the transmitter the controller uses to send IRMessages.
+
+	///trans is the transmitter the controller uses to send messageLogic.
 	Transmitter & trans;
 
 	///The main is an infinite while loop.
@@ -27,12 +25,14 @@ private:
 	///Once there's a IRMessage object in the channel, encode function is run and the return value is stored in a short.
 	///The corresponding bits are then send to the transmitter.
 public:
+
+	///The run function is called by the shootCtrl.
+	///@param m is the message it's going to send.
+	///@param task is a pointer to the task that called it. Required for calling the sleep function in the transmitter
 	void run(MessageLogic m, rtos::task_base * task);
 
-	///The Transmitterctrl constructor requires a name for debugging and a reference to a transmitter.
+	///@param trans a reference to a transmitter object
 	Transmitterctrl(Transmitter & trans);
-
-	///To communicate with Transmitterctrl task from other tasks, use the add() function to put IRMessage objects in the channel.
 
 };
 
