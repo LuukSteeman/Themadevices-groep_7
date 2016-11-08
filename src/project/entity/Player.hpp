@@ -6,7 +6,7 @@
 class Player
 {
 private:
-	//! The amount of health the player has, starting at 100
+	//! The amount of health the player has
 	int hitPoints;
 
 	//! The player's chosen weapon, which is used to calculate damage and rate of fire
