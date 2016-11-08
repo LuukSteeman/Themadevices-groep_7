@@ -1,9 +1,12 @@
 #include "oled_controller.hpp"
 
+void oled_controller::main(){
+    init(100);
+}
 
-void OLED_Controller::init(int health){
+void oled_controller::init(int health){
     oled_buffered_d18_d21 oled_class;
-    auto hw     = oled_buffered_d18_d21();
+    auto hw = oled_buffered_d18_d21();
     auto & oled = hw.oled;
 
 
@@ -20,13 +23,14 @@ void OLED_Controller::init(int health){
         hwlib::location( 0, 64 ),
         hwlib::location( 32, 64));
      
+
     auto font_small = hwlib::font_default_8x8();
     auto font_big = hwlib::font_default_16x16();
 
 
-    auto outstream1 = hwlib::window_ostream( window1, font_big );
-    auto outstream2 = hwlib::window_ostream( window2, font_big );
-    auto outstream3 = hwlib::window_ostream( window3, font_small );
+    static auto outstream1 = hwlib::window_ostream( window1, font_big );
+    static auto outstream2 = hwlib::window_ostream( window2, font_small );
+    static auto outstream3 = hwlib::window_ostream( window3, font_small );
    
     outstream1 << "\f"
                     << "Out1";

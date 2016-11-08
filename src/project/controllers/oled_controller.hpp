@@ -6,12 +6,14 @@
 #include <rtos.hpp>
 // #include ""
 
-class OLED_Controller : public rtos::task<>{
+class oled_controller : public rtos::task<>{
 public:
+	
 	void count_down(auto & oled, int N);
 	void init();
 	void init(int health);
-	OLED_Controller(char * name) : task(name){};
+	void main();
+	oled_controller(char * name) : task(name){};
 };
 
 

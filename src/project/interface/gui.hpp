@@ -5,14 +5,13 @@
 #include "../controllers/oled_controller.hpp"
 
 class GUI {
-private:
-	auto & w;
-	hwlib::location location;
-public:
+protected:
 	oled_controller oled;
-	GUI(auto & w, const hwlib::location & location ):
-		w( w ),
-		location( location )
+	int screen;
+public:
+	GUI(auto & oled, int screen):
+		oled(oled),
+		screen(screen)
 	{}
 
 	virtual void draw() = 0;

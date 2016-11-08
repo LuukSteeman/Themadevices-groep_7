@@ -1,12 +1,13 @@
 #include "text.hpp"
 
 void text::draw(){
-    oled.d1 << "\f"
+	getController().init();
+    getController().outstream1 << "\f"
         << "Hi";   
-	oled.d2 << "\f"
+	getController().outstream1 << "\f"
         << "How are you?" << "\n";
 
-    oled.flush();
+    getController().flush();
 
     hwlib::wait_ms(100);
 }

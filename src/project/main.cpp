@@ -1,20 +1,41 @@
 #include <hwlib.hpp>
-#include "controllers/oled_controller.hpp"
+#include <rtos.hpp>
+
 #include "drawables/text.hpp"
+#include "controllers/oled_controller.hpp"
+
+
+class Main : rtos::task<> {
+
+
+private:
+	oled_controller oled_control;
+	text t(& oled, 2, "Hi");
+	void main() {
+		while (1) {
+			t.draw();
+			sleep(2 * rtos::s);
+			t.draw();
+			sleep(2 * rtos::s);
+		};
+	};
+
+public:
+	Main(oled_controller &oled_control, char *name) : 
+		task(name), spctrl(spctrl)
+	{};
+};
+
 
 int main()
 {
-    WDT->WDT_MR = WDT_MR_WDDIS;
-    hwlib::wait_ms(500);
+	WDT->WDT_MR = WDT_MR_WDDIS;
+	hwlib::wait_ms(500);
 
-    oled_controller oled;
-    oled.init();
+	auto oled_control = oled_controller((char *)"OLED Controller", speak);
+	auto Maintask = Main(oled_control, (char *)"Testmaintask");
 
-    text t(&window1, "Hi");
-    t.draw();
+	rtos::run();
 
-    // auto pinin = hwlib::target::pin_in(hwlib::target::pins::d3);
-    // auto pinout = hwlib::target::pin_out(hwlib::target::pins::d2);
-    // pinout.set(1);
-    // hwlib::cout << pinin.get()<<"\n";
+	return 0;
 }
