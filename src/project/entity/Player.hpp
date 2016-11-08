@@ -21,7 +21,7 @@ public:
 
 	//! Set the player's weapon
 	//! @param The weapon ID chosen on the keypad
-	void setWeapon(int weapon){weaponID = weapon;};
+	void setWeapon(int weapon){if (weapon >0 && weapon<10){weaponID = weapon;}};
 
 	//! Returns the ID of the player's chosen weapon
 	int getWeapon(){return weaponID;};
