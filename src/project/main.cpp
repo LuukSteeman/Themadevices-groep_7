@@ -9,6 +9,7 @@
 #include "messageLogic.hpp"
 #include "damageStorage.hpp"
 #include "Damage.hpp"
+#include "controllers/transferController.hpp"
 
 class Maintask : public rtos::task<>
 {
@@ -41,24 +42,21 @@ public:
 
 class Main : rtos::task<>
 {
-  Speakercontroller &spctrl;
-
 private:
   void main()
   {
+    DamageStorage ds;
+
+    ds.addDamage(10, 3);
+    ds.addDamage(5, 4);
+    ds.addDamage(6, 5);
+
+    TransferController t(ds);
     while (1)
     {
-      // sleep(10 * rtos::s);
-      spctrl.add(700);
-      sleep(2 * rtos::s);
-      spctrl.add(200);
-      sleep(2 * rtos::s);
-    };
-  };
-
-public:
-  Main(Speakercontroller &spctrl, char *name) : task(name),
-                                                spctrl(spctrl){};
+      t.run(this);
+    }
+  }
 };
 
 int main()
@@ -76,7 +74,7 @@ int main()
   d.addDamage(6, 5);
   for (int i = 0; i < 3; i++)
   {
-    Damage damageEntity = d.getDamage(i);
+    DamageEntity damageEntity = d.getDamage(i);
     hwlib::cout << damageEntity.getDamageAmount();
     hwlib::cout << damageEntity.getPlayerID();
   }
@@ -91,9 +89,8 @@ int main()
   auto speak = Speaker(speak_pin);
   auto speakctrl = Speakercontroller((char *)"speaker", speak);
   speakctrl.set_frequency(1500);
-  auto Maintask = Main(speakctrl, (char *)"Testmaintask");
+  auto Maintask = Main();
 
   rtos::run();
-
   return 0;
 }
