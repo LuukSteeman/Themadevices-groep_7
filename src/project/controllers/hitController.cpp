@@ -5,25 +5,24 @@ HitController::HitController(Speakercontroller &sp, DamageStorage &ds, Receiver 
                                                                                                      ds(ds),
                                                                                                      play(play)
 {
-    // rs.addReceiverListener(this);
+    rs.addReceiverListener(this);
 }
 
 void HitController::msgReceived(MessageLogic msg)
 {
-    // sp.add(10);
-    // hitchannel.write(msg);
+    hitchannel.write(msg);
 }
 
 void HitController::main()
 {
     while (1)
     {
-        // hitchannel.read();
-        //check for not self
-        // int damage = getDamageAmount(message.getData());
-        // pl.updateHP(damage);
-        // // hwlib::cout << pl;
-        // ds.addDamage(damage, message.getId());
-        sleep(100000000);
-    };
+        MessageLogic message = hitchannel.read();
+        // check for not self
+        int damage = calcDamage(message.getData());
+        play.updateHP(damage);
+        hwlib::cout << play.getHP();
+        ds.addDamage(damage, message.getId());
+        sp.add(10);
+    }
 }
