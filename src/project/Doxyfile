@@ -846,7 +846,7 @@ EXAMPLE_RECURSIVE      = NO
 # that contain images that are to be included in the documentation (see the
 # \image command).
 
-IMAGE_PATH             = images
+IMAGE_PATH             = 
 
 # The INPUT_FILTER tag can be used to specify a program that doxygen should
 # invoke to filter for each input file. Doxygen will invoke the filter program
@@ -2268,7 +2268,7 @@ DIRECTORY_GRAPH        = YES
 # The default value is: png.
 # This tag requires that the tag HAVE_DOT is set to YES.
 
-DOT_IMAGE_FORMAT       = svg
+DOT_IMAGE_FORMAT       = png
 
 # If DOT_IMAGE_FORMAT is set to svg, then this option can be set to YES to
 # enable generation of interactive SVG images that allow zooming and panning.
@@ -2379,19 +2379,3 @@ GENERATE_LEGEND        = YES
 # This tag requires that the tag HAVE_DOT is set to YES.
 
 DOT_CLEANUP            = YES
-
-
-
-
-EXTRACT_ALL          = YES
-CLASS _DIAGRAMS      = YES
-HIDE_UNDOC_RELATIONS = NO
-HAVE_DOT             = YES
-CLASS_GRAPH          = YES
-COLLABORATION_GRAPH  = YES
-UML_LOOK             = YES
-UML_LIMIT_NUM_FIELDS = 50
-TEMPLATE_RELATIONS   = YES
-DOT_GRAPH_MAX_NODES  = 100
-MAX_DOT_GRAPH_DEPTH  = 0
-DOT_TRANSPARENT      = YES

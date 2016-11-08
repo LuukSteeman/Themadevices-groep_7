@@ -1,11 +1,5 @@
 ///@file
 
-/*
-/home/Robert/SCHOOL/2015-2016/Themadevices-groep_7/src/project/boundary/speaker.hpp:26: warning: argument '1' of command @param is not found in the argument list of Speaker::set(int m)
-/home/Robert/SCHOOL/2015-2016/Themadevices-groep_7/src/project/boundary/speaker.hpp:28: warning: The following parameters of Speaker::set(int m) are not documented:
-  parameter 'm'
-*/
-
 #ifndef SPEAKER_HPP
 #define SPEAKER_HPP
 
@@ -30,7 +24,7 @@ public:
 	Speaker(hwlib::pin_out & lsp);
 
 	///set() sets the output of the lsp pin
-	///@param 1 sets the output high, 0 sets it low.
+	///@param m sets the output high, 0 sets it low.
 	void set(int m);
 };
 
