@@ -2,7 +2,7 @@
 #define GUI_HPP
 
 #include <hwlib.hpp>
-#include "../controllers/oled_controller.hpp"
+#include "../boundary/oled.hpp"
 
 class gui {
 	virtual void draw(oled oled_screen, int screen) = 0;

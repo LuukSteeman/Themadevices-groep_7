@@ -1,6 +1,6 @@
 #include "string.hpp"
 
-void draw(oled oled_screen, int screen){
+void string::draw(oled oled_screen, int screen){
     auto & oled = oled_screen.oled_buffered;
 
 

@@ -6,31 +6,34 @@
 
 class Main : public rtos::task<>{
   private:
-    oled oled_screen;
-    oled_controller oled_control((char*)"OLED Controller", oled_screen);
-
-    string s((char*)"Hi");
+    oled_controller & oled_control;
+    char ding;
+    string s;
     void main(){
-
-      oled_control.add(s);
-
       while(1){
-        //of hier
+            oled_control.add(s);
+            sleep(1 * rtos::s);
       }
     }
 
   public:
     Main(oled_controller & oled_control, char *name) : 
-      oled_control(oled_control), task(name)
-    {};
+    task(name),
+    oled_control(oled_control)
+    {
+      ding = 'o';
+      s = string(&ding);
+    }
 
-}
+};
 
 int main(){
   WDT->WDT_MR = WDT_MR_WDDIS;
 	hwlib::wait_ms(500);
-  
-  auto oled_control = oled_controller((char*)"Controller");
-  auto Maintask = Main(&oled_control, "Testmaintask");
+
+
+  oled oled_screen;
+  auto oled_control = oled_controller((char*)"Controller", oled_screen);
+  auto Maintask = Main(oled_control, (char*)"Testmaintask");
   rtos::run();
 }
