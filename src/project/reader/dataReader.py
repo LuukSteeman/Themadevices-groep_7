@@ -1,12 +1,15 @@
 import serial
 import game_pb2
 def getGameDataFromSerial(serialPort):
-    x = serial.Serial(port=serialPort,baudrate=38400,parity=serial.PARITY_NONE,stopbits=serial.STOPBITS_ONE,bytesize=serial.EIGHTBITS,timeout=0)
+    x = serial.Serial(port=serialPort,baudrate=38400,parity=serial.PARITY_NONE,stopbits=serial.STOPBITS_ONE,bytesize=serial.EIGHTBITS,timeout=1000)
 
     raw_input("Press enter to retrieve data\n")
     x.write("\n")
     length = x.readline()
-    length = int(length)
+    while "dataLength" not in length:
+        x.write("\n")
+        length = x.readline()
+    length = int(length.split(':')[1])
     data = ''
     lengthalreadyread = 0
     while lengthalreadyread < length:

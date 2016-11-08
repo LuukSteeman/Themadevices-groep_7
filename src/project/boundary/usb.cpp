@@ -45,7 +45,7 @@ void USB::writeToUSB(DamageStorage ds)
     hwlib::cout << "Encoding failed: " << PB_GET_ERROR(&stream) << "\n";
     return;
   }
-  hwlib::cout << message_length << "\n";
+  hwlib::cout << "dataLength:" << message_length << "\n";
   for (unsigned int i = 0; i < message_length; i++)
   {
     hwlib::uart_putc(buffer[i]);

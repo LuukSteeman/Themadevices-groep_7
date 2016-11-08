@@ -16,8 +16,10 @@ private:
     ds.addDamage(6, 5);
 
     TransferController t(ds);
-    t.run(this);
-    while (1);
+    while (1)
+    {
+      t.run(this);
+    }
   }
 };
 

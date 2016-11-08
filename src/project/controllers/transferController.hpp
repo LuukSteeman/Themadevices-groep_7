@@ -22,11 +22,15 @@ class TransferController
         This waits for a '\n'to be received and then sends data over serial
         @param task The task in which this controller is run.
     */
-    void run(rtos::task_base* task)
+    void run(rtos::task_base *task)
     {
-        while (hwlib::cin.getc() != '\n'){
-            task->sleep(10);
-        }
+        do
+        {
+            while (!hwlib::cin.char_available())
+            {
+                task->sleep(10 * rtos::us);
+            }
+        } while (hwlib::cin.getc() != '\n');
         USB::writeToUSB(ds);
     };
 
