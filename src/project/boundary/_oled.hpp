@@ -15,12 +15,6 @@ namespace hwlib {
    };
 };
 
-   // The OLED display is connected in a very funny way:
-   // the I2C pins are reversed, and two GPIO pins are
-   // (mis-) used as ground and power for the display.
-   // This works, and makes it very easy to connect the LCD,
-   // but don't take this as an advice to connect peripherals is this way
-   // unless you know very well what you are doing.
 class oled_buffered_d18_d21 {
    target::pin_oc scl, sda;
    hwlib::i2c_bus_bit_banged_scl_sda i2c_bus;
