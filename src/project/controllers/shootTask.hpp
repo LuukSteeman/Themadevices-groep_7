@@ -2,10 +2,10 @@
 #define SHOOTTASK_HPP
 
 #include <rtos.hpp>
-#include "transmitterctrl.hpp"
-#include "keypadListener.hpp"
-#include "player.hpp"
-#include "gunLogic.hpp"
+#include "controllers/transmitterctrl.hpp"
+#include "interface/keypadListener.hpp"
+#include "entity/player.hpp"
+#include "applicationLogic/gunLogic.hpp"
 
 class shootTask : public rtos::task<>, public keypadListener
 {
