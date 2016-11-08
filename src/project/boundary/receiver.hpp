@@ -1,14 +1,3 @@
-/*
-/home/Robert/SCHOOL/2015-2016/Themadevices-groep_7/src/project/boundary/receiver.hpp:18: warning: argument 'pin' of command @param is not found in the argument list of Receiver::Receiver(hwlib::target::pins sensorPin)
-/home/Robert/SCHOOL/2015-2016/Themadevices-groep_7/src/project/boundary/receiver.hpp:21: warning: The following parameters of Receiver::Receiver(hwlib::target::pins sensorPin) are not documented:
-  parameter 'sensorPin'
-/home/Robert/SCHOOL/2015-2016/Themadevices-groep_7/src/project/boundary/receiver.hpp:28: warning: argument 'pointer' of command @param is not found in the argument list of Receiver::addReceiverListener(ReceiverListener *listener)
-/home/Robert/SCHOOL/2015-2016/Themadevices-groep_7/src/project/boundary/receiver.hpp:31: warning: The following parameters of Receiver::addReceiverListener(ReceiverListener *listener) are not documented:
-  parameter 'listener'
-/home/Robert/SCHOOL/2015-2016/Themadevices-groep_7/src/project/boundary/receiver.hpp:23: warning: argument 'message' of command @param is not found in the argument list of Receiver::update(MessageLogic msg)
-/home/Robert/SCHOOL/2015-2016/Themadevices-groep_7/src/project/boundary/receiver.hpp:26: warning: The following parameters of Receiver::update(MessageLogic msg) are not documented:
-  parameter 'msg'
-*/
 #pragma once
 
 #include <hwlib.hpp>
