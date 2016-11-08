@@ -44,5 +44,9 @@ void ReceiverHandler::listenForMessage()
             data |= (1 << (bits - bit));
         }
     }
-    rec.update(data);
+    MessageLogic m(data);
+    if (!m.getError())
+    {
+        rec.update(m);
+    }
 }

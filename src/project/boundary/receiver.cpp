@@ -10,7 +10,7 @@ void Receiver::addReceiverListener(ReceiverListener* listener){
     }
 }
 
-void Receiver::update(short msg){
+void Receiver::update(MessageLogic msg){
     {
         for (int i = 0; i < listenerCount; i++)
         {

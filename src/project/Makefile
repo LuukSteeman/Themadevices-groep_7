@@ -9,13 +9,13 @@
 #############################################################################
 
 # source files in this project (main.cpp is automatically assumed)
-SOURCES := boundary/speaker.cpp boundary/speakercontroller.cpp boundary/receiver.cpp controllers/receiverHandler.cpp entity/damageStorage.cpp nanopb/pb_common.c nanopb/pb_decode.c nanopb/pb_encode.c nanopb/game.pb.c boundary/usb.cpp controllers/transferController.cpp
+SOURCES := speaker.cpp speakercontroller.cpp receiver.cpp receiverHandler.cpp messageLogic.cpp damageStorage.cpp transmitterctrl.cpp transferController.cpp usb.cpp game.pb.c pb_encode.c pb_common.c
 
 # header files in this project
-HEADERS := boundary/speaker.hpp boundary/speakercontroller.cpp boundary/receiver.hpp interfaces/receiverListener.hpp entity/Damage.hpp entity/damageStorage.hpp pb_common.h pb_decode.h pb_encode.h game.pb.h pb.h boundary/usb.hpp controllers/transferController.hpp
+HEADERS := speaker.hpp speakercontroller.cpp receiver.hpp receiverListener.hpp messageLogic.hpp damageStorage.hpp transmitter.hpp transmitterctrl.hpp  transferController.hpp usb.hpp pb_common.h pb_encode.h game.pb.h pb.h 
 
 # other places to look for files for this project
-SEARCH  := nanopb/
+SEARCH  := boundary/ controllers/ applicationLogic/ entity/ interfaces/ nanopb/
 
 # set BMPTK to the next higher directory and defer to the Makefile.due
 BMPTK := $(BMPTK)../
