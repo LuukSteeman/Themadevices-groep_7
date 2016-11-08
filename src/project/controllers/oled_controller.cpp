@@ -1,16 +1,13 @@
 #include "oled_controller.hpp"
 
 void oled_controller::main(){
-    init(100);
-}
-
-void oled_controller::init(int health){
-      
-    // for(;;){
-    //    hwlib::wait_ms(100);
-    //    // d2 << "\f" << ++n;
-    //    oled.flush();
-    // }      
+    
+    // oled.outstream1  << "\f"
+    //             << "1" << "\n";   
+    // oled.outstream2  << "\f"
+    //             << "2" << "\n";
+    // oled.outstream3  << "\f"
+    //             << "3" << "\n";
 }
 
 

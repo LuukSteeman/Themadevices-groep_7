@@ -6,19 +6,17 @@
 
 class text : public GUI {
 public:
-	oled_controller * oled;
+	oled_controller oled;
 	int screen;
 	char * t;
 
-	text(oled_controller * oled, int screen, char * t):
+	text(oled_controller & oled, int screen, char * t):
 		oled(oled),
 		screen(screen),
 		t(t)
 	{}
 
 	void draw() override;
-
-	void update() override;
 };
 
 #endif
