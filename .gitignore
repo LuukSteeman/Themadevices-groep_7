@@ -34,3 +34,6 @@
 *.map
 *.ld
 bmptk_fixed_size_stack.c
+
+#python files
+*.pyc
