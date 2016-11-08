@@ -1,16 +1,16 @@
 #include "shootCtrl.hpp"
 
-shootCtrl::shootCtrl(char * name, Transmitterctrl & transc /*Player & player*/) :
+shootCtrl::shootCtrl(char * name, Transmitterctrl & transc, Player & player) :
 task(name),
 keychannel(this, "channel for keypresses"),
-transc(transc)
-//player(player)
+transc(transc),
+player(player)
 {}
 
 void shootCtrl::main()
 {
 
-	msg = MessageLogic(10,5);
+	msg = MessageLogic(10, player.getWeapon());
 	while(1)
 	{
 		if (keychannel.read() == '*')

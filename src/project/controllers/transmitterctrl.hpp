@@ -33,6 +33,7 @@ public:
 	Transmitterctrl(Transmitter & trans);
 
 	///To communicate with Transmitterctrl task from other tasks, use the add() function to put IRMessage objects in the channel.
+
 };
 
 #endif //TRANSMITTERCTRL_HPP

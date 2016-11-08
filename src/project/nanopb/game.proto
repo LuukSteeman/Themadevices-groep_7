@@ -1,0 +1,14 @@
+// A very simple protocol definition, consisting of only
+// one message.
+
+syntax = "proto2";
+
+message Damage{
+	required int32 originatingPlayerId = 1;
+	required int32 amountOfDamage = 2;
+}
+
+message GameData {
+	required int32 originalPlayerId = 1;
+	repeated Damage damagesDone = 2;
+}

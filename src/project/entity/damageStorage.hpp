@@ -11,7 +11,7 @@ private:
 	int currentLength = 0;
 	
 	//! An array that can contain up to 100 Damage objects, since the player can never take more than 100 hits before dying
-	Damage damageArray[100];
+	DamageEntity damageArray[100];
 public:
 	//! Called when a player takes damage. Creates a Damage object and puts it in the damageArray
 	//! @param The amount of damage the player took
@@ -20,7 +20,7 @@ public:
 	
 	//! Returns a reference to a Damage object
 	//! @param The index of the Damage object you want to return
-	Damage& getDamage(int index);
+	DamageEntity& getDamage(int index);
 };
 
 #endif // DAMAGESTORAGE_HPP

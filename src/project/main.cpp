@@ -1,4 +1,6 @@
 #include <hwlib.hpp>
+#include "transmitterctrl.hpp"
+#include "transmitter.hpp"
 #include <rtos.hpp>
 #include "applicationLogic/messageLogic.hpp"
 #include "controllers/shootCtrl.hpp"
@@ -21,6 +23,5 @@ int main()
   KeypadHandler handler(pad);
 
   rtos::run();
-
   return 0;
 }
