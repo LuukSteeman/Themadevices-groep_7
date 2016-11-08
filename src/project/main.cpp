@@ -1,13 +1,35 @@
 #include <hwlib.hpp>
+#include "IRMessage.hpp"
+#include "transmitterctrl.hpp"
+#include "IRMessage.hpp"
+#include "transmitter.hpp"
 #include <rtos.hpp>
+#include "receiver.hpp"
+#include "receiverHandler"
+#include "receiverListener"
+#include "Speakercontroller"
+#include "messageLogic"
+#include "damageStorage"
+#include "damage"
 
-#include "boundary/receiver.hpp"
-#include "controllers/receiverHandler.hpp"
-#include "interfaces/receiverListener.hpp"
-#include "boundary/speakercontroller.hpp"
-#include "applicationLogic/messageLogic.hpp"
-#include "entity/damageStorage.hpp"
-#include "entity/Damage.hpp"
+class Maintask : public rtos::task<>
+{
+private:
+    Transmitterctrl & transctrl;
+    IRMessage msg;
+    void main()
+    {
+    	while(1)
+    	{
+	        transctrl.add(msg);
+	        sleep(2 * rtos::s);
+	    }
+    }
+public:
+    Maintask(Transmitterctrl & transctrl, IRMessage msg) :
+    transctrl(transctrl),
+    msg(msg)
+    {}
 
 class x : public ReceiverListener
 {
@@ -42,9 +64,13 @@ public:
 
 int main()
 {
-  WDT->WDT_MR = WDT_MR_WDDIS;
-  hwlib::wait_ms(500);
+    WDT->WDT_MR = WDT_MR_WDDIS;
+    hwlib::wait_ms(500);
 
+    Transmitter trans;
+    Transmitterctrl transctrl((char *) "Transmittercontroller and task", trans);
+    IRMessage message(10,5);
+    Maintask main(transctrl, message);
     DamageStorage d;
     d.addDamage(10, 3);
     d.addDamage(5, 4);
