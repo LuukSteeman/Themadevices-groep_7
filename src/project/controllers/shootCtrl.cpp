@@ -1,4 +1,5 @@
 #include "shootCtrl.hpp"
+#include "gunLogic.hpp"
 
 shootCtrl::shootCtrl(char * name, Transmitterctrl & transc, Player & player) :
 task(name),
@@ -10,13 +11,15 @@ player(player)
 void shootCtrl::main()
 {
 
-	msg = MessageLogic(10, player.getWeapon());
+	weaponId = player.getWeapon();
+	shotdelay = calcShootDelay(weaponId);
+	msg = MessageLogic(10, weaponId);
 	while(1)
 	{
 		if (keychannel.read() == '*')
 		{
 			transc.run(msg, this);
-			sleep(100 * rtos::ms);
+			sleep(shotdelay * rtos::ms);
 		}
 
 		sleep(1 * rtos::ms);

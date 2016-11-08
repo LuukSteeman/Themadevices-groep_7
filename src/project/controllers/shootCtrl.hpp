@@ -4,18 +4,19 @@
 #include <rtos.hpp>
 #include "transmitterctrl.hpp"
 #include "keypadListener.hpp"
-#include "entity/player.hpp"
-#include "applicationLogic/gunLogic.hpp"
+#include "Player.hpp"
 #include "messageLogic.hpp"
 
 class shootCtrl : public rtos::task<>, public KeypadListener
 {
 private:
-	rtos::channel<char, 10> keychannel;
+	rtos::channel<char, 1> keychannel;
 	Transmitterctrl & transc;
 	Player & player;
 	MessageLogic msg;
 	void main();
+	int weaponId;
+	int shotdelay;
 
 public:
 	shootCtrl(char * name, Transmitterctrl & transc, Player & player);

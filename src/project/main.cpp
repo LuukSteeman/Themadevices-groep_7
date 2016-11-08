@@ -8,6 +8,8 @@
 #include "controllers/transmitterctrl.hpp"
 #include "boundary/keypad.hpp"
 #include "controllers/keypadHandler.hpp"
+#include "entity/Player.hpp"
+
 
 
 int main()
@@ -18,7 +20,9 @@ int main()
   Keypad pad;
   Transmitter trans;
   Transmitterctrl transctrl(trans);
-  shootCtrl shoot((char*)"task for shooting", transctrl);
+  Player player;
+  player.setWeapon(5);
+  shootCtrl shoot((char*)"task for shooting", transctrl, player);
   pad.addKeypadListener(&shoot);
   KeypadHandler handler(pad);
 
