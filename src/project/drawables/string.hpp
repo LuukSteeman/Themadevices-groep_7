@@ -1,16 +1,17 @@
-#ifndef TEXT_HPP
-#define TEXT_HPP
+#ifndef STRING_HPP
+#define STRING_HPP
 
 #include <hwlib.hpp>
 #include "../interface/gui.hpp"
 
-class text : gui{
+class string : public gui{
 private:
 	char * t;
 public:
-	text(char * t):
+	string(char * t):
 		t(t)
 	{}
+	string(){}
 
 	void draw(oled oled_screen, int screen);
 };

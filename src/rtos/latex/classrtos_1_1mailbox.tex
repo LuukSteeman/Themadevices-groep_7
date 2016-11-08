@@ -1,0 +1,80 @@
+\hypertarget{classrtos_1_1mailbox}{}\section{rtos\+:\+:mailbox$<$ T $>$ Class Template Reference}
+\label{classrtos_1_1mailbox}\index{rtos\+::mailbox$<$ T $>$@{rtos\+::mailbox$<$ T $>$}}
+
+
+Synchronously handing over of a data item.  
+
+
+
+
+{\ttfamily \#include $<$rtos.\+hpp$>$}
+
+Inheritance diagram for rtos\+:\+:mailbox$<$ T $>$\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classrtos_1_1mailbox}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classrtos_1_1mailbox_a31d61fcc4b21f6450ffc55f7de1da968}{mailbox} (const char $\ast$name=\char`\"{}\char`\"{})
+\begin{DoxyCompactList}\small\item\em constructor, specify mailbox name \end{DoxyCompactList}\item 
+void \hyperlink{classrtos_1_1mailbox_aa49a194170b9a498982c7867462e99d0}{write} (const T item)
+\item 
+T \hyperlink{classrtos_1_1mailbox_aba12a2a7ff395526f88eb9014e26604a}{read} (void)
+\begin{DoxyCompactList}\small\item\em read a value from the mailbox \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$class T$>$\\*
+class rtos\+::mailbox$<$ T $>$}
+
+Synchronously handing over of a data item. 
+
+A mailbox is a template class synchronization mechanism. A single value can be written to the mailbox. Another task can read the value from the mailbox. The read and write calls wait on each other before they are allowed to proceed.
+
+A mailbox is not created for a particular task, and it is not a waitable.
+
+Initially a mailbox is empty. The \hyperlink{classrtos_1_1mailbox_aa49a194170b9a498982c7867462e99d0}{write()} operation writes to the mailbox, and, if present, unblocks a reading task and returns, otherwise the writing task is blocked. The \hyperlink{classrtos_1_1mailbox_aba12a2a7ff395526f88eb9014e26604a}{read()} operation blocks the calling task until there is a value in the mailbox. Then it reads the value, unblocks the task that wrote to the mailbox, and returns. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{rtos\+::mailbox@{rtos\+::mailbox}!mailbox@{mailbox}}
+\index{mailbox@{mailbox}!rtos\+::mailbox@{rtos\+::mailbox}}
+\subsubsection[{\texorpdfstring{mailbox(const char $\ast$name="""")}{mailbox(const char *name="")}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ {\bf rtos\+::mailbox}$<$ T $>$\+::{\bf mailbox} (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{name = {\ttfamily \char`\"{}\char`\"{}}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classrtos_1_1mailbox_a31d61fcc4b21f6450ffc55f7de1da968}{}\label{classrtos_1_1mailbox_a31d61fcc4b21f6450ffc55f7de1da968}
+
+
+constructor, specify mailbox name 
+
+Create a mailbox. The mailbox is initially empty. The template argument T must be a class that has a non-\/arguments constructor and supports assignment. 
+
+\subsection{Member Function Documentation}
+\index{rtos\+::mailbox@{rtos\+::mailbox}!read@{read}}
+\index{read@{read}!rtos\+::mailbox@{rtos\+::mailbox}}
+\subsubsection[{\texorpdfstring{read(void)}{read(void)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ T {\bf rtos\+::mailbox}$<$ T $>$\+::read (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classrtos_1_1mailbox_aba12a2a7ff395526f88eb9014e26604a}{}\label{classrtos_1_1mailbox_aba12a2a7ff395526f88eb9014e26604a}
+
+
+read a value from the mailbox 
+
+If a writing tasks is waiting for the mailbox it is unblocked and the reader gets the data. Otherwise the current task is blocked until it is released by a writer. \index{rtos\+::mailbox@{rtos\+::mailbox}!write@{write}}
+\index{write@{write}!rtos\+::mailbox@{rtos\+::mailbox}}
+\subsubsection[{\texorpdfstring{write(const T item)}{write(const T item)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ void {\bf rtos\+::mailbox}$<$ T $>$\+::write (
+\begin{DoxyParamCaption}
+\item[{const T}]{item}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classrtos_1_1mailbox_aa49a194170b9a498982c7867462e99d0}{}\label{classrtos_1_1mailbox_aa49a194170b9a498982c7867462e99d0}
+write an item into the mailbox
+
+The current (writing) task stores an item in the mailbox. If a client (reader) is waiting, it is unblocked. Otherwise the task waits (is blocked) until a reading task has read the item. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+rtos.\+hpp\end{DoxyCompactItemize}

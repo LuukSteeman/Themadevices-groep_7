@@ -1,0 +1,105 @@
+\hypertarget{classrtos}{}\section{rtos Class Reference}
+\label{classrtos}\index{rtos@{rtos}}
+
+
+static class, namespace-\/like container for R\+T\+OS declarations  
+
+
+
+
+{\ttfamily \#include $<$rtos.\+hpp$>$}
+
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classrtos_1_1channel}{channel}
+\begin{DoxyCompactList}\small\item\em waitable data queue \end{DoxyCompactList}\item 
+class \hyperlink{classrtos_1_1channel__base}{channel\+\_\+base}
+\begin{DoxyCompactList}\small\item\em rtos private implementation class \end{DoxyCompactList}\item 
+class \hyperlink{classrtos_1_1clock}{clock}
+\begin{DoxyCompactList}\small\item\em free-\/running clock, ticks at a fixed frequency \end{DoxyCompactList}\item 
+class \hyperlink{classrtos_1_1event}{event}
+\begin{DoxyCompactList}\small\item\em set of things that can happen, or a thing that has happened \end{DoxyCompactList}\item 
+class \hyperlink{classrtos_1_1flag}{flag}
+\begin{DoxyCompactList}\small\item\em basic synchronisation mechanism. \end{DoxyCompactList}\item 
+class \hyperlink{classrtos_1_1mailbox}{mailbox}
+\begin{DoxyCompactList}\small\item\em Synchronously handing over of a data item. \end{DoxyCompactList}\item 
+class \hyperlink{classrtos_1_1mailbox__base}{mailbox\+\_\+base}
+\begin{DoxyCompactList}\small\item\em rtos private implementation class \end{DoxyCompactList}\item 
+class \hyperlink{classrtos_1_1mutex}{mutex}
+\begin{DoxyCompactList}\small\item\em mutual execlusion semaphore \end{DoxyCompactList}\item 
+class \hyperlink{classrtos_1_1pool}{pool}
+\begin{DoxyCompactList}\small\item\em place to store and rectrieve data, no built-\/in synchronisation \end{DoxyCompactList}\item 
+class \hyperlink{classrtos_1_1pool__base}{pool\+\_\+base}
+\begin{DoxyCompactList}\small\item\em rtos private implementation class \end{DoxyCompactList}\item 
+class \hyperlink{classrtos_1_1task}{task}
+\item 
+class \hyperlink{classrtos_1_1task__base}{task\+\_\+base}
+\begin{DoxyCompactList}\small\item\em an independent thread of execution \end{DoxyCompactList}\item 
+class \hyperlink{classrtos_1_1timer}{timer}
+\begin{DoxyCompactList}\small\item\em one-\/short timer \end{DoxyCompactList}\item 
+class \hyperlink{classrtos_1_1waitable}{waitable}
+\begin{DoxyCompactList}\small\item\em abstract thing that a task can wait for \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \hyperlink{classrtos_a1b1490e971b7908f28f7af9cfb18e5aa}{run} (void)\hypertarget{classrtos_a1b1490e971b7908f28f7af9cfb18e5aa}{}\label{classrtos_a1b1490e971b7908f28f7af9cfb18e5aa}
+
+\begin{DoxyCompactList}\small\item\em runs the scheduler \end{DoxyCompactList}\item 
+static \hyperlink{classrtos_1_1task__base}{task\+\_\+base} $\ast$ \hyperlink{classrtos_aebecb7a849f7d692fea474aae864ccc2}{current\+\_\+task} (void)\hypertarget{classrtos_aebecb7a849f7d692fea474aae864ccc2}{}\label{classrtos_aebecb7a849f7d692fea474aae864ccc2}
+
+\begin{DoxyCompactList}\small\item\em returns (a pointer to) the currently executing task \end{DoxyCompactList}\item 
+static long long int \hyperlink{classrtos_a9f271842ab57becb8d51b248cb000ebb}{run\+\_\+time} (void)\hypertarget{classrtos_a9f271842ab57becb8d51b248cb000ebb}{}\label{classrtos_a9f271842ab57becb8d51b248cb000ebb}
+
+\begin{DoxyCompactList}\small\item\em get elapsed time in micro seconds since OS startup \end{DoxyCompactList}\item 
+static void \hyperlink{classrtos_a89f20236423a5523ee6630613bf3d294}{print} (hwlib\+::ostream \&stream)\hypertarget{classrtos_a89f20236423a5523ee6630613bf3d294}{}\label{classrtos_a89f20236423a5523ee6630613bf3d294}
+
+\begin{DoxyCompactList}\small\item\em prints statistics about the R\+T\+OS to the stream. \end{DoxyCompactList}\item 
+static void \hyperlink{classrtos_ac72c2b921526d55e1c7557acefdec823}{statistics\+\_\+clear} (void)
+\begin{DoxyCompactList}\small\item\em clears the statistics. \end{DoxyCompactList}\item 
+static void \hyperlink{classrtos_a678def9714d83696d5b174e45481139a}{display\+\_\+statistics} (void)\hypertarget{classrtos_a678def9714d83696d5b174e45481139a}{}\label{classrtos_a678def9714d83696d5b174e45481139a}
+
+\begin{DoxyCompactList}\small\item\em print the statistics collect for the used R\+T\+OS objects \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static const long long int {\bfseries us} = 84\hypertarget{classrtos_a69a2d0d58bbc0f4a40a3f33c367139b5}{}\label{classrtos_a69a2d0d58bbc0f4a40a3f33c367139b5}
+
+\item 
+static const long long int {\bfseries ms} = ( 1000 $\ast$ us )\hypertarget{classrtos_a36eea8062f297b913190576fd25e41a5}{}\label{classrtos_a36eea8062f297b913190576fd25e41a5}
+
+\item 
+static const long long int {\bfseries s} = ( 1000 $\ast$ ms )\hypertarget{classrtos_a0519ae662d39eb04dfd7c87593ee124c}{}\label{classrtos_a0519ae662d39eb04dfd7c87593ee124c}
+
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+void {\bfseries hwlib\+::wait\+\_\+us} (int\+\_\+fast32\+\_\+t n)\hypertarget{classrtos_a93f92abd9f492627db6ff42b0cfd256b}{}\label{classrtos_a93f92abd9f492627db6ff42b0cfd256b}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+static class, namespace-\/like container for R\+T\+OS declarations 
+
+The R\+T\+OS is a static class, instantiation is not needed. After creating the tasks, call R\+T\+O\+S\+::run() to start the scheduling of the tasks. R\+T\+O\+S\+::run() will never return. 
+
+\subsection{Member Function Documentation}
+\index{rtos@{rtos}!statistics\+\_\+clear@{statistics\+\_\+clear}}
+\index{statistics\+\_\+clear@{statistics\+\_\+clear}!rtos@{rtos}}
+\subsubsection[{\texorpdfstring{statistics\+\_\+clear(void)}{statistics_clear(void)}}]{\setlength{\rightskip}{0pt plus 5cm}static void rtos\+::statistics\+\_\+clear (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\hypertarget{classrtos_ac72c2b921526d55e1c7557acefdec823}{}\label{classrtos_ac72c2b921526d55e1c7557acefdec823}
+
+
+clears the statistics. 
+
+The actual clearing will be done later, inside \hyperlink{classrtos_a1b1490e971b7908f28f7af9cfb18e5aa}{run()}, when the current task has given up the processor. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+rtos.\+hpp\item 
+rtos.\+cpp\end{DoxyCompactItemize}

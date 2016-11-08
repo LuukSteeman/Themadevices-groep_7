@@ -1,0 +1,100 @@
+\hypertarget{classrtos_1_1mutex}{}\section{rtos\+:\+:mutex Class Reference}
+\label{classrtos_1_1mutex}\index{rtos\+::mutex@{rtos\+::mutex}}
+
+
+mutual execlusion semaphore  
+
+
+
+
+{\ttfamily \#include $<$rtos.\+hpp$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classrtos_1_1mutex_ac406598aa3b34c199c6d4914de392180}{mutex} (const char $\ast$name=\char`\"{}\char`\"{})
+\begin{DoxyCompactList}\small\item\em constructor, specify the name \end{DoxyCompactList}\item 
+\hyperlink{classrtos_1_1mutex_a6c0644985543ff72112560edc8d70bb0}{$\sim$mutex} (void)
+\begin{DoxyCompactList}\small\item\em generates an error \end{DoxyCompactList}\item 
+void \hyperlink{classrtos_1_1mutex_a43b6d7a55176945f59598f825a5acd65}{print} (hwlib\+::ostream \&stream, bool header=true) const \hypertarget{classrtos_1_1mutex_a43b6d7a55176945f59598f825a5acd65}{}\label{classrtos_1_1mutex_a43b6d7a55176945f59598f825a5acd65}
+
+\begin{DoxyCompactList}\small\item\em prints a mutex, for debugging only. \end{DoxyCompactList}\item 
+void \hyperlink{classrtos_1_1mutex_af005eb2964192bbdf1a444eab11eb683}{wait} (void)
+\item 
+void \hyperlink{classrtos_1_1mutex_ad57303013f03da5856e54f331323dc5d}{signal} (void)
+\begin{DoxyCompactList}\small\item\em release the mutex \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+class {\bfseries rtos}\hypertarget{classrtos_1_1mutex_a2a7bcfc34141352757ad672e3ecd099f}{}\label{classrtos_1_1mutex_a2a7bcfc34141352757ad672e3ecd099f}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+mutual execlusion semaphore 
+
+A mutex (mutual exclusion semaphore) is a synchronization mechanism that is used to give a task exclusive access to some resource\+: the task can execute a sequence of statements, being sure that no other task is accessing the same resource.
+
+A typical use is to protect a resource (for instance global data) that should be used by only one task at a time, so it can update it and leave it in a consistent state.
+
+A mutex is not created for a particular task, and it is not a waitable.
+
+Initially a mutex is free. The \hyperlink{classrtos_1_1mutex_af005eb2964192bbdf1a444eab11eb683}{mutex\+::wait()} operation blocks the task until the mutex is free, and then claims the mutex for the executing task. The \hyperlink{classrtos_1_1mutex_ad57303013f03da5856e54f331323dc5d}{mutex\+::signal()} operation frees the mutex again. It is an error to call \hyperlink{classrtos_1_1mutex_ad57303013f03da5856e54f331323dc5d}{mutex\+::signal} on a mutex that is not currently owned by the executing task. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{rtos\+::mutex@{rtos\+::mutex}!mutex@{mutex}}
+\index{mutex@{mutex}!rtos\+::mutex@{rtos\+::mutex}}
+\subsubsection[{\texorpdfstring{mutex(const char $\ast$name="""")}{mutex(const char *name="")}}]{\setlength{\rightskip}{0pt plus 5cm}rtos\+::mutex\+::mutex (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{name = {\ttfamily \char`\"{}\char`\"{}}}
+\end{DoxyParamCaption}
+)}\hypertarget{classrtos_1_1mutex_ac406598aa3b34c199c6d4914de392180}{}\label{classrtos_1_1mutex_ac406598aa3b34c199c6d4914de392180}
+
+
+constructor, specify the name 
+
+The name is used for debugging only. \index{rtos\+::mutex@{rtos\+::mutex}!````~mutex@{$\sim$mutex}}
+\index{````~mutex@{$\sim$mutex}!rtos\+::mutex@{rtos\+::mutex}}
+\subsubsection[{\texorpdfstring{$\sim$mutex(void)}{~mutex(void)}}]{\setlength{\rightskip}{0pt plus 5cm}rtos\+::mutex\+::$\sim$mutex (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{classrtos_1_1mutex_a6c0644985543ff72112560edc8d70bb0}{}\label{classrtos_1_1mutex_a6c0644985543ff72112560edc8d70bb0}
+
+
+generates an error 
+
+A mutex should never be destroyed 
+
+\subsection{Member Function Documentation}
+\index{rtos\+::mutex@{rtos\+::mutex}!signal@{signal}}
+\index{signal@{signal}!rtos\+::mutex@{rtos\+::mutex}}
+\subsubsection[{\texorpdfstring{signal(void)}{signal(void)}}]{\setlength{\rightskip}{0pt plus 5cm}void rtos\+::mutex\+::signal (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{classrtos_1_1mutex_ad57303013f03da5856e54f331323dc5d}{}\label{classrtos_1_1mutex_ad57303013f03da5856e54f331323dc5d}
+
+
+release the mutex 
+
+If one or more tasks are waiting for the mutex the fires one is released, and it now owns the mutex. Otherwise, if the mutex is cleared it is now set.
+
+It is an error for a task to call \hyperlink{classrtos_1_1mutex_ad57303013f03da5856e54f331323dc5d}{signal()} on a mutex that it does not own (that it did not call \hyperlink{classrtos_1_1mutex_af005eb2964192bbdf1a444eab11eb683}{wait()} on). After the signal the task no longer owns the mutex. \index{rtos\+::mutex@{rtos\+::mutex}!wait@{wait}}
+\index{wait@{wait}!rtos\+::mutex@{rtos\+::mutex}}
+\subsubsection[{\texorpdfstring{wait(void)}{wait(void)}}]{\setlength{\rightskip}{0pt plus 5cm}void rtos\+::mutex\+::wait (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{classrtos_1_1mutex_af005eb2964192bbdf1a444eab11eb683}{}\label{classrtos_1_1mutex_af005eb2964192bbdf1a444eab11eb683}
+claim the mutex
+
+If the mutex was set it it is now cleared, and the calling task owns the mutex.
+
+Otherwise the current task waits (is halted) until the owning task calls \hyperlink{classrtos_1_1mutex_ad57303013f03da5856e54f331323dc5d}{signal()} on the same mutex. The \hyperlink{classrtos_1_1mutex_ad57303013f03da5856e54f331323dc5d}{signal()} calls will release the tasks in the order of their \hyperlink{classrtos_1_1mutex_af005eb2964192bbdf1a444eab11eb683}{wait()} calls. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+rtos.\+hpp\item 
+rtos.\+cpp\end{DoxyCompactItemize}

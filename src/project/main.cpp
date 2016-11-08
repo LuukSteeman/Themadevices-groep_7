@@ -1,29 +1,36 @@
 #include <hwlib.hpp>
 #include <rtos.hpp>
-#include "drawables/text.hpp"
+#include "drawables/string.hpp"
 #include "boundary/oled.hpp"
 #include "controllers/oled_controller.hpp"
 
-class BasicMain : public rtos::task<>{
+class Main : public rtos::task<>{
   private:
+    oled oled_screen;
+    oled_controller oled_control((char*)"OLED Controller", oled_screen);
+
+    string s((char*)"Hi");
     void main(){
-      oled oled_screen;
-      oled_controller oled_control((char*)"OLED Controller", oled_screen);
 
-      text t("Hi");
-
-      oled_control.add(t);
+      oled_control.add(s);
 
       while(1){
         //of hier
       }
     }
+
+  public:
+    Main(oled_controller & oled_control, char *name) : 
+      oled_control(oled_control), task(name)
+    {};
+
 }
 
 int main(){
   WDT->WDT_MR = WDT_MR_WDDIS;
 	hwlib::wait_ms(500);
   
-  BasicMain bscmn;
+  auto oled_control = oled_controller((char*)"Controller");
+  auto Maintask = Main(&oled_control, "Testmaintask");
   rtos::run();
 }

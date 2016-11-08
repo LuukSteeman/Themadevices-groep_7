@@ -1,0 +1,102 @@
+\hypertarget{classrtos_1_1event}{}\section{rtos\+:\+:event Class Reference}
+\label{classrtos_1_1event}\index{rtos\+::event@{rtos\+::event}}
+
+
+set of things that can happen, or a thing that has happened  
+
+
+
+
+{\ttfamily \#include $<$rtos.\+hpp$>$}
+
+Inheritance diagram for rtos\+:\+:event\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.500000cm]{classrtos_1_1event}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classrtos_1_1event_a9f335615e161cabbc504878ef03c3bf3}{print} (hwlib\+::ostream \&s) const \hypertarget{classrtos_1_1event_a9f335615e161cabbc504878ef03c3bf3}{}\label{classrtos_1_1event_a9f335615e161cabbc504878ef03c3bf3}
+
+\begin{DoxyCompactList}\small\item\em prints an event, for debugging only \end{DoxyCompactList}\item 
+bool \hyperlink{classrtos_1_1event_a1c0523abc492cb47b4ef37a762ddc442}{operator==} (const \hyperlink{classrtos_1_1event}{event} \&rhs) const \hypertarget{classrtos_1_1event_a1c0523abc492cb47b4ef37a762ddc442}{}\label{classrtos_1_1event_a1c0523abc492cb47b4ef37a762ddc442}
+
+\begin{DoxyCompactList}\small\item\em report wether two events are the same \end{DoxyCompactList}\item 
+bool \hyperlink{classrtos_1_1event_a6a8c2497baaddf6c19d045578413f966}{operator==} (const \hyperlink{classrtos_1_1waitable}{waitable} \&rhs) const \hypertarget{classrtos_1_1event_a6a8c2497baaddf6c19d045578413f966}{}\label{classrtos_1_1event_a6a8c2497baaddf6c19d045578413f966}
+
+\begin{DoxyCompactList}\small\item\em report whether an event corresponds to a waitable \end{DoxyCompactList}\item 
+bool \hyperlink{classrtos_1_1event_ac90eda8c24bf2915de25166bd2b1411f}{operator!=} (const \hyperlink{classrtos_1_1event}{event} \&rhs) const \hypertarget{classrtos_1_1event_ac90eda8c24bf2915de25166bd2b1411f}{}\label{classrtos_1_1event_ac90eda8c24bf2915de25166bd2b1411f}
+
+\begin{DoxyCompactList}\small\item\em report wether two events are not the same \end{DoxyCompactList}\item 
+bool \hyperlink{classrtos_1_1event_ae3dcd2feb206d88ecf03920d60f48a27}{operator!=} (const \hyperlink{classrtos_1_1waitable}{waitable} \&rhs) const \hypertarget{classrtos_1_1event_ae3dcd2feb206d88ecf03920d60f48a27}{}\label{classrtos_1_1event_ae3dcd2feb206d88ecf03920d60f48a27}
+
+\begin{DoxyCompactList}\small\item\em report whether an event does not correspond to a waitable \end{DoxyCompactList}\item 
+\hyperlink{classrtos_1_1event}{event} \hyperlink{classrtos_1_1event_af75155ce72b01bd2927a411643ddae89}{operator+} (const \hyperlink{classrtos_1_1event}{event} \&rhs) const 
+\begin{DoxyCompactList}\small\item\em add two waitables, result can be used in a wait() call \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classrtos_1_1event_a6cbf4e72e1d4ab312b3901ed54f4d48e}{event} (\hyperlink{classrtos_1_1task__base}{task\+\_\+base} $\ast$\hyperlink{classrtos_1_1event_aa83745aabc941145f00386fd63f6b557}{t}, unsigned int \hyperlink{classrtos_1_1event_aa6e6f66f74b4f1523e456d34dd7a1704}{mask})\hypertarget{classrtos_1_1event_a6cbf4e72e1d4ab312b3901ed54f4d48e}{}\label{classrtos_1_1event_a6cbf4e72e1d4ab312b3901ed54f4d48e}
+
+\begin{DoxyCompactList}\small\item\em constructor, used by concrete events \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classrtos_1_1task__base}{task\+\_\+base} $\ast$ \hyperlink{classrtos_1_1event_aa83745aabc941145f00386fd63f6b557}{t}\hypertarget{classrtos_1_1event_aa83745aabc941145f00386fd63f6b557}{}\label{classrtos_1_1event_aa83745aabc941145f00386fd63f6b557}
+
+\begin{DoxyCompactList}\small\item\em the owner task \end{DoxyCompactList}\item 
+unsigned int \hyperlink{classrtos_1_1event_aa6e6f66f74b4f1523e456d34dd7a1704}{mask}
+\begin{DoxyCompactList}\small\item\em the mask of this event, one bit is set \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+class {\bfseries waitable\+\_\+set}\hypertarget{classrtos_1_1event_a0ee29d8961a0b67cea2c3fa76da116da}{}\label{classrtos_1_1event_a0ee29d8961a0b67cea2c3fa76da116da}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+set of things that can happen, or a thing that has happened 
+
+An event
+\begin{DoxyItemize}
+\item is the result of adding waitables
+\item is accepted as argument to wait()
+\item is returned by wait()
+\item can be compared to a waitable
+\end{DoxyItemize}
+
+The \hyperlink{classrtos_1_1task__base_a2590ba76480cecaff66282516fbeb1bb}{task\+::wait()} calls return an event. Such an event can be compared to a waitable. The result is true if and only if the waitable caused the event.
+
+Events are the only R\+T\+OS objects that can be destroyed (without causing an error). 
+
+\subsection{Member Function Documentation}
+\index{rtos\+::event@{rtos\+::event}!operator+@{operator+}}
+\index{operator+@{operator+}!rtos\+::event@{rtos\+::event}}
+\subsubsection[{\texorpdfstring{operator+(const event \&rhs) const }{operator+(const event &rhs) const }}]{\setlength{\rightskip}{0pt plus 5cm}{\bf rtos\+::event} rtos\+::event\+::operator+ (
+\begin{DoxyParamCaption}
+\item[{const {\bf event} \&}]{rhs}
+\end{DoxyParamCaption}
+) const}\hypertarget{classrtos_1_1event_af75155ce72b01bd2927a411643ddae89}{}\label{classrtos_1_1event_af75155ce72b01bd2927a411643ddae89}
+
+
+add two waitables, result can be used in a wait() call 
+
+Waitables can be added (operator+) to construct a \textquotesingle{}set of waitables\textquotesingle{} as argument to a \hyperlink{classrtos_1_1task__base_a2590ba76480cecaff66282516fbeb1bb}{task\+::wait()} call. 
+
+\subsection{Member Data Documentation}
+\index{rtos\+::event@{rtos\+::event}!mask@{mask}}
+\index{mask@{mask}!rtos\+::event@{rtos\+::event}}
+\subsubsection[{\texorpdfstring{mask}{mask}}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int rtos\+::event\+::mask\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classrtos_1_1event_aa6e6f66f74b4f1523e456d34dd7a1704}{}\label{classrtos_1_1event_aa6e6f66f74b4f1523e456d34dd7a1704}
+
+
+the mask of this event, one bit is set 
+
+The bit that is set is unique among the events owned by a task. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+rtos.\+hpp\item 
+rtos.\+cpp\end{DoxyCompactItemize}

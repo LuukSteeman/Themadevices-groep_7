@@ -1,0 +1,78 @@
+\hypertarget{classrtos_1_1flag}{}\section{rtos\+:\+:flag Class Reference}
+\label{classrtos_1_1flag}\index{rtos\+::flag@{rtos\+::flag}}
+
+
+basic synchronisation mechanism.  
+
+
+
+
+{\ttfamily \#include $<$rtos.\+hpp$>$}
+
+Inheritance diagram for rtos\+:\+:flag\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classrtos_1_1flag}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classrtos_1_1flag_af4fa671e37438103a9f12f7e0c87a6b2}{flag} (\hyperlink{classrtos_1_1task__base}{task\+\_\+base} $\ast$\hyperlink{classrtos_1_1event_aa83745aabc941145f00386fd63f6b557}{t}, const char $\ast$name=\char`\"{}\char`\"{})
+\begin{DoxyCompactList}\small\item\em constructor, specify onwer and name \end{DoxyCompactList}\item 
+void \hyperlink{classrtos_1_1flag_a7372dff631de89809f25edef544ff884}{set} (void)
+\begin{DoxyCompactList}\small\item\em sets the flag \end{DoxyCompactList}\item 
+void \hyperlink{classrtos_1_1flag_a49932267b755b23e8325849527330c2f}{print} (hwlib\+::ostream \&s, bool header=true) const \hypertarget{classrtos_1_1flag_a49932267b755b23e8325849527330c2f}{}\label{classrtos_1_1flag_a49932267b755b23e8325849527330c2f}
+
+\begin{DoxyCompactList}\small\item\em prints flag infomation (for debugging) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+class {\bfseries rtos}\hypertarget{classrtos_1_1flag_a2a7bcfc34141352757ad672e3ecd099f}{}\label{classrtos_1_1flag_a2a7bcfc34141352757ad672e3ecd099f}
+
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+basic synchronisation mechanism. 
+
+The basic synchronization mechanism is the (event) flag. Like all waitables, a flag is created for a particular task. A flag is set by a \hyperlink{classrtos_1_1flag_a7372dff631de89809f25edef544ff884}{flag\+::set()} call (or the task\+::set( flag) call, which has the same effect). Like all waitables, when a task is waiting for a flag (using a \hyperlink{classrtos_1_1task__base_a2590ba76480cecaff66282516fbeb1bb}{task\+::wait} call) and that flag becomes set, the wait call will clear the flag, and return an event that compares equal to the flag. Note that a flag does not count\+: setting a flag that is already set has no effect on the flag.
+
+A flag must be created for a specific task. The normal place to do this is in the task\textquotesingle{}s creator. An flag is initially cleared.
+
+The example below shows a led\+\_\+task that responds to two event flags. The shift flag will cause it to shift the pattern on the L\+E\+Ds one position to the left, while the invert flag will cause it to invert the pattern. Two addional tasks do notghing but set these flags at fixed intervals. The result is a sort of one-\/direction Kitt display, which will occasionally flip polarity. Note that in this example the wait call excplicitly mentions the flags it waits for. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{rtos\+::flag@{rtos\+::flag}!flag@{flag}}
+\index{flag@{flag}!rtos\+::flag@{rtos\+::flag}}
+\subsubsection[{\texorpdfstring{flag(task\+\_\+base $\ast$t, const char $\ast$name="""")}{flag(task_base *t, const char *name="")}}]{\setlength{\rightskip}{0pt plus 5cm}rtos\+::flag\+::flag (
+\begin{DoxyParamCaption}
+\item[{{\bf task\+\_\+base} $\ast$}]{t, }
+\item[{const char $\ast$}]{name = {\ttfamily \char`\"{}\char`\"{}}}
+\end{DoxyParamCaption}
+)}\hypertarget{classrtos_1_1flag_af4fa671e37438103a9f12f7e0c87a6b2}{}\label{classrtos_1_1flag_af4fa671e37438103a9f12f7e0c87a6b2}
+
+
+constructor, specify onwer and name 
+
+This call creates a timer for task t. The name is used for debugging and statistics. 
+
+\subsection{Member Function Documentation}
+\index{rtos\+::flag@{rtos\+::flag}!set@{set}}
+\index{set@{set}!rtos\+::flag@{rtos\+::flag}}
+\subsubsection[{\texorpdfstring{set(void)}{set(void)}}]{\setlength{\rightskip}{0pt plus 5cm}void rtos\+::flag\+::set (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{classrtos_1_1flag_a7372dff631de89809f25edef544ff884}{}\label{classrtos_1_1flag_a7372dff631de89809f25edef544ff884}
+
+
+sets the flag 
+
+Setting a flag causes the task that waits for this flag to be awakened. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+rtos.\+hpp\item 
+rtos.\+cpp\end{DoxyCompactItemize}

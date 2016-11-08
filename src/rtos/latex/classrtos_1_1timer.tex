@@ -1,0 +1,69 @@
+\hypertarget{classrtos_1_1timer}{}\section{rtos\+:\+:timer Class Reference}
+\label{classrtos_1_1timer}\index{rtos\+::timer@{rtos\+::timer}}
+
+
+one-\/short timer  
+
+
+
+
+{\ttfamily \#include $<$rtos.\+hpp$>$}
+
+Inheritance diagram for rtos\+:\+:timer\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classrtos_1_1timer}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classrtos_1_1timer_a6c1cdeef312f1ed2b946097ef9196483}{timer} (\hyperlink{classrtos_1_1task__base}{task\+\_\+base} $\ast$\hyperlink{classrtos_1_1event_aa83745aabc941145f00386fd63f6b557}{t}, const char $\ast$name=\char`\"{}\char`\"{})\hypertarget{classrtos_1_1timer_a6c1cdeef312f1ed2b946097ef9196483}{}\label{classrtos_1_1timer_a6c1cdeef312f1ed2b946097ef9196483}
+
+\begin{DoxyCompactList}\small\item\em create a timer for task t, specify its name \end{DoxyCompactList}\item 
+void \hyperlink{classrtos_1_1timer_a8b5641b2d3cc0a5c9b48de1e5f7d0930}{set} (unsigned long int time)
+\item 
+void \hyperlink{classrtos_1_1timer_ac67cee76f7fdff1e95341a805d2d9748}{cancel} (void)
+\begin{DoxyCompactList}\small\item\em stop and clear the timer \end{DoxyCompactList}\item 
+void \hyperlink{classrtos_1_1timer_a4f80789abed43247008431021a2525b6}{print} (hwlib\+::ostream \&s, bool header=true) const \hypertarget{classrtos_1_1timer_a4f80789abed43247008431021a2525b6}{}\label{classrtos_1_1timer_a4f80789abed43247008431021a2525b6}
+
+\begin{DoxyCompactList}\small\item\em print the timer (for debugging) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+class {\bfseries rtos}\hypertarget{classrtos_1_1timer_a2a7bcfc34141352757ad672e3ecd099f}{}\label{classrtos_1_1timer_a2a7bcfc34141352757ad672e3ecd099f}
+
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+one-\/short timer 
+
+A (one-\/shot) timer is a special type of flag, which can be instructed to set itself after a fixed amount of time. The amount of time is supplied with the \hyperlink{classrtos_1_1waitable_a3f1c5cfb702d4bd50b91fab1ab355bc0}{timer\+::set()} call. This call starts the timer. A timer that is running (waiting for its timeout to expire) can be canceled by the \hyperlink{classrtos_1_1timer_ac67cee76f7fdff1e95341a805d2d9748}{timer\+::cancel()} call. When a timer that is already running is set again the previous timeout is overwritten by the new one. The suspend/resume state of its owner taks has no effect on a timer\+: even when the task is suspended the timer will run to its timeout and set isetlf. But of course the task, being suspended, will not be able to react. 
+
+\subsection{Member Function Documentation}
+\index{rtos\+::timer@{rtos\+::timer}!cancel@{cancel}}
+\index{cancel@{cancel}!rtos\+::timer@{rtos\+::timer}}
+\subsubsection[{\texorpdfstring{cancel(void)}{cancel(void)}}]{\setlength{\rightskip}{0pt plus 5cm}void rtos\+::timer\+::cancel (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{classrtos_1_1timer_ac67cee76f7fdff1e95341a805d2d9748}{}\label{classrtos_1_1timer_ac67cee76f7fdff1e95341a805d2d9748}
+
+
+stop and clear the timer 
+
+Stop the timer (when it was running), and clears its (when it was set). \index{rtos\+::timer@{rtos\+::timer}!set@{set}}
+\index{set@{set}!rtos\+::timer@{rtos\+::timer}}
+\subsubsection[{\texorpdfstring{set(unsigned long int time)}{set(unsigned long int time)}}]{\setlength{\rightskip}{0pt plus 5cm}void rtos\+::timer\+::set (
+\begin{DoxyParamCaption}
+\item[{unsigned long int}]{time}
+\end{DoxyParamCaption}
+)}\hypertarget{classrtos_1_1timer_a8b5641b2d3cc0a5c9b48de1e5f7d0930}{}\label{classrtos_1_1timer_a8b5641b2d3cc0a5c9b48de1e5f7d0930}
+Start the timer\+: it will set itself after the indicated timeout, starting from now. When the timer was already running the previous timout is overwritten. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+rtos.\+hpp\item 
+rtos.\+cpp\end{DoxyCompactItemize}

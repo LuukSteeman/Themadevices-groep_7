@@ -1,0 +1,79 @@
+\hypertarget{classcoroutine_3_010_01_4}{}\section{coroutine$<$ 0 $>$ Class Template Reference}
+\label{classcoroutine_3_010_01_4}\index{coroutine$<$ 0 $>$@{coroutine$<$ 0 $>$}}
+
+
+coroutine class  
+
+
+
+
+{\ttfamily \#include $<$coroutine.\+hpp$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classcoroutine_3_010_01_4_ab2afad14fd6145bc0588baec6b8bbe32}{resume} ()
+\begin{DoxyCompactList}\small\item\em pass execution to this coroutine \end{DoxyCompactList}\item 
+int \hyperlink{classcoroutine_3_010_01_4_af96766f45ce91a5c4e8a05a17f547ebb}{stack\+\_\+free} ()\hypertarget{classcoroutine_3_010_01_4_af96766f45ce91a5c4e8a05a17f547ebb}{}\label{classcoroutine_3_010_01_4_af96766f45ce91a5c4e8a05a17f547ebb}
+
+\begin{DoxyCompactList}\small\item\em return number of unused stack bytes \end{DoxyCompactList}\item 
+int \hyperlink{classcoroutine_3_010_01_4_a38b24aa521d80e98e2245ca7956510cb}{stack\+\_\+used} ()\hypertarget{classcoroutine_3_010_01_4_a38b24aa521d80e98e2245ca7956510cb}{}\label{classcoroutine_3_010_01_4_a38b24aa521d80e98e2245ca7956510cb}
+
+\begin{DoxyCompactList}\small\item\em return number of used stack bytes \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \hyperlink{classcoroutine_3_010_01_4_ac7552b0b1e00a303967255a49b923edb}{resume\+\_\+main} ()
+\begin{DoxyCompactList}\small\item\em pass execution to the main \textquotesingle{}coroutine\textquotesingle{} \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const int \hyperlink{classcoroutine_3_010_01_4_a3a60f49f800cd809f30cb08d10791319}{stack\+\_\+size}\hypertarget{classcoroutine_3_010_01_4_a3a60f49f800cd809f30cb08d10791319}{}\label{classcoroutine_3_010_01_4_a3a60f49f800cd809f30cb08d10791319}
+
+\begin{DoxyCompactList}\small\item\em the size (in bytes) of the stack allocated for this coroutine \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries coroutine} (void body(void), int $\ast$stack, int int\+\_\+stack\+\_\+size)\hypertarget{classcoroutine_3_010_01_4_a0b84949051013d4b0285ad61c22ed5b8}{}\label{classcoroutine_3_010_01_4_a0b84949051013d4b0285ad61c22ed5b8}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$$>$\\*
+class coroutine$<$ 0 $>$}
+
+coroutine class 
+
+This class implements a coroutine\+: an independent thread of execution that can pass execution to another coroutine by calling \hyperlink{classcoroutine_3_010_01_4_ab2afad14fd6145bc0588baec6b8bbe32}{resume()} on that coroutine. This can be used as the basis for a co-\/operative multithreading system. 
+
+\subsection{Member Function Documentation}
+\index{coroutine$<$ 0 $>$@{coroutine$<$ 0 $>$}!resume@{resume}}
+\index{resume@{resume}!coroutine$<$ 0 $>$@{coroutine$<$ 0 $>$}}
+\subsubsection[{\texorpdfstring{resume()}{resume()}}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf coroutine}$<$ 0 $>$\+::resume (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classcoroutine_3_010_01_4_ab2afad14fd6145bc0588baec6b8bbe32}{}\label{classcoroutine_3_010_01_4_ab2afad14fd6145bc0588baec6b8bbe32}
+
+
+pass execution to this coroutine 
+
+Call this function on a coroutine object to activate (start or resume) execution of that coroutine. The current coroutine is suspended. Execution of a coroutine starts by execution its body function (the function that was passed to its constructor). Resuming a coroutine continues execution after the \hyperlink{classcoroutine_3_010_01_4_ab2afad14fd6145bc0588baec6b8bbe32}{resume()} call that suspended it.
+
+Initially, the main is executing, so it must issue the first \hyperlink{classcoroutine_3_010_01_4_ab2afad14fd6145bc0588baec6b8bbe32}{resume()} call on a coroutine. A coroutine body function must not return. \index{coroutine$<$ 0 $>$@{coroutine$<$ 0 $>$}!resume\+\_\+main@{resume\+\_\+main}}
+\index{resume\+\_\+main@{resume\+\_\+main}!coroutine$<$ 0 $>$@{coroutine$<$ 0 $>$}}
+\subsubsection[{\texorpdfstring{resume\+\_\+main()}{resume_main()}}]{\setlength{\rightskip}{0pt plus 5cm}static void {\bf coroutine}$<$ 0 $>$\+::resume\+\_\+main (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\hypertarget{classcoroutine_3_010_01_4_ac7552b0b1e00a303967255a49b923edb}{}\label{classcoroutine_3_010_01_4_ac7552b0b1e00a303967255a49b923edb}
+
+
+pass execution to the main \textquotesingle{}coroutine\textquotesingle{} 
+
+Call this function to re-\/activate (resume) the main \textquotesingle{}coroutine\textquotesingle{}. The current coroutine is suspended. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+coroutine.\+hpp\end{DoxyCompactItemize}

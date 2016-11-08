@@ -1,0 +1,85 @@
+\hypertarget{classrtos_1_1waitable}{}\section{rtos\+:\+:waitable Class Reference}
+\label{classrtos_1_1waitable}\index{rtos\+::waitable@{rtos\+::waitable}}
+
+
+abstract thing that a task can wait for  
+
+
+
+
+{\ttfamily \#include $<$rtos.\+hpp$>$}
+
+Inheritance diagram for rtos\+:\+:waitable\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.500000cm]{classrtos_1_1waitable}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{classrtos_1_1waitable_ac4630398f50ba7e661a64bfc491ffa10}{clear} (void)
+\begin{DoxyCompactList}\small\item\em clear the waitable \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classrtos_1_1waitable_aec600b639ba55717731d3c6cfe6ff8e6}{waitable} (\hyperlink{classrtos_1_1task__base}{task\+\_\+base} $\ast$\hyperlink{classrtos_1_1task}{task}, const char $\ast$name)
+\begin{DoxyCompactList}\small\item\em constructor, specify owner and name \end{DoxyCompactList}\item 
+void \hyperlink{classrtos_1_1waitable_a3f1c5cfb702d4bd50b91fab1ab355bc0}{set} (void)\hypertarget{classrtos_1_1waitable_a3f1c5cfb702d4bd50b91fab1ab355bc0}{}\label{classrtos_1_1waitable_a3f1c5cfb702d4bd50b91fab1ab355bc0}
+
+\begin{DoxyCompactList}\small\item\em set the waitable \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+class {\bfseries waitable\+\_\+set}\hypertarget{classrtos_1_1waitable_a0ee29d8961a0b67cea2c3fa76da116da}{}\label{classrtos_1_1waitable_a0ee29d8961a0b67cea2c3fa76da116da}
+
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+abstract thing that a task can wait for 
+
+The operation \hyperlink{classrtos_1_1waitable_ac4630398f50ba7e661a64bfc491ffa10}{clear()} is provided (virtual, the default only clears the waitable) \hyperlink{classrtos_1_1waitable_a3f1c5cfb702d4bd50b91fab1ab355bc0}{set()} is provided but private (not all waitables can be set by the user).
+
+Waitable is an abstract class (there are no objects that are just a waitable). \hyperlink{classrtos_1_1flag}{flag}, \hyperlink{classrtos_1_1timer}{timer}, \hyperlink{classrtos_1_1clock}{clock} and \hyperlink{classrtos_1_1channel}{channel} are concrete classes that inherit from waitable. A waitable is always created for a particular task. A maximum of 31 waitables can be created for each task. (Actually the maximum is 32, but one waitable created internally to implement the sleep() call.) A waitable can be in two states\+: set or cleared. A waitable is initially cleared.
+
+A task can wait for one, a subset, or all waitables created for it. The default is to wait for all waitables created for the task, the other variants are specified by supplying to the task\+:wait() call either a single waitable, or the sum (operator+) of the waitables you want to wait for. When one of the waitables that is waited for becomes set the wait() call clears that waitable and returns an event that compares equal to the waitable. (Note that some waitables, for instance the channel, can immediately set itself again.) The calling task can compare that event to the waitables to see which event happened. When more than one of the waited-\/for waitables is set the wait() call makes an arbitrary choice from these waitables. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{rtos\+::waitable@{rtos\+::waitable}!waitable@{waitable}}
+\index{waitable@{waitable}!rtos\+::waitable@{rtos\+::waitable}}
+\subsubsection[{\texorpdfstring{waitable(task\+\_\+base $\ast$task, const char $\ast$name)}{waitable(task_base *task, const char *name)}}]{\setlength{\rightskip}{0pt plus 5cm}rtos\+::waitable\+::waitable (
+\begin{DoxyParamCaption}
+\item[{{\bf task\+\_\+base} $\ast$}]{task, }
+\item[{const char $\ast$}]{name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classrtos_1_1waitable_aec600b639ba55717731d3c6cfe6ff8e6}{}\label{classrtos_1_1waitable_aec600b639ba55717731d3c6cfe6ff8e6}
+
+
+constructor, specify owner and name 
+
+The name is used for debugging only. 
+
+\subsection{Member Function Documentation}
+\index{rtos\+::waitable@{rtos\+::waitable}!clear@{clear}}
+\index{clear@{clear}!rtos\+::waitable@{rtos\+::waitable}}
+\subsubsection[{\texorpdfstring{clear(void)}{clear(void)}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void rtos\+::waitable\+::clear (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\hypertarget{classrtos_1_1waitable_ac4630398f50ba7e661a64bfc491ffa10}{}\label{classrtos_1_1waitable_ac4630398f50ba7e661a64bfc491ffa10}
+
+
+clear the waitable 
+
+This is automatically doen when the waitable causes a \hyperlink{classrtos_1_1task__base_a2590ba76480cecaff66282516fbeb1bb}{task\+::wait()} call to return it. 
+
+Reimplemented in \hyperlink{classrtos_1_1channel_a0a86102d13f98ef7258a3fadbc881abd}{rtos\+::channel$<$ T, S\+I\+Z\+E $>$}, and \hyperlink{classrtos_1_1clock_aa90115db325c074071ae956cb101f046}{rtos\+::clock}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+rtos.\+hpp\item 
+rtos.\+cpp\end{DoxyCompactItemize}

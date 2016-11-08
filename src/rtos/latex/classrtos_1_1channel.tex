@@ -1,0 +1,107 @@
+\hypertarget{classrtos_1_1channel}{}\section{rtos\+:\+:channel$<$ T, S\+I\+ZE $>$ Class Template Reference}
+\label{classrtos_1_1channel}\index{rtos\+::channel$<$ T, S\+I\+Z\+E $>$@{rtos\+::channel$<$ T, S\+I\+Z\+E $>$}}
+
+
+waitable data queue  
+
+
+
+
+{\ttfamily \#include $<$rtos.\+hpp$>$}
+
+Inheritance diagram for rtos\+:\+:channel$<$ T, S\+I\+ZE $>$\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{classrtos_1_1channel}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classrtos_1_1channel_a87ceb9b710e5f20399ff35be85b21bd4}{channel} (\hyperlink{classrtos_1_1task__base}{task\+\_\+base} $\ast$\hyperlink{classrtos_1_1event_aa83745aabc941145f00386fd63f6b557}{t}, const char $\ast$name=\char`\"{}\char`\"{})
+\begin{DoxyCompactList}\small\item\em constructor, specify stored type, number of entries, and name \end{DoxyCompactList}\item 
+void \hyperlink{classrtos_1_1channel_ad188535be39b5884f69e3eb8edf070d4}{write} (T item)\hypertarget{classrtos_1_1channel_ad188535be39b5884f69e3eb8edf070d4}{}\label{classrtos_1_1channel_ad188535be39b5884f69e3eb8edf070d4}
+
+\begin{DoxyCompactList}\small\item\em write an item to the queue \end{DoxyCompactList}\item 
+T \hyperlink{classrtos_1_1channel_abc5c7c3294e06bb60034ea4073f00cfc}{read} (void)\hypertarget{classrtos_1_1channel_abc5c7c3294e06bb60034ea4073f00cfc}{}\label{classrtos_1_1channel_abc5c7c3294e06bb60034ea4073f00cfc}
+
+\begin{DoxyCompactList}\small\item\em read an item from the queue \end{DoxyCompactList}\item 
+void \hyperlink{classrtos_1_1channel_a0a86102d13f98ef7258a3fadbc881abd}{clear} (void)
+\begin{DoxyCompactList}\small\item\em clear the waitable \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$class T, const int S\+I\+ZE$>$\\*
+class rtos\+::channel$<$ T, S\+I\+Z\+E $>$}
+
+waitable data queue 
+
+The (communication) channel is a template class that stores a queue of values. Values can be written at the tail of the queue, up to the number of entries for which the channel was created. It is an error to write to a channel that is full. Writes are not blocking. Any task can write to a channel.
+
+A channel is created for a particular task. Only this owner task can read from the channel. A read will block until an entry is available. Reads are from the head of the queue.
+
+A channel is a waitable, so the task that owns the channel can wait for the channel to be non-\/empty, after which a read from a channel will be non-\/blocking (because the channel is not empty). After a wait() that returns the channel\textquotesingle{}s event, the channel will set itself again (because the wait did not cause it to become empty). Only a read that results in an empty queue will clear the channel.
+
+The example below shows how writing to cout can be buffered by first writing to a 2kB channel, and reading from that channel at a maximum of one character per 2 MS. The U\+A\+RT hardware in the L\+P\+C2148 chip buffers one character, which at default baudrate (38k4) takes $\sim$ 1 MS to write. So by writing at a maximum rate of one character per 2 MS no blocking will occur.
+
+
+\begin{DoxyCode}
+\textcolor{keyword}{class }output\_class : \textcolor{keyword}{public} task \{
+\textcolor{keyword}{public}:
+   channel< char, 2048 > buffer( \textcolor{keyword}{this}, \textcolor{stringliteral}{"buffer"} );
+   timer hartbeat( \textcolor{keyword}{this}, \textcolor{stringliteral}{"hartbeat"} );
+   \textcolor{keywordtype}{void} main( \textcolor{keywordtype}{void} )\{
+      \textcolor{keywordflow}{for}( ; ; ) \{
+         wait( buffer );
+         cout << buffer.get();
+         timer.set( 2 MS );
+         wait( timer );
+     \}
+   \}
+\}
+
+output\_class output;
+
+\textcolor{keywordtype}{void} print( \textcolor{keywordtype}{char} * s )\{
+   \textcolor{keywordflow}{while}( *s != \textcolor{charliteral}{'\(\backslash\)0'} ) \{ output.buffer.write( *s++ ); \}
+\}
+\end{DoxyCode}
+ 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{rtos\+::channel@{rtos\+::channel}!channel@{channel}}
+\index{channel@{channel}!rtos\+::channel@{rtos\+::channel}}
+\subsubsection[{\texorpdfstring{channel(task\+\_\+base $\ast$t, const char $\ast$name="""")}{channel(task_base *t, const char *name="")}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T , const int S\+I\+ZE$>$ {\bf rtos\+::channel}$<$ T, S\+I\+ZE $>$\+::{\bf channel} (
+\begin{DoxyParamCaption}
+\item[{{\bf task\+\_\+base} $\ast$}]{t, }
+\item[{const char $\ast$}]{name = {\ttfamily \char`\"{}\char`\"{}}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classrtos_1_1channel_a87ceb9b710e5f20399ff35be85b21bd4}{}\label{classrtos_1_1channel_a87ceb9b710e5f20399ff35be85b21bd4}
+
+
+constructor, specify stored type, number of entries, and name 
+
+The template argument T must be a class that has a non-\/arguments constructor and supports assignment. 
+
+\subsection{Member Function Documentation}
+\index{rtos\+::channel@{rtos\+::channel}!clear@{clear}}
+\index{clear@{clear}!rtos\+::channel@{rtos\+::channel}}
+\subsubsection[{\texorpdfstring{clear(void)}{clear(void)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T , const int S\+I\+ZE$>$ void {\bf rtos\+::channel}$<$ T, S\+I\+ZE $>$\+::clear (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\hypertarget{classrtos_1_1channel_a0a86102d13f98ef7258a3fadbc881abd}{}\label{classrtos_1_1channel_a0a86102d13f98ef7258a3fadbc881abd}
+
+
+clear the waitable 
+
+This is automatically doen when the waitable causes a \hyperlink{classrtos_1_1task__base_a2590ba76480cecaff66282516fbeb1bb}{task\+::wait()} call to return it. 
+
+Reimplemented from \hyperlink{classrtos_1_1waitable_ac4630398f50ba7e661a64bfc491ffa10}{rtos\+::waitable}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+rtos.\+hpp\end{DoxyCompactItemize}

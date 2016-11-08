@@ -4,16 +4,16 @@
 #include <rtos.hpp>
 #include <hwlib.hpp>
 #include "../boundary/oled.hpp"
-#include "../interface/gui.hpp"
-#include "../drawables/text.hpp"
+// #include "../interface/gui.hpp"
+#include "../drawables/string.hpp"
 
 class oled_controller : public rtos::task<> {
-protected:
+private:
 	oled oled_screen;
-	rtos::channel<text, 5> oled_channel;
+	rtos::channel<int, 5> oled_channel;
 	void main();
 public:
-	void add(text object);
+	void add(string object);
 
 	oled_controller(char * name, oled & oled_screen) : 
 		task(name), 

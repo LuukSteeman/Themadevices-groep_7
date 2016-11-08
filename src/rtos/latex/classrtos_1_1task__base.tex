@@ -1,0 +1,351 @@
+\hypertarget{classrtos_1_1task__base}{}\section{rtos\+:\+:task\+\_\+base Class Reference}
+\label{classrtos_1_1task__base}\index{rtos\+::task\+\_\+base@{rtos\+::task\+\_\+base}}
+
+
+an independent thread of execution  
+
+
+
+
+{\ttfamily \#include $<$rtos.\+hpp$>$}
+
+Inheritance diagram for rtos\+:\+:task\+\_\+base\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classrtos_1_1task__base}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{classrtos_1_1task__base_a35016dfecdd20ce4786ef7a16154976a}{main} (void)=0
+\begin{DoxyCompactList}\small\item\em task body, must be provided by a derived class \end{DoxyCompactList}\item 
+\hyperlink{classrtos_1_1task__base_aa7a9351a480725a93f1c2f99451e28e2}{task\+\_\+base} (\hyperlink{classcoroutine}{coroutine}$<$$>$ \&cor, unsigned int \hyperlink{classrtos_1_1task__base_aca1f728cef4c3e70e1ce08b6e313b586}{priority}=R\+T\+O\+S\+\_\+\+M\+I\+N\+\_\+\+P\+R\+I\+O\+R\+I\+TY, const char $\ast$tname=\char`\"{}\char`\"{})
+\begin{DoxyCompactList}\small\item\em constructor, specify priority, name and stack size \end{DoxyCompactList}\item 
+\hyperlink{classrtos_1_1task__base_a8df882df03cd39af4f21609ba1e002e4}{$\sim$task\+\_\+base} ()\hypertarget{classrtos_1_1task__base_a8df882df03cd39af4f21609ba1e002e4}{}\label{classrtos_1_1task__base_a8df882df03cd39af4f21609ba1e002e4}
+
+\begin{DoxyCompactList}\small\item\em throws an error, beacuse tasks should never be destroyed \end{DoxyCompactList}\item 
+virtual void \hyperlink{classrtos_1_1task__base_a2e5c57f7993ffa43c91348277ec2478c}{suspend} (void)
+\begin{DoxyCompactList}\small\item\em suspend a task (prevent execution until a resume) \end{DoxyCompactList}\item 
+virtual void \hyperlink{classrtos_1_1task__base_a4e9601dcea7c1d392b05ebd4f921de04}{resume} (void)
+\begin{DoxyCompactList}\small\item\em continue a suspended task \end{DoxyCompactList}\item 
+void \hyperlink{classrtos_1_1task__base_a0b397b5bbdbfdeea5be6c6b505b5e266}{release} (void)
+\begin{DoxyCompactList}\small\item\em release the C\+PU to the scheduler \end{DoxyCompactList}\item 
+void \hyperlink{classrtos_1_1task__base_a1110fdfe776e7f256eb809216e97c836}{sleep} (unsigned int time)
+\begin{DoxyCompactList}\small\item\em wait for some time \end{DoxyCompactList}\item 
+unsigned int \hyperlink{classrtos_1_1task__base_aca1f728cef4c3e70e1ce08b6e313b586}{priority} (void) const \hypertarget{classrtos_1_1task__base_aca1f728cef4c3e70e1ce08b6e313b586}{}\label{classrtos_1_1task__base_aca1f728cef4c3e70e1ce08b6e313b586}
+
+\begin{DoxyCompactList}\small\item\em report the task priority \end{DoxyCompactList}\item 
+const char $\ast$ \hyperlink{classrtos_1_1task__base_ad6469d5653e3021769e4fa89c20920bf}{name} (void) const \hypertarget{classrtos_1_1task__base_ad6469d5653e3021769e4fa89c20920bf}{}\label{classrtos_1_1task__base_ad6469d5653e3021769e4fa89c20920bf}
+
+\begin{DoxyCompactList}\small\item\em report the task name \end{DoxyCompactList}\item 
+bool \hyperlink{classrtos_1_1task__base_ae62a76e0a7fd1548077eb26481b52dee}{is\+\_\+suspended} (void) const \hypertarget{classrtos_1_1task__base_ae62a76e0a7fd1548077eb26481b52dee}{}\label{classrtos_1_1task__base_ae62a76e0a7fd1548077eb26481b52dee}
+
+\begin{DoxyCompactList}\small\item\em report whether the task is currently suspended \end{DoxyCompactList}\item 
+bool \hyperlink{classrtos_1_1task__base_a239db2650c0258d52c73bfa386455476}{is\+\_\+blocked} (void) const \hypertarget{classrtos_1_1task__base_a239db2650c0258d52c73bfa386455476}{}\label{classrtos_1_1task__base_a239db2650c0258d52c73bfa386455476}
+
+\begin{DoxyCompactList}\small\item\em report whether the task is currently blocked \end{DoxyCompactList}\item 
+bool \hyperlink{classrtos_1_1task__base_a2da0d689fd9d9546483a83e8787d0ad8}{is\+\_\+ready} (void) const \hypertarget{classrtos_1_1task__base_a2da0d689fd9d9546483a83e8787d0ad8}{}\label{classrtos_1_1task__base_a2da0d689fd9d9546483a83e8787d0ad8}
+
+\begin{DoxyCompactList}\small\item\em report whether the task is currently ready for execution \end{DoxyCompactList}\item 
+void \hyperlink{classrtos_1_1task__base_a0b79c3c2b76ce32284638467cec95c65}{print} (hwlib\+::ostream \&stream, bool header=true) const \hypertarget{classrtos_1_1task__base_a0b79c3c2b76ce32284638467cec95c65}{}\label{classrtos_1_1task__base_a0b79c3c2b76ce32284638467cec95c65}
+
+\begin{DoxyCompactList}\small\item\em print task statistics \end{DoxyCompactList}\item 
+\hyperlink{classrtos_1_1event}{event} \hyperlink{classrtos_1_1task__base_a2590ba76480cecaff66282516fbeb1bb}{wait} (void)
+\begin{DoxyCompactList}\small\item\em wait for all waitables created for this task \end{DoxyCompactList}\item 
+\hyperlink{classrtos_1_1event}{event} \hyperlink{classrtos_1_1task__base_a52035722f108687680966b87dd60bfe1}{wait} (const \hyperlink{classrtos_1_1waitable}{waitable} \&w)
+\begin{DoxyCompactList}\small\item\em wait for a single waitable \end{DoxyCompactList}\item 
+\hyperlink{classrtos_1_1event}{event} \hyperlink{classrtos_1_1task__base_a6acecfe733161a6258d39ed7a49275d0}{wait} (const \hyperlink{classrtos_1_1event}{event} \&\hyperlink{classrtos_1_1task__base_a1b3cb75ba2ef779cffc76b6076ecac39}{set})
+\begin{DoxyCompactList}\small\item\em wait for a set of waitables \end{DoxyCompactList}\item 
+void \hyperlink{classrtos_1_1task__base_a1b3cb75ba2ef779cffc76b6076ecac39}{set} (\hyperlink{classrtos_1_1flag}{flag} \&f)\hypertarget{classrtos_1_1task__base_a1b3cb75ba2ef779cffc76b6076ecac39}{}\label{classrtos_1_1task__base_a1b3cb75ba2ef779cffc76b6076ecac39}
+
+\begin{DoxyCompactList}\small\item\em set a flag \end{DoxyCompactList}\item 
+void \hyperlink{classrtos_1_1task__base_a31d2bfe971b2c526125d5a670d8465f4}{ignore\+\_\+activation\+\_\+time} (void)
+\begin{DoxyCompactList}\small\item\em ignore this activation for the statistics \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+class {\bfseries periodic\+\_\+task}\hypertarget{classrtos_1_1task__base_a01d2f5a71b8cd797b5f01fb6940ea353}{}\label{classrtos_1_1task__base_a01d2f5a71b8cd797b5f01fb6940ea353}
+
+\item 
+class {\bfseries waitable\+\_\+set}\hypertarget{classrtos_1_1task__base_a0ee29d8961a0b67cea2c3fa76da116da}{}\label{classrtos_1_1task__base_a0ee29d8961a0b67cea2c3fa76da116da}
+
+\item 
+class {\bfseries flag}\hypertarget{classrtos_1_1task__base_a2d8be07618a92a592c4905e969f9927f}{}\label{classrtos_1_1task__base_a2d8be07618a92a592c4905e969f9927f}
+
+\item 
+class {\bfseries rtos}\hypertarget{classrtos_1_1task__base_a2a7bcfc34141352757ad672e3ecd099f}{}\label{classrtos_1_1task__base_a2a7bcfc34141352757ad672e3ecd099f}
+
+\item 
+void {\bfseries task\+\_\+trampoline} ()\hypertarget{classrtos_1_1task__base_a376fdffc11fe9fb4f531835b94320825}{}\label{classrtos_1_1task__base_a376fdffc11fe9fb4f531835b94320825}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+an independent thread of execution 
+
+A task is an independent thread of execution, using its own stack. Tasks share the single C\+PU, so only one task can be running at any time. The rtos determines which task is running. A task has two bi-\/value states that determine whether the task is runnable\+: the suspended/resumed flag and the waiting/non-\/waiting flag. A task is runnable only when it is both resumed, and non-\/waiting. When a task is created it is resumed and non-\/waiting. All tasks (and the rtos code) run in the same memory space, without protection from each other. So a \textquotesingle{}wild pointer\textquotesingle{} in one task can destroy data in another task, or even in the rtos.
+
+Each task is created with a fixed priority, which can be any unsigned integer value below R\+T\+O\+S\+\_\+\+M\+I\+N\+\_\+\+P\+R\+I\+O\+R\+I\+TY (= 1000). After creation the priority can not be changed. The value 0 indicates the highest task priority, a higher number indicates a lower priority. Each task must have a unique priority, it is an error to create a task with same priority as an existing task. You can omit the priority, in which case the R\+T\+OS will select an unused priority starting at R\+T\+O\+S\+\_\+\+M\+I\+N\+\_\+\+P\+R\+I\+O\+R\+I\+TY (in other words, it will choose a low priority for your task).
+
+Each task has its own stack. You can specify the size of the stack at task creation. If you omit the stack size, R\+T\+O\+S\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+S\+T\+A\+C\+K\+\_\+\+S\+I\+ZE will be used (default\+: 8 Kb). This will be enough for most tasks, if you take care not to allocate big things on the stack, and avoid very deep nesting (watch out for recursion!).
+
+A task is created by instatiating a class that derives from \hyperlink{classrtos_1_1task}{rtos\+::task} and supplies a \hyperlink{classrtos_1_1task__base_a35016dfecdd20ce4786ef7a16154976a}{main()}. This \hyperlink{classrtos_1_1task__base_a35016dfecdd20ce4786ef7a16154976a}{main()} should never return. The fragment below shows how you can do this. The task name is used for statistics and debugging. As shown for the name, it might be wise to get the task parameters as arguments to the constructor of your task.
+
+
+\begin{DoxyCode}
+\textcolor{keyword}{class }my\_task\_class : \textcolor{keyword}{public} \hyperlink{classrtos_1_1task}{rtos::task} \{
+\textcolor{keyword}{public}:
+   my\_task\_class( \textcolor{keyword}{const} \textcolor{keywordtype}{char} * \hyperlink{classrtos_1_1task__base_ad6469d5653e3021769e4fa89c20920bf}{name} ):
+      task(
+         name,  \textcolor{comment}{// name of the task}
+         10,    \textcolor{comment}{// task priority}
+         16384  \textcolor{comment}{// task stack size}
+      )\{\}
+\textcolor{keyword}{private}:
+   \textcolor{keywordtype}{void} \hyperlink{classrtos_1_1task__base_a35016dfecdd20ce4786ef7a16154976a}{main}( \textcolor{keywordtype}{void} )\{
+      \textcolor{comment}{// put the code of your task here}
+   \}
+\};
+my\_task\_class my\_task( \textcolor{stringliteral}{"my first task"} );
+my\_task\_class my\_task( \textcolor{stringliteral}{"my second task"} );
+\end{DoxyCode}
+
+
+The example below is a complete program that shows the standard part (initialization, and a main that calls \hyperlink{classrtos_a1b1490e971b7908f28f7af9cfb18e5aa}{rtos\+::run()}), a function for writing to an individual L\+ED, a task class that blinks a L\+ED, and two instatiations of this class. Note that the \hyperlink{classrtos_1_1task__base_a1110fdfe776e7f256eb809216e97c836}{sleep()} call is used instead of mkt\+\_\+wait\+\_\+ms or mkt\+\_\+wait\+\_\+us. Sleep() causes other tasks to run while this task is waiting, whereas the mkt\+\_\+wait\+\_\+$\ast$ calls would use monopolize the C\+PU to do a busy wait.
+
+Subsequent examples will not show the standard initialization (the part up to the comment line).
+
+
+\begin{DoxyCode}
+\textcolor{preprocessor}{#include "rtos.h"}
+
+\textcolor{keywordtype}{int} \hyperlink{classrtos_1_1task__base_a35016dfecdd20ce4786ef7a16154976a}{main}( \textcolor{keywordtype}{void} ) \{
+   \hyperlink{classrtos_a1b1490e971b7908f28f7af9cfb18e5aa}{rtos::run}();
+   \textcolor{keywordflow}{return} 0;
+\}
+
+\textcolor{comment}{// end of standard part}
+
+\textcolor{keyword}{class }blinker : \textcolor{keyword}{public} \hyperlink{classrtos_1_1task}{rtos::task} \{
+\textcolor{keyword}{public}:
+   blinker( \textcolor{keywordtype}{int} LED, \textcolor{keywordtype}{int} period ):
+      LED( LED ), period( period )\{\}
+\textcolor{keyword}{private}:
+   \textcolor{keywordtype}{int} LED, period;
+   \textcolor{keywordtype}{void} \hyperlink{classrtos_1_1task__base_a35016dfecdd20ce4786ef7a16154976a}{main}( \textcolor{keywordtype}{void} )\{
+      \textcolor{keywordflow}{for}( ; ; ) \{
+         led\_set( LED, 1 );
+         \hyperlink{classrtos_1_1task__base_a1110fdfe776e7f256eb809216e97c836}{sleep}( period / 2 );
+         led\_set( LED, 0 );
+         \hyperlink{classrtos_1_1task__base_a1110fdfe776e7f256eb809216e97c836}{sleep}( period / 2 );
+      \}
+   \}
+\};
+
+blinker led0( 0, 1000 MS );
+blinker led1( 1,  300 MS );
+\end{DoxyCode}
+
+
+A task can be suspended and resumed by the \hyperlink{classrtos_1_1task__base_a2e5c57f7993ffa43c91348277ec2478c}{task\+::suspend()} and \hyperlink{classrtos_1_1task__base_a4e9601dcea7c1d392b05ebd4f921de04}{task\+::resume()} calls. The suspend/resume state does not count the number of suspends and resumes\+: a suspend call on an already suspended task (or a resume on an already resumed task) has no effect. Suspend and resume are intended for use by the application code\+: the rtos will never suspend or resume a task. (The rtos uses the waiting/non-\/waiting state, which can not be changed directly by the application.)
+
+The example below shows one task that beeps the speaker at 1 k\+Hz, while the other taks suspends and resumes the first task to make it beep 5 times, after which it suspends itself, which ends all activity. (This will trigger the rtos deadlock detection, because a normal embedded application should never terminate.)
+
+
+\begin{DoxyCode}
+\textcolor{keyword}{class }beeper : \textcolor{keyword}{public} \hyperlink{classrtos_1_1task}{rtos::task} \{
+\textcolor{keyword}{public}:
+   \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} speaker;
+   beeper( \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} speaker ): speaker( speaker )\{\}
+   \textcolor{keywordtype}{void} \hyperlink{classrtos_1_1task__base_a35016dfecdd20ce4786ef7a16154976a}{main}( \textcolor{keywordtype}{void} )\{
+      mkt\_pin\_configure( speaker, mkt\_output);
+      \textcolor{keywordflow}{for}( ; ; ) \{
+         mkt\_pin\_write( speaker, 1  );
+         \hyperlink{classrtos_1_1task__base_a1110fdfe776e7f256eb809216e97c836}{sleep}( 500 US );
+         mkt\_pin\_write( speaker, 0  );
+         \hyperlink{classrtos_1_1task__base_a1110fdfe776e7f256eb809216e97c836}{sleep}( 500 US );
+      \}
+   \}
+\};
+beeper speaker( 10 );
+
+\textcolor{keyword}{class }suspender : \textcolor{keyword}{public} \hyperlink{classrtos_1_1task}{rtos::task} \{
+   \textcolor{keywordtype}{void} \hyperlink{classrtos_1_1task__base_a35016dfecdd20ce4786ef7a16154976a}{main}( \textcolor{keywordtype}{void} )\{
+      \textcolor{keywordflow}{for}( \textcolor{keywordtype}{int} i = 0; i < 5 ; i++ ) \{
+         speaker.resume();
+         \hyperlink{classrtos_1_1task__base_a1110fdfe776e7f256eb809216e97c836}{sleep}( 500 MS );
+         speaker.suspend();
+         \hyperlink{classrtos_1_1task__base_a1110fdfe776e7f256eb809216e97c836}{sleep}( 1 S );
+      \}
+      \hyperlink{classrtos_1_1task__base_a2e5c57f7993ffa43c91348277ec2478c}{suspend}();
+   \}
+\};
+suspender task2;
+\end{DoxyCode}
+ 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{rtos\+::task\+\_\+base@{rtos\+::task\+\_\+base}!task\+\_\+base@{task\+\_\+base}}
+\index{task\+\_\+base@{task\+\_\+base}!rtos\+::task\+\_\+base@{rtos\+::task\+\_\+base}}
+\subsubsection[{\texorpdfstring{task\+\_\+base(coroutine$<$$>$ \&cor, unsigned int priority=\+R\+T\+O\+S\+\_\+\+M\+I\+N\+\_\+\+P\+R\+I\+O\+R\+I\+T\+Y, const char $\ast$tname="""")}{task_base(coroutine<> &cor, unsigned int priority=RTOS_MIN_PRIORITY, const char *tname="")}}]{\setlength{\rightskip}{0pt plus 5cm}rtos\+::task\+\_\+base\+::task\+\_\+base (
+\begin{DoxyParamCaption}
+\item[{{\bf coroutine}$<$$>$ \&}]{cor, }
+\item[{unsigned int}]{priority = {\ttfamily RTOS\+\_\+MIN\+\_\+PRIORITY}, }
+\item[{const char $\ast$}]{tname = {\ttfamily \char`\"{}\char`\"{}}}
+\end{DoxyParamCaption}
+)}\hypertarget{classrtos_1_1task__base_aa7a9351a480725a93f1c2f99451e28e2}{}\label{classrtos_1_1task__base_aa7a9351a480725a93f1c2f99451e28e2}
+
+
+constructor, specify priority, name and stack size 
+
+Priorities are reasonably-\/valued (below R\+T\+O\+S\+\_\+\+M\+I\+N\+\_\+\+P\+R\+I\+O\+R\+I\+TY) unsigned integers. 0 is te highest priority. Priorities must be unqiue. The default causes the constructor to choose a free priority starting at R\+T\+O\+S\+\_\+\+M\+I\+N\+\_\+\+P\+R\+I\+O\+R\+I\+TY (default\+: 1000).
+
+The name is used for debugging and statistics.
+
+A stack of stack\+\_\+size bytes is allocated for the task. The default is 4 kB. 
+
+\subsection{Member Function Documentation}
+\index{rtos\+::task\+\_\+base@{rtos\+::task\+\_\+base}!ignore\+\_\+activation\+\_\+time@{ignore\+\_\+activation\+\_\+time}}
+\index{ignore\+\_\+activation\+\_\+time@{ignore\+\_\+activation\+\_\+time}!rtos\+::task\+\_\+base@{rtos\+::task\+\_\+base}}
+\subsubsection[{\texorpdfstring{ignore\+\_\+activation\+\_\+time(void)}{ignore_activation_time(void)}}]{\setlength{\rightskip}{0pt plus 5cm}void rtos\+::task\+\_\+base\+::ignore\+\_\+activation\+\_\+time (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classrtos_1_1task__base_a31d2bfe971b2c526125d5a670d8465f4}{}\label{classrtos_1_1task__base_a31d2bfe971b2c526125d5a670d8465f4}
+
+
+ignore this activation for the statistics 
+
+Calling this function makes the rtos statistics ignore the current task activation as far as statistics is concerned. You can use this to avoid pullution of your task statistics with the timing effects of debug logging. But make sure you don\textquotesingle{}t use it in the \textquotesingle{}normal\textquotesingle{} execution paths, because that would make the statistics lie to you. \index{rtos\+::task\+\_\+base@{rtos\+::task\+\_\+base}!main@{main}}
+\index{main@{main}!rtos\+::task\+\_\+base@{rtos\+::task\+\_\+base}}
+\subsubsection[{\texorpdfstring{main(void)=0}{main(void)=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void rtos\+::task\+\_\+base\+::main (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{classrtos_1_1task__base_a35016dfecdd20ce4786ef7a16154976a}{}\label{classrtos_1_1task__base_a35016dfecdd20ce4786ef7a16154976a}
+
+
+task body, must be provided by a derived class 
+
+A task is created by inheriting from task and providing a \hyperlink{classrtos_1_1task__base_a35016dfecdd20ce4786ef7a16154976a}{main()} function. Initialisation of the task, including creating its waitables, should be done in the constructor. Don\textquotesingle{}t forget to call the constructor of the task class!
+
+The \hyperlink{classrtos_1_1task__base_a35016dfecdd20ce4786ef7a16154976a}{main()} is the body of the task. It should never terminate.
+
+Each task has a unique priority (an unsigned integer). A lower value indicates a higher priority. The rtos scheduler will always run the task with the higest-\/priority runnable (neither blocked nor suspended) task. A task runs until it changes this \textquotesingle{}situation\textquotesingle{} by using an rtos call that changes its own state to not runnable, or the state of a higher priority task to runnable.
+
+Timers are served only when the rtos is activated by calling any of its state-\/changing interfaces. Hence the longest run time between such calls determines the granularity (time wise responsiveness) of the application. Within a time consuming computation a task can call \hyperlink{classrtos_1_1task__base_a0b397b5bbdbfdeea5be6c6b505b5e266}{release()} to have the rtos serve the timers. \index{rtos\+::task\+\_\+base@{rtos\+::task\+\_\+base}!release@{release}}
+\index{release@{release}!rtos\+::task\+\_\+base@{rtos\+::task\+\_\+base}}
+\subsubsection[{\texorpdfstring{release(void)}{release(void)}}]{\setlength{\rightskip}{0pt plus 5cm}void rtos\+::task\+\_\+base\+::release (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{classrtos_1_1task__base_a0b397b5bbdbfdeea5be6c6b505b5e266}{}\label{classrtos_1_1task__base_a0b397b5bbdbfdeea5be6c6b505b5e266}
+
+
+release the C\+PU to the scheduler 
+
+Sevices timers and releases the C\+PU to a higher priority task if is ready. \index{rtos\+::task\+\_\+base@{rtos\+::task\+\_\+base}!resume@{resume}}
+\index{resume@{resume}!rtos\+::task\+\_\+base@{rtos\+::task\+\_\+base}}
+\subsubsection[{\texorpdfstring{resume(void)}{resume(void)}}]{\setlength{\rightskip}{0pt plus 5cm}void rtos\+::task\+\_\+base\+::resume (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classrtos_1_1task__base_a4e9601dcea7c1d392b05ebd4f921de04}{}\label{classrtos_1_1task__base_a4e9601dcea7c1d392b05ebd4f921de04}
+
+
+continue a suspended task 
+
+Has no effect when the task is not suspended.
+
+Can be extended by an application task to suit its needs. \index{rtos\+::task\+\_\+base@{rtos\+::task\+\_\+base}!sleep@{sleep}}
+\index{sleep@{sleep}!rtos\+::task\+\_\+base@{rtos\+::task\+\_\+base}}
+\subsubsection[{\texorpdfstring{sleep(unsigned int time)}{sleep(unsigned int time)}}]{\setlength{\rightskip}{0pt plus 5cm}void rtos\+::task\+\_\+base\+::sleep (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{time}
+\end{DoxyParamCaption}
+)}\hypertarget{classrtos_1_1task__base_a1110fdfe776e7f256eb809216e97c836}{}\label{classrtos_1_1task__base_a1110fdfe776e7f256eb809216e97c836}
+
+
+wait for some time 
+
+Sleeps the task (prevents execution) for the indicated time. \index{rtos\+::task\+\_\+base@{rtos\+::task\+\_\+base}!suspend@{suspend}}
+\index{suspend@{suspend}!rtos\+::task\+\_\+base@{rtos\+::task\+\_\+base}}
+\subsubsection[{\texorpdfstring{suspend(void)}{suspend(void)}}]{\setlength{\rightskip}{0pt plus 5cm}void rtos\+::task\+\_\+base\+::suspend (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classrtos_1_1task__base_a2e5c57f7993ffa43c91348277ec2478c}{}\label{classrtos_1_1task__base_a2e5c57f7993ffa43c91348277ec2478c}
+
+
+suspend a task (prevent execution until a resume) 
+
+Suspends the task (prevents execution). Has no effect when the task is already suspended. Can be extended by an application task.
+
+A concrete task can extend this operation to suit its needs. \index{rtos\+::task\+\_\+base@{rtos\+::task\+\_\+base}!wait@{wait}}
+\index{wait@{wait}!rtos\+::task\+\_\+base@{rtos\+::task\+\_\+base}}
+\subsubsection[{\texorpdfstring{wait(void)}{wait(void)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf event} rtos\+::task\+\_\+base\+::wait (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classrtos_1_1task__base_a2590ba76480cecaff66282516fbeb1bb}{}\label{classrtos_1_1task__base_a2590ba76480cecaff66282516fbeb1bb}
+
+
+wait for all waitables created for this task 
+
+Wait (prevent execution) until at least one of the waitables is set. Return and clear that waitable. Three variants for the parameter\+:
+
+
+\begin{DoxyItemize}
+\item The default (no parameter) waits for all waitables defined for the task.
+\item One waitable as argument waits for that specific waitable.
+\item The addition (operator+) of waitables\+: wait for any one of those waitables.
+\end{DoxyItemize}
+
+It is an error to wait for waitables that have not been created for this task. \index{rtos\+::task\+\_\+base@{rtos\+::task\+\_\+base}!wait@{wait}}
+\index{wait@{wait}!rtos\+::task\+\_\+base@{rtos\+::task\+\_\+base}}
+\subsubsection[{\texorpdfstring{wait(const waitable \&w)}{wait(const waitable &w)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf event} rtos\+::task\+\_\+base\+::wait (
+\begin{DoxyParamCaption}
+\item[{const {\bf waitable} \&}]{w}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classrtos_1_1task__base_a52035722f108687680966b87dd60bfe1}{}\label{classrtos_1_1task__base_a52035722f108687680966b87dd60bfe1}
+
+
+wait for a single waitable 
+
+Wait (prevent execution) until at least one of the waitables is set. Return and clear that waitable. Three variants for the parameter\+:
+
+
+\begin{DoxyItemize}
+\item The default (no parameter) waits for all waitables defined for the task.
+\item One waitable as argument waits for that specific waitable.
+\item The addition (operator+) of waitables\+: wait for any one of those waitables.
+\end{DoxyItemize}
+
+It is an error to wait for waitables that have not been created for this task. \index{rtos\+::task\+\_\+base@{rtos\+::task\+\_\+base}!wait@{wait}}
+\index{wait@{wait}!rtos\+::task\+\_\+base@{rtos\+::task\+\_\+base}}
+\subsubsection[{\texorpdfstring{wait(const event \&set)}{wait(const event &set)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf event} rtos\+::task\+\_\+base\+::wait (
+\begin{DoxyParamCaption}
+\item[{const {\bf event} \&}]{set}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classrtos_1_1task__base_a6acecfe733161a6258d39ed7a49275d0}{}\label{classrtos_1_1task__base_a6acecfe733161a6258d39ed7a49275d0}
+
+
+wait for a set of waitables 
+
+Wait (prevent execution) until at least one of the waitables is set. Return and clear that waitable. Three variants for the parameter\+:
+
+
+\begin{DoxyItemize}
+\item The default (no parameter) waits for all waitables defined for the task.
+\item One waitable as argument waits for that specific waitable.
+\item The addition (operator+) of waitables\+: wait for any one of those waitables.
+\end{DoxyItemize}
+
+It is an error to wait for waitables that have not been created for this task. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+rtos.\+hpp\item 
+rtos.\+cpp\end{DoxyCompactItemize}
