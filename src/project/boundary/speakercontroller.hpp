@@ -1,7 +1,4 @@
 /*
-/home/Robert/SCHOOL/2015-2016/Themadevices-groep_7/src/project/boundary/speakercontroller.hpp:29: warning: argument 'Provide' of command @param is not found in the argument list of Speakercontroller::Speakercontroller(char *name, Speaker &speak)
-/home/Robert/SCHOOL/2015-2016/Themadevices-groep_7/src/project/boundary/speakercontroller.hpp:33: warning: The following parameters of Speakercontroller::Speakercontroller(char *name, Speaker &speak) are not documented:
-  parameter 'speak'
 /home/Robert/SCHOOL/2015-2016/Themadevices-groep_7/src/project/boundary/speakercontroller.hpp:43: warning: argument 'the' of command @param is not found in the argument list of Speakercontroller::add(int hit)
 /home/Robert/SCHOOL/2015-2016/Themadevices-groep_7/src/project/boundary/speakercontroller.hpp:45: warning: The following parameters of Speakercontroller::add(int hit) are not documented:
   parameter 'hit'
@@ -45,19 +42,19 @@ public:
 	///The Speakercontroller constructor requires a name and a reference to the speaker it's going to control.
 	///It will initialize its own channel.
 	///@param name gives the task a name for debugging.
-	///@param Provide a speaker so the controller knows what pin to call.
+	///@param speak Provide a speaker so the controller knows what pin to call.
 	Speakercontroller(char * name, Speaker & speak) : task(name), speak(speak), hits(this, "hitschannel"){};
 
 	///set_frequency() calculates the time of a single period in microseconds, which is used by the play() function to produce a sound of the set frequency.
-	///@param provide a frequency in Hz.
+	///@param freq provide a frequency in Hz.
 	void set_frequency(int freq);
 
 	///Play sets the output on the pin high and low based on the time calculated by set_frequency().
-	///@param Note_length determines the how long the sound will play.
+	///@param note_length determines the how long the sound will play.
 	void play(int note_length);
 
 	///The add() function is the interface other tasks can use to interact with this task.
-	///@param the hit is an integer which is used to determine the notelength for hte play() function.
+	///@param hit is an integer which is used to determine the notelength for hte play() function.
 	void add(int hit);
 };
 
