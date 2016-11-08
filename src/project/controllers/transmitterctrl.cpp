@@ -1,33 +1,22 @@
 #include "transmitterctrl.hpp"
 #include "bitTools.hpp"
 
-Transmitterctrl::Transmitterctrl(char * name, Transmitter & trans):
-task(name),
-trans(trans),
-chan(this, "MessageLogic channel")
+Transmitterctrl::Transmitterctrl( Transmitter & trans):
+trans(trans)
 {}
 
-void Transmitterctrl::add(IRMessage m)
+void Transmitterctrl::run(MessageLogic m, rtos::task_base * task)
 {
-	chan.write(m);
-}
-
-void Transmitterctrl::main()
-{
-	while(1)
-	{
-		auto m = chan.read();
-        unsigned short data = m.encode();
-        for (int ii = 0; ii < 2; ii++)
+    unsigned short data = m.encode();
+    for (int ii = 0; ii < 2; ii++)
+    {
+        for (int i = 0; i < 16; i++)
         {
-            for (int i = 0; i < 16; i++)
-            {
-                trans.sendBit(getBit(i, data), this);
-            }
-            if (ii == 0)
-            {
-                sleep(3 * rtos::ms);
-            }
+            trans.sendBit(getBit(i, data), task);
+        }
+        if (ii == 0)
+        {
+            task->sleep(3 * rtos::ms);
         }
     }
 }
