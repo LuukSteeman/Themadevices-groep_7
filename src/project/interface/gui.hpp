@@ -6,18 +6,7 @@
 
 class GUI {
 public:
-	oled_controller * oled;
-	int screen;
-	char * t;
-	
-	GUI(oled_controller * oled, int screen, char * t):
-		oled(oled),
-		screen(screen),
-		t(t)
-	{}
-
 	virtual void draw() = 0;
-	virtual void update(){}
 };
 
 #endif // GUI_HPP
