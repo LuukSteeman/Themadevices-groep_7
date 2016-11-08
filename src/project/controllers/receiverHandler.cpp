@@ -48,7 +48,10 @@ void ReceiverHandler::listenForMessage()
     if (!m.getError())
     {
         rec.update(m);
-    }else{
-        hwlib::cout << "error" << (m.getError() & MessageLogic::CHECKSUMERROR);
+    }
+    else
+    {
+        hwlib::cout << "error " << hwlib::boolalpha << (bool)(m.getError() & MessageLogic::CHECKSUMERROR) << " "
+                    << hwlib::boolalpha <<(bool) (m.getError() & MessageLogic::STARTBITERROR) << "\n";
     }
 }

@@ -14,6 +14,13 @@
 #include "Player.hpp"
 #include "receiverHandler.hpp"
 
+class X :public ReceiverListener{
+  public:
+    void msgReceived(MessageLogic msg){
+      hwlib::cout << "i\n";
+    }
+};
+
 int main()
 {
   WDT->WDT_MR = WDT_MR_WDDIS;
@@ -22,7 +29,9 @@ int main()
 
   Receiver r(hwlib::target::pins::d12);
   ReceiverHandler rh(r);
-
+  
+  X x;
+  r.addReceiverListener(&x);
 
   auto speak_pin = hwlib::target::pin_out(hwlib::target::pins::d52);
   auto speak = Speaker(speak_pin);
