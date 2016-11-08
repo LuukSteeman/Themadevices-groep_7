@@ -19,6 +19,9 @@ public:
 	//! @param damage The amount of damage the player took
 	void updateHP(int damage){hitPoints -= damage;};
 
+	//! Returns the player's current hitPoints
+	int getHP(){return hitPoints;};
+
 	//! Set the player's weapon
 	//! @param The weapon ID chosen on the keypad
 	void setWeapon(int weapon){if (weapon >0 && weapon<10){weaponID = weapon;}};
