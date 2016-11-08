@@ -1,3 +1,14 @@
+/*
+/home/Robert/SCHOOL/2015-2016/Themadevices-groep_7/src/project/entity/damageStorage.hpp:16: warning: argument 'The' of command @param is not found in the argument list of DamageStorage::addDamage(int damageAmount, int playerID)
+/home/Robert/SCHOOL/2015-2016/Themadevices-groep_7/src/project/entity/damageStorage.hpp:16: warning: argument 'the' of command @param is not found in the argument list of DamageStorage::addDamage(int damageAmount, int playerID)
+/home/Robert/SCHOOL/2015-2016/Themadevices-groep_7/src/project/entity/damageStorage.hpp:19: warning: The following parameters of DamageStorage::addDamage(int damageAmount, int playerID) are not documented:
+  parameter 'damageAmount'
+  parameter 'playerID'
+/home/Robert/SCHOOL/2015-2016/Themadevices-groep_7/src/project/entity/damageStorage.hpp:21: warning: argument 'The' of command @param is not found in the argument list of DamageStorage::getDamage(int index)
+/home/Robert/SCHOOL/2015-2016/Themadevices-groep_7/src/project/entity/damageStorage.hpp:23: warning: The following parameters of DamageStorage::getDamage(int index) are not documented:
+  parameter 'index'
+*/
+
 #ifndef DAMAGESTORAGE_HPP
 #define DAMAGESTORAGE_HPP
 #include "Damage.hpp"

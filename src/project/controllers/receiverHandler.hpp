@@ -24,7 +24,7 @@ class ReceiverHandler : public rtos::task<>
       public:
         /**
           Creates a ReceiverHandler
-          @param Receiver to update and poll
+          @param rec Receiver to update and poll
         */
         ReceiverHandler(Receiver &rec) : rec(rec){};
 };

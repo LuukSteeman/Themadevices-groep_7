@@ -1,3 +1,11 @@
+/*
+/home/Robert/SCHOOL/2015-2016/Themadevices-groep_7/src/project/entity/Damage.hpp:18: warning: argument 'The' of command @param is not found in the argument list of Damage::Damage(int damageAmount, int playerID)
+/home/Robert/SCHOOL/2015-2016/Themadevices-groep_7/src/project/entity/Damage.hpp:18: warning: argument 'the' of command @param is not found in the argument list of Damage::Damage(int damageAmount, int playerID)
+/home/Robert/SCHOOL/2015-2016/Themadevices-groep_7/src/project/entity/Damage.hpp:21: warning: The following parameters of Damage::Damage(int damageAmount, int playerID) are not documented:
+  parameter 'damageAmount'
+  parameter 'playerID'
+*/
+
 #ifndef DAMAGE_HPP
 #define DAMAGE_HPP
 

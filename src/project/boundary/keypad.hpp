@@ -30,17 +30,17 @@ class Keypad
 
   public:
     /**
-      Initialise keypad and pins
+      Initialise keypad and pins.
     */
     Keypad();
     /**
-      check if key is pressed and update
+      check if key is pressed and update listeners.
     */
     void update();
     /**
-      Add a listener class to list of listeners;
+      Add a listener class to list of listeners.
 
-      @param pointer to listener
+      @param listener Pointer to listener.
     */
     void addKeypadListener(KeypadListener *listener);
 };

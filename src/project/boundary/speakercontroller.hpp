@@ -1,3 +1,19 @@
+/*
+/home/Robert/SCHOOL/2015-2016/Themadevices-groep_7/src/project/boundary/speakercontroller.hpp:29: warning: argument 'Provide' of command @param is not found in the argument list of Speakercontroller::Speakercontroller(char *name, Speaker &speak)
+/home/Robert/SCHOOL/2015-2016/Themadevices-groep_7/src/project/boundary/speakercontroller.hpp:33: warning: The following parameters of Speakercontroller::Speakercontroller(char *name, Speaker &speak) are not documented:
+  parameter 'speak'
+/home/Robert/SCHOOL/2015-2016/Themadevices-groep_7/src/project/boundary/speakercontroller.hpp:43: warning: argument 'the' of command @param is not found in the argument list of Speakercontroller::add(int hit)
+/home/Robert/SCHOOL/2015-2016/Themadevices-groep_7/src/project/boundary/speakercontroller.hpp:45: warning: The following parameters of Speakercontroller::add(int hit) are not documented:
+  parameter 'hit'
+/home/Robert/SCHOOL/2015-2016/Themadevices-groep_7/src/project/boundary/speakercontroller.hpp:39: warning: argument 'Note_length' of command @param is not found in the argument list of Speakercontroller::play(int note_length)
+/home/Robert/SCHOOL/2015-2016/Themadevices-groep_7/src/project/boundary/speakercontroller.hpp:41: warning: The following parameters of Speakercontroller::play(int note_length) are not documented:
+  parameter 'note_length'
+/home/Robert/SCHOOL/2015-2016/Themadevices-groep_7/src/project/boundary/speakercontroller.hpp:35: warning: argument 'provide' of command @param is not found in the argument list of Speakercontroller::set_frequency(int freq)
+/home/Robert/SCHOOL/2015-2016/Themadevices-groep_7/src/project/boundary/speakercontroller.hpp:37: warning: The following parameters of Speakercontroller::set_frequency(int freq) are not documented:
+  parameter 'freq'
+
+*/
+
 #include "speaker.hpp"
 
 #ifndef SPEAKERCONTROLLER_HPP
