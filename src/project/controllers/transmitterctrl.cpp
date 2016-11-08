@@ -7,7 +7,7 @@ trans(trans),
 chan(this, "MessageLogic channel")
 {}
 
-void Transmitterctrl::add(IRMessage m)
+void Transmitterctrl::add(MessageLogic m)
 {
 	chan.write(m);
 }

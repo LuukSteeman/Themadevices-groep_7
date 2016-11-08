@@ -4,7 +4,7 @@
 #include "hwlib.hpp"
 #include "rtos.hpp"
 #include "transmitter.hpp"
-#include "IRMessage.hpp"
+#include "messageLogic.hpp"
 
 
 ///Transmitterctrl
@@ -22,7 +22,7 @@ private:
 	Transmitter & trans;
 
 	///chan is the channel on which the task receives its IRMessages.
-	rtos::channel<IRMessage, 10> chan;
+	rtos::channel<MessageLogic, 10> chan;
 
 	///The main is an infinite while loop.
 	///The main of a transmitterctrl task is automatically run when you use rtos::run in your main.cpp
@@ -36,7 +36,7 @@ public:
 	Transmitterctrl(char * name, Transmitter & trans);
 
 	///To communicate with Transmitterctrl task from other tasks, use the add() function to put IRMessage objects in the channel.
-	void add(IRMessage m);
+	void add(MessageLogic m);
 };
 
 #endif //TRANSMITTERCTRL_HPP

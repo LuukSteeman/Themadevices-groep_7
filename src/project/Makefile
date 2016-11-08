@@ -9,20 +9,13 @@
 #############################################################################
 
 # source files in this project (main.cpp is automatically assumed)
-<<<<<<< HEAD
-SOURCES := transmitterctrl.cpp IRMessage.cpp
+SOURCES := speaker.cpp speakercontroller.cpp receiver.cpp receiverHandler.cpp messageLogic.cpp damageStorage.cpp transmitterctrl.cpp 
 
 # header files in this project
-HEADERS := transmitter.hpp transmitterctrl.hpp IRMessage.hpp
-=======
-SOURCES := speaker.cpp speakercontroller.cpp receiver.cpp receiverHandler.cpp messageLogic.cpp damageStorage.cpp
-
-# header files in this project
-HEADERS := speaker.hpp speakercontroller.cpp receiver.hpp interfaces/receiverListener.hpp messageLogic.hpp damageStorage.hpp
->>>>>>> master
+HEADERS := speaker.hpp speakercontroller.cpp receiver.hpp receiverListener.hpp messageLogic.hpp damageStorage.hpp transmitter.hpp transmitterctrl.hpp 
 
 # other places to look for files for this project
-SEARCH  := boundary/ controllers/ applicationLogic/ entity/
+SEARCH  := boundary/ controllers/ applicationLogic/ entity/ interfaces/ 
 
 # set BMPTK to the next higher directory and defer to the Makefile.due
 BMPTK := $(BMPTK)../
