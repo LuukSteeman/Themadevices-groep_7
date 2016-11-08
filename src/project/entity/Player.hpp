@@ -7,13 +7,13 @@ class Player
 {
 private:
 	//! The amount of health the player has, starting at 100
-	int hitPoints = 100;
+	int hitPoints;
 
 	//! The player's chosen weapon, which is used to calculate damage and rate of fire
 	int weaponID;
 public:
-	//! An empty constructor that doesn't set any values
-	Player(){};
+	//! An constuctor without parameters that initializes hitPoints at a value of 100
+	Player(){hitPoints = 100;};
 	
 	//! Update the player's health by subtracting the amount of damage taken
 	//! @param damage The amount of damage the player took
