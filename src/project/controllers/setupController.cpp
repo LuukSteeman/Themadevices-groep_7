@@ -1,6 +1,16 @@
 #include "setupController.hpp"
 
-SetupController::SetupController(Player &thePlayer, PlayerID & id):task("Setuptask"), message_channel(this, "Setup MessageLogic Channel"), key_channel(this, "Setup Key Channel"), gameStartedFlag(this, "Game Started Flag"), thePlayer(thePlayer), id(id){
+SetupController::SetupController(Player &thePlayer, PlayerID & id, TransferController & transferctrl):
+task("Setuptask"),
+message_channel(this, "Setup MessageLogic Channel"),
+key_channel(this, "Setup Key Channel"),
+gameStartedFlag(this, "Game Started Flag"),
+gameTimer(this, "Game Length Timer"),
+gameEndedPool("Game Ended Pool"),
+thePlayer(thePlayer),
+id(id),
+transferctrl(transferctrl)
+{
 	gotMessage = 0;
 }
 
@@ -31,7 +41,10 @@ void SetupController::determineWeapon(){
 	}
 }
 
-void SetupController::determineTime(int timeValue){}	// To be added
+void SetupController::startTimer(){
+    timeSet *= 60000;
+    gameTimer.set(timeSet);
+}
 
 void SetupController::determinePlayerID(){
 	int receivedID = id.getID();
@@ -50,16 +63,24 @@ void SetupController::main(){
 		pressed_key = 0;
 		hwlib::cout << thePlayer.getWeapon();
 	}
-	read_message_channel();
-	if (gotMessage){
-		int received_data = received_message.getData();
-		if (received_data == 0){
-			setGameFlag();
-		}
-		else{
-			determineTime(received_data);
-		}
-		gotMessage = 0;
-	}
-	suspend();
+    while(1){
+        read_message_channel();
+        if (gotMessage){
+    		int received_data = received_message.getData();
+    		if (received_data == 0){
+    			setGameFlag();
+                gameEndedPool.write(0);
+                startTimer();
+                break;
+    		}
+    		else{
+    			timeSet = received_data;
+    		}
+    		gotMessage = 0;
+    	}
+    }
+    read_key_channel();
+    if (pressed_key){
+        transferctrl.run(this);
+    }
 }

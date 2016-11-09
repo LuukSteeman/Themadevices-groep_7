@@ -26,9 +26,13 @@ int main()
   Player pyer;
   PlayerID id;
 
+  DamageStorage ds;
+
+  TransferController transferctrl(ds);
+
   Keypad pad;
   KeypadHandler handle(pad);
-  SetupController sctrl(pyer, id);
+  SetupController sctrl(pyer, id, transferctrl);
 
   Receiver receive(hwlib::target::pins::d12);
   ReceiverHandler rhandle(receive);
