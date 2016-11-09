@@ -15,7 +15,7 @@ SOURCES := speaker.cpp speakercontroller.cpp receiver.cpp receiverHandler.cpp me
 HEADERS := speaker.hpp receiver.hpp receiverListener.hpp damage.hpp messageLogic.hpp damageStorage.hpp transmitter.hpp transmitterctrl.hpp transferController.hpp usb.hpp pb_common.h pb_encode.h game.pb.h pb.h Player.hpp gunLogic.hpp setupController.hpp Keypad.hpp KeypadHandler.hpp keypadListener.hpp playerID.hpp
 
 # other places to look for files for this project
-SEARCH  := boundary/ controllers/ applicationLogic/ entity/ interfaces/ nanopb/
+SEARCH  := boundary/ controllers/ applicationLogic/ entity/ interfaces/
 
 # set BMPTK to the next higher directory and defer to the Makefile.due
 BMPTK := $(BMPTK)../
