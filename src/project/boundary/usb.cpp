@@ -1,3 +1,5 @@
+///Copyright Robert Bezem, Ricardo Bouwman, Jeroen van Hattem, Luuk Steeman
+
 #include "usb.hpp"
 #include "../entity/Damage.hpp"
 #include "../nanopb/game.pb.h"

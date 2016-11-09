@@ -1,3 +1,5 @@
+///Copyright Robert Bezem, Ricardo Bouwman, Jeroen van Hattem, Luuk Steeman
+
 #pragma once
 #include "../entity/damageStorage.hpp"
 #include "rtos.hpp"
@@ -15,24 +17,14 @@ class TransferController
     Create a transfer controller
     @param ds Reference to damage storige which should be transfered
     */
-    TransferController(DamageStorage &ds) : ds(ds){};
+    TransferController(DamageStorage &ds);
 
     /**
         Run the transfer controller.
         This waits for a '\n'to be received and then sends data over serial
         @param task The task in which this controller is run.
     */
-    void run(rtos::task_base *task)
-    {
-        do
-        {
-            while (!hwlib::cin.char_available())
-            {
-                task->sleep(10 * rtos::us);
-            }
-        } while (hwlib::cin.getc() != '\n');
-        USB::writeToUSB(ds);
-    };
+    void run(rtos::task_base *task);
 
   private:
     DamageStorage &ds;

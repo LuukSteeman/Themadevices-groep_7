@@ -1,3 +1,5 @@
+///Copyright Robert Bezem, Ricardo Bouwman, Jeroen van Hattem, Luuk Steeman
+
 #pragma once
 #include "../entity/damageStorage.hpp"
 #include "../nanopb/pb_encode.h"

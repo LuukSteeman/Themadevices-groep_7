@@ -1,4 +1,6 @@
 ///@file
+///Copyright Robert Bezem, Ricardo Bouwman, Jeroen van Hattem, Luuk Steeman
+
 #ifndef TRANSMITTERCTRL_HPP
 #define TRANSMITTERCTR_HPP
 #include "hwlib.hpp"
@@ -18,25 +20,28 @@
 class Transmitterctrl : public rtos::task<>
 {
 private:
-	///trans is the transmitter the controller uses to send IRMessages.
-	Transmitter & trans;
+    ///trans is the transmitter the controller uses to send IRMessages.
+    Transmitter & trans;
 
-	///chan is the channel on which the task receives its IRMessages.
-	rtos::channel<MessageLogic, 10> chan;
+    ///chan is the channel on which the task receives its IRMessages.
+    rtos::channel<MessageLogic, 10> chan;
 
-	///The main is an infinite while loop.
-	///The main of a transmitterctrl task is automatically run when you use rtos::run in your main.cpp
-	///First the main checks the channel, unless there's something in it, it just keeps repeating the loop.
-	///Once there's a IRMessage object in the channel, encode function is run and the return value is stored in a short.
-	///The corresponding bits are then send to the transmitter.
-	void main();
+    ///The main is an infinite while loop.
+    ///The main of a transmitterctrl task is automatically
+    //run when you use rtos::run in your main.cpp
+    ///First the main checks the channel, unless there's something in it, it just keeps repeating the loop.
+    ///Once there's a IRMessage object in the channel,
+    ///encode function is run and the return value is stored in a short.
+    ///The corresponding bits are then send to the transmitter.
+    void main();
 public:
 
-	///The Transmitterctrl constructor requires a name for debugging and a reference to a transmitter.
-	Transmitterctrl(char * name, Transmitter & trans);
+    ///The Transmitterctrl constructor requires a name for debugging and a reference to a transmitter.
+    Transmitterctrl(char * name, Transmitter & trans);
 
-	///To communicate with Transmitterctrl task from other tasks, use the add() function to put IRMessage objects in the channel.
-	void add(MessageLogic m);
+    ///To communicate with Transmitterctrl task from other tasks,
+    //use the add() function to put IRMessage objects in the channel.
+    void add(MessageLogic m);
 };
 
 #endif //TRANSMITTERCTRL_HPP

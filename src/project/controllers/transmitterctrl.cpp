@@ -1,3 +1,5 @@
+///Copyright Robert Bezem, Ricardo Bouwman, Jeroen van Hattem, Luuk Steeman
+
 #include "transmitterctrl.hpp"
 #include "bitTools.hpp"
 
@@ -9,14 +11,14 @@ chan(this, "MessageLogic channel")
 
 void Transmitterctrl::add(MessageLogic m)
 {
-	chan.write(m);
+    chan.write(m);
 }
 
 void Transmitterctrl::main()
 {
-	while(1)
-	{
-		auto m = chan.read();
+    while (1)
+    {
+        auto m = chan.read();
         unsigned short data = m.encode();
         for (int ii = 0; ii < 2; ii++)
         {

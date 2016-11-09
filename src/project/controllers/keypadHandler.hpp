@@ -1,3 +1,5 @@
+///Copyright Robert Bezem, Ricardo Bouwman, Jeroen van Hattem, Luuk Steeman
+
 #pragma once
 
 #include <rtos.hpp>
@@ -8,7 +10,8 @@
 
     Updates the keypad periodicly
 */
-class KeypadHandler : public rtos::task<>{
+class KeypadHandler : public rtos::task<>
+{
     private:
         Keypad& keypad;
         void main();

@@ -1,33 +1,36 @@
+///Copyright Robert Bezem, Ricardo Bouwman, Jeroen van Hattem, Luuk Steeman
+
 #include "speakercontroller.hpp"
 
 void Speakercontroller::main()
 {
-	while (1) {
-		int noteLength = hits.read();
-		if (noteLength > 0)
-		{
-			play(noteLength);
-		}
-	}
+    while (1)
+    {
+        int noteLength = hits.read();
+        if (noteLength > 0)
+        {
+            play(noteLength);
+        }
+    }
 }
 
 void Speakercontroller::add(int hit)
 {
-	hits.write(hit);
+    hits.write(hit);
 }
 
 void Speakercontroller::set_frequency(int freq)
 {
-	time = 1'000'000 / (2 * freq);
+    time = 1'000'000 / (2 * freq);
 }
 
 void Speakercontroller::play(int noteLength)
 {
-	for(int i = 0; i < noteLength; i++)
-	{
-		sleep(time * rtos::us);
-		speak.set(1);
-		sleep(time * rtos::us);
-		speak.set(0);
-	}
+    for (int i = 0; i < noteLength; i++)
+    {
+        sleep(time * rtos::us);
+        speak.set(1);
+        sleep(time * rtos::us);
+        speak.set(0);
+    }
 }

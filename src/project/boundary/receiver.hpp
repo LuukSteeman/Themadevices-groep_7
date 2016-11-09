@@ -1,3 +1,5 @@
+///Copyright Robert Bezem, Ricardo Bouwman, Jeroen van Hattem, Luuk Steeman
+
 #pragma once
 
 #include <hwlib.hpp>
@@ -5,7 +7,8 @@
 #include "../applicationLogic/messageLogic.hpp"
 
 /**
-  Receiver class. Contains functions to get status of the receiver pin and functions to notify listeners
+  Receiver class.
+  Contains functions to get status of the receiver pin and functions to notify listeners
 */
 class Receiver : public hwlib::target::pin_in
 {
