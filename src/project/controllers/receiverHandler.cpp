@@ -46,13 +46,14 @@ void ReceiverHandler::listenForMessage()
     }
     // hwlib::cout << data; //magicekrererererer cout dont touch
     MessageLogic m(data);
+    hwlib::cout << "error data " << data << "\n";
     if (!m.getError())
     {
         rec.update(m);
     }
-    // else
-    // {
-    //     hwlib::cout << "error " << hwlib::boolalpha << (bool)(m.getError() & MessageLogic::CHECKSUMERROR) << " "
-    //                 << hwlib::boolalpha << (bool)(m.getError() & MessageLogic::STARTBITERROR) << "\n";
-    // }
+    else
+    {
+        // hwlib::cout << "error " << hwlib::boolalpha << (bool)(m.getError() & MessageLogic::CHECKSUMERROR) << " "
+        // << hwlib::boolalpha << (bool)(m.getError() & MessageLogic::STARTBITERROR) << "\n";
+    }
 }

@@ -16,6 +16,7 @@ void shootCtrl::main()
 	while(1)
 	{
 		char x = keychannel.read();
+		hwlib::cout << "read something";
 		if ( x == '*')
 		{
 			transc.run(msg, this);

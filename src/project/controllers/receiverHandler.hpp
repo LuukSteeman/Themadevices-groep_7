@@ -19,7 +19,7 @@ class ReceiverHandler : public rtos::task<256>
         static const int bits = 16;
         static const int samplesPerBit = 16;
         static const int sampleTime = 2400 * rtos::us;
-        static const int sampleSleepTime = sampleTime/samplesPerBit;
+        static const int sampleSleepTime = (sampleTime/samplesPerBit)+50;
         static const int failTimeout = 5*rtos::ms;
         static const int maxWaits = failTimeout/pollTimeout;
 
