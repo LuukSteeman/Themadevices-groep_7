@@ -22,7 +22,7 @@ void HitController::main()
 
             int damage = GunLogic::calcDamage(message.getData());
             play.updateHP(damage);
-            hwlib::cout << play.getHP();
+            // hwlib::cout << play.getHP();
             ds.addDamage(damage, message.getId());
             sp.add(100);
         // }

@@ -12,7 +12,7 @@
 //
 ///shootCtrl is an implementation of both rtos::task<> and KeyPadlistener.
 ///use the shootCtrl to communicate with a transmitterctrl through a keypad.
-class shootCtrl : public rtos::task<>, public KeypadListener
+class shootCtrl : public rtos::task<256>, public KeypadListener
 {
 private:
 	///The keychannel is a channel where button presses are stored.

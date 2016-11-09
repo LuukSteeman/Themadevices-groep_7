@@ -21,6 +21,22 @@
 #include "controllers/keypadHandler.hpp"
 #include "entity/Player.hpp"
 
+class X : public KeypadListener
+{
+public:
+  void keyPressed(char key)
+  {
+    if (key == 'A')
+    {
+      rtos::display_statistics();
+    }
+    else if (key == 'B')
+    {
+      rtos::do_statistics_clear();
+    }
+  }
+};
+
 int main()
 {
   WDT->WDT_MR = WDT_MR_WDDIS;
@@ -44,6 +60,8 @@ int main()
   pad.addKeypadListener(&shoot);
   KeypadHandler handler(pad);
   HitController h(speakctrl, d, r, player);
+  X x;
+  pad.addKeypadListener(&x);
   rtos::run();
   return 0;
 }
