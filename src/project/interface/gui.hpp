@@ -7,7 +7,7 @@
 class gui
 {
   public:
-    virtual void draw(oled oled_screen, int i) = 0;
+    virtual void draw(oled &oled_screen) = 0;
 };
 
 

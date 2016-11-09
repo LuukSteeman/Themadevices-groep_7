@@ -6,8 +6,23 @@
 
 class text : public gui{
 public:
-	text(){};
-	void draw(oled oled_screen, int screen);
+	char * given_text;
+	int screen_number;
+	text(char * given_text, int screen_number):
+		given_text(given_text),
+		screen_number(screen_number)
+	{};
+	void draw(oled &oled_screen);
+
+	void flush(oled &oled_screen);
+	// auto getOled(oled oled_screen){
+ //    	auto & oled = oled_screen.oled_buffered;
+	// 	return & oled;
+	// }
+
+	int getScreenNumber(){
+		return screen_number;
+	}
 };
 
 #endif

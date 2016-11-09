@@ -1,6 +1,6 @@
     #include "text.hpp"
 
-void text::draw(oled oled_screen, int screen){
+void text::draw(oled &oled_screen){
     auto & oled = oled_screen.oled_buffered;
 
 
@@ -14,7 +14,7 @@ void text::draw(oled oled_screen, int screen){
         hwlib::location( 96, 32));
     auto window3 = hwlib::window_part( 
         oled, 
-        hwlib::location( 0, 64 ),
+        hwlib::location( 96, 64 ),
         hwlib::location( 32, 64));
      
 
@@ -26,23 +26,28 @@ void text::draw(oled oled_screen, int screen){
     auto outstream2 = hwlib::window_ostream( window2, font_small );
     auto outstream3 = hwlib::window_ostream( window3, font_small );
 
-    switch(screen){
-    	case 1:
-    		outstream1 	<< "\f"
-        				<< "1" << "\n";  
-			break;
-    	case 2:
-		    outstream2 	<< "\f"
-		        		<< "2" << "\n";
-			break;
-    	case 3:
-		    outstream3 	<< "\f"
-		        		<< "3" << "\n";
-			break;
-		default:
-    		outstream1 	<< "\f"
-        				<< "Error 1" << "\n";  // Outstream bestaat niet
+    if(getScreenNumber() == 1){
+    	outstream1 	<< "\f"
+    				<< given_text << "HI" << "\n";  
+	}
+    else if(getScreenNumber() == 2){
+	    outstream2 	<< "\f"
+	        		<< given_text << "Hi" << "\n";
     }
+    else if(getScreenNumber() == 3){
+	    outstream3 	<< "\f"
+	        		<< given_text << "hi" << "\n";
+    }
+    else {
+		outstream1 	<< "\f"
+    				<< "Error 1" << "\n";  // Outstream bestaat niet
+    }
+
+    // oled.flush();
+}
+
+void text::flush(oled &oled_screen){
+    auto & oled = oled_screen.oled_buffered;
 
     oled.flush();
 

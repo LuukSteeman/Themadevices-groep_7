@@ -5,11 +5,14 @@ void oled_controller::main(){
     while (1)
     {
         gui *x = oled_channel.read();
-        x->draw(oled_screen, 2);
+        x->draw(oled_screen);
     }
-
 }
 
 void oled_controller::add(gui * object){
 	oled_channel.write(object);
+}
+
+void oled_controller::flush(){
+	oled_screen.flush();
 }

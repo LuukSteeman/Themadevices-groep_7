@@ -35,6 +35,10 @@ public:
       pin_vcc_fixed( pin_vcc, 1 ),
       oled_buffered( i2c_bus, 0x3c )
    {}   
+
+   void flush(){
+      oled_buffered.flush();
+   }
 };
 
 #endif
