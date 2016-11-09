@@ -1,5 +1,4 @@
 #include "hitController.hpp"
-#include "gunLogic.hpp"
 HitController::HitController(Speakercontroller &sp, DamageStorage &ds, Receiver &rs, Player &play) : hitchannel(this, "Channel for hits"),
                                                                                                      sp(sp),
                                                                                                      ds(ds),
@@ -18,11 +17,14 @@ void HitController::main()
     while (1)
     {
         MessageLogic message = hitchannel.read();
-        // check for not self
-        int damage = calcDamage(message.getData());
-        play.updateHP(damage);
-        hwlib::cout << play.getHP();
-        ds.addDamage(damage, message.getId());
-        sp.add(100);
+        // if (play.getId() != message.getId())
+        // {
+
+            int damage = GunLogic::calcDamage(message.getData());
+            play.updateHP(damage);
+            hwlib::cout << play.getHP();
+            ds.addDamage(damage, message.getId());
+            sp.add(100);
+        // }
     }
 }

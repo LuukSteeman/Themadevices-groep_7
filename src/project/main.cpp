@@ -2,7 +2,6 @@
 #include "transmitterctrl.hpp"
 #include "transmitter.hpp"
 #include <rtos.hpp>
-<<<<<<< HEAD
 #include "receiver.hpp"
 #include "receiverHandler.hpp"
 #include "receiverListener.hpp"
@@ -14,14 +13,6 @@
 #include "hitController.hpp"
 #include "Player.hpp"
 #include "receiverHandler.hpp"
-
-class X :public ReceiverListener{
-  public:
-    void msgReceived(MessageLogic msg){
-      hwlib::cout << "message received\n";
-    }
-};
-=======
 #include "applicationLogic/messageLogic.hpp"
 #include "controllers/shootCtrl.hpp"
 #include "boundary/transmitter.hpp"
@@ -30,41 +21,29 @@ class X :public ReceiverListener{
 #include "controllers/keypadHandler.hpp"
 #include "entity/Player.hpp"
 
-
->>>>>>> master
-
 int main()
 {
   WDT->WDT_MR = WDT_MR_WDDIS;
   hwlib::wait_ms(500);
-<<<<<<< HEAD
   DamageStorage d;
 
   Receiver r(hwlib::target::pins::d12);
   ReceiverHandler rh(r);
-  
-  X x;
-  r.addReceiverListener(&x);
 
   auto speak_pin = hwlib::target::pin_out(hwlib::target::pins::d52);
   auto speak = Speaker(speak_pin);
   auto speakctrl = Speakercontroller((char *)"speaker", speak);
   speakctrl.set_frequency(1500);
-  Player p;
-  HitController h(speakctrl, d, r, p);
-  
-=======
+  Player player;
 
   Keypad pad;
   Transmitter trans;
   Transmitterctrl transctrl(trans);
-  Player player;
   player.setWeapon(5);
-  shootCtrl shoot((char*)"task for shooting", transctrl, player);
+  shootCtrl shoot((char *)"task for shooting", transctrl, player);
   pad.addKeypadListener(&shoot);
   KeypadHandler handler(pad);
-
->>>>>>> master
+  HitController h(speakctrl, d, r, player);
   rtos::run();
   return 0;
 }

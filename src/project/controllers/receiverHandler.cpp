@@ -44,7 +44,7 @@ void ReceiverHandler::listenForMessage()
             data |= (1 << (bits - bit));
         }
     }
-    hwlib::cout << data; //magicekrererererer cout dont touch
+    // hwlib::cout << data; //magicekrererererer cout dont touch
     MessageLogic m(data);
     if (!m.getError())
     {

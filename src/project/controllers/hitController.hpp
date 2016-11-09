@@ -2,11 +2,11 @@
 #include <rtos.hpp>
 #include "messageLogic.hpp"
 #include "speakercontroller.hpp"
-#include "damageStorage.hpp"
 #include "receiverListener.hpp"
 #include "Player.hpp"
 #include "receiver.hpp"
-
+#include "damageStorage.hpp"
+#include "gunLogic.hpp"
 
 class HitController : public rtos::task<>, public ReceiverListener
 {
