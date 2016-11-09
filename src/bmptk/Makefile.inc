@@ -320,6 +320,7 @@ define All_Targets
    ALL_OPTIMIZATION  ?= -Os
    
    # cpp: don't use features that are useless and/or too expensive
+   CPP_RTTI          ?= -fno-rtti 
    CPP_EXCEPTIONS    ?= -fno-exceptions 
    CPP_THREADSAFE    ?= -fno-threadsafe-statics 
    CPP_CXA           ?= -fno-use-cxa-get-exception-ptr   
