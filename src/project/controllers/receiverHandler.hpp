@@ -15,11 +15,13 @@ class ReceiverHandler : public rtos::task<>
         void main();
         void listenForMessage();
 
-        static const int pollTimeout = 200;
+        static const int pollTimeout = 200 * rtos::us;
         static const int bits = 16;
-        static const int samplesPerBit = 32;
-        static const int sampleTime = 2390;
-        static const int failTimeout = 40000;
+        static const int samplesPerBit = 16;
+        static const int sampleTime = 2390 * rtos::us;
+        static const int sampleSleepTime = sampleTime/samplesPerBit;
+        static const int failTimeout = 4*rtos::ms;
+        static const int maxWaits = failTimeout/pollTimeout;
 
       public:
         /**

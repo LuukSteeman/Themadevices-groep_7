@@ -18,9 +18,9 @@ void ReceiverHandler::listenForMessage()
         int waits = 0;    // hold amount of waits
         while (rec.get()) // wait as long as ir pin is not low
         {
-            sleep(pollTimeout * rtos::us);
+            sleep(pollTimeout);
             waits++;
-            if ((failTimeout / pollTimeout) > waits) // if fail timeout is reached fail
+            if (waits<maxWaits) // if fail timeout is reached fail
             {
                 return;
             }
@@ -34,7 +34,7 @@ void ReceiverHandler::listenForMessage()
             {
                 highs++;
             }
-            sleep((sampleTime / samplesPerBit) * rtos::us);
+            sleep(sampleSleepTime);
         };
 
         //store 1 or 0 in data
@@ -45,6 +45,7 @@ void ReceiverHandler::listenForMessage()
         }
     }
     MessageLogic m(data);
+    hwlib::cout <<bit << "\n";
     if (!m.getError())
     {
         rec.update(m);
