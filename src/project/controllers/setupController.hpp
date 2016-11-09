@@ -6,7 +6,7 @@
 #include "../controllers/receiverHandler.hpp"
 #include "../interfaces/keypadListener.hpp"
 #include "../interfaces/receiverListener.hpp"
-#include "../entity/player.hpp"
+#include "../entity/Player.hpp"
 #include "../boundary/playerID.hpp"
 #include "../applicationLogic/messageLogic.hpp"
 #include "../controllers/transferController.hpp"

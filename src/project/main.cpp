@@ -13,9 +13,9 @@
 #include "controllers/transferController.hpp"
 #include "setupController.hpp"
 #include "Player.hpp"
-#include "Keypad.hpp"
+#include "keypad.hpp"
 #include "keypadHandler.hpp"
-#include "PlayerID.hpp"
+#include "playerID.hpp"
 
 int main()
 {
