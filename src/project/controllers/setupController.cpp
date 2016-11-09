@@ -1,6 +1,6 @@
 #include "setupController.hpp"
 
-SetupController::SetupController(Player &thePlayer):task(), message_channel(this, "Setup MessageLogic Channel"), key_channel(this, "Setup Key Channel"), gameStartedFlag(this, "Game Started Flag"), thePlayer(thePlayer){
+SetupController::SetupController(Player &thePlayer):task("Setuptask"), message_channel(this, "Setup MessageLogic Channel"), key_channel(this, "Setup Key Channel"), gameStartedFlag(this, "Game Started Flag"), thePlayer(thePlayer){
 	gotMessage = 0;
 }
 
@@ -44,22 +44,21 @@ void SetupController::setGameFlag(){
 
 void SetupController::main(){
 	determinePlayerID();
-	while(1){
-		read_key_channel();
-		if (pressed_key){
-			thePlayer.setWeapon(pressed_key);
-			pressed_key = 0;
-		}
-		read_message_channel();
-		if (gotMessage){
-			int received_data = received_message.getData();
-			if (received_data == 0){
-				setGameFlag();
-			}
-			else{
-				determineTime(received_data);
-			}
-			gotMessage = 0;
-		}
+	read_key_channel();
+	if (pressed_key){
+		thePlayer.setWeapon( pressed_key - '0' );
+		pressed_key = 0;
 	}
+	read_message_channel();
+	if (gotMessage){
+		int received_data = received_message.getData();
+		if (received_data == 0){
+			setGameFlag();
+		}
+		else{
+			determineTime(received_data);
+		}
+		gotMessage = 0;
+	}
+	suspend();
 }
