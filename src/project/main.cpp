@@ -15,6 +15,7 @@
 #include "Player.hpp"
 #include "Keypad.hpp"
 #include "keypadHandler.hpp"
+#include "PlayerID.hpp"
 
 int main()
 {
@@ -23,16 +24,18 @@ int main()
 
 
   Player pyer;
+  PlayerID id;
 
   Keypad pad;
   KeypadHandler handle(pad);
-  SetupController sctrl(pyer);
+  SetupController sctrl(pyer, id);
 
   Receiver receive(hwlib::target::pins::d12);
   ReceiverHandler rhandle(receive);
 
-  receive.addReceiverListener(sctrl);
-  pad.addKeypadListener(sctrl);
+
+  receive.addReceiverListener(&sctrl);
+  pad.addKeypadListener(&sctrl);
 
 
   rtos::run();

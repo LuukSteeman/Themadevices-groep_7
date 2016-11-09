@@ -1,6 +1,6 @@
 #include "setupController.hpp"
 
-SetupController::SetupController(Player &thePlayer):task("Setuptask"), message_channel(this, "Setup MessageLogic Channel"), key_channel(this, "Setup Key Channel"), gameStartedFlag(this, "Game Started Flag"), thePlayer(thePlayer){
+SetupController::SetupController(Player &thePlayer, PlayerID & id):task("Setuptask"), message_channel(this, "Setup MessageLogic Channel"), key_channel(this, "Setup Key Channel"), gameStartedFlag(this, "Game Started Flag"), thePlayer(thePlayer), id(id){
 	gotMessage = 0;
 }
 
@@ -34,7 +34,7 @@ void SetupController::determineWeapon(){
 void SetupController::determineTime(int timeValue){}	// To be added
 
 void SetupController::determinePlayerID(){
-	int receivedID = PlayerID::getID();
+	int receivedID = id.getID();
 	thePlayer.setPlayerID(receivedID);
 }
 
@@ -48,6 +48,7 @@ void SetupController::main(){
 	if (pressed_key){
 		thePlayer.setWeapon( pressed_key - '0' );
 		pressed_key = 0;
+		hwlib::cout << thePlayer.getWeapon();
 	}
 	read_message_channel();
 	if (gotMessage){

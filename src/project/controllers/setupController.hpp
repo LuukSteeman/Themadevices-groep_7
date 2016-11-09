@@ -19,8 +19,9 @@ private:
 	MessageLogic received_message;
     bool gotMessage;
 	Player &thePlayer;
+	PlayerID & id;
 public:
-    SetupController(Player &thePlayer);
+    SetupController(Player &thePlayer, PlayerID & id);
 
 	void keyPressed(char x);
 
