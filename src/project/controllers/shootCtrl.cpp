@@ -15,12 +15,18 @@ void shootCtrl::main()
 	msg = MessageLogic(10, weaponId);
 	while(1)
 	{
-		char x = keychannel.read();
-		hwlib::cout << "read something";
-		if ( x == '*')
-		{
-			transc.run(msg, this);
-			sleep(shotdelay * rtos::ms);
-		}
+		// wait(keychannel);
+		// char x = keychannel.read();
+		// if ( x == '*')
+		// {
+			if(shoot){
+				transc.run(msg, this);
+				shoot=false;
+			}else{
+				sleep(1*rtos::ms);
+			}
+			// sleep(shotdelay * rtos::ms);
+		// }
+		sleep(10 * rtos::ms);
 	}
 }

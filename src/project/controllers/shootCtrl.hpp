@@ -16,7 +16,7 @@ class shootCtrl : public rtos::task<256>, public KeypadListener
 {
 private:
 	///The keychannel is a channel where button presses are stored.
-	rtos::channel<char, 1> keychannel;
+	rtos::channel<char, 100> keychannel;
 
 	///shootCtrl knows a transc as it calls the function transmitterctrl::run()
 	Transmitterctrl & transc;
@@ -38,6 +38,7 @@ private:
 	///THe shotdelay calculated based on the weaponID.
 	int shotdelay;
 
+	bool shoot = false;
 public:
 
 	///@param name is the name of the task for debugging purposes.
@@ -47,9 +48,12 @@ public:
 
 	///Keypressed is the interface function for communicating with this task through the keypad
 	///@param key is the button that's pressed.
-	void keyPressed(char key) override
+	void keyPressed(char key)
 	{
-		keychannel.write(key);
+		// keychannel.write(key);
+		if( key == '*'){
+			shoot = true;
+		}
 	}
 };
 
