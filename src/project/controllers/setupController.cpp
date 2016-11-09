@@ -64,23 +64,28 @@ void SetupController::main(){
 		hwlib::cout << thePlayer.getWeapon();
 	}
     while(1){
+        hwlib::cout << "Goed zo!\n Je hebt je wapen gekozen!!!!11!!1!!22$#";
         read_message_channel();
         if (gotMessage){
     		int received_data = received_message.getData();
     		if (received_data == 0){
-    			setGameFlag();
+                hwlib::cout << "game startd";
                 gameEndedPool.write(0);
+    			setGameFlag();
                 startTimer();
                 break;
     		}
     		else{
     			timeSet = received_data;
+                hwlib::cout << received_data;
     		}
     		gotMessage = 0;
     	}
     }
+    gameEndedPool.write(1);
     read_key_channel();
     if (pressed_key){
         transferctrl.run(this);
     }
+    suspend();
 }
