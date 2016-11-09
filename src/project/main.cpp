@@ -6,23 +6,41 @@
 
 class Main : rtos::task<> {
 private:
-    oled_controller &oled_contol;
-    oled &oled_screen;
+    oled_controller & oled_control;
+    oled & oled_screen;
+
 
     void main() {
+        int i = 0; 
+        text s((char *)i, 1);
+        text t((char *)"2", 2);
+        text u((char *)"3", 3);
+
+        oled_control.add(&s);
+        oled_control.add(&t);
+        oled_control.add(&u);
+
+
         hwlib::cout << "started main controller\n";
         while (1) {
 
-            oled_screen.flush();
+            i++;
+            s.update((char*) i);
+
+            oled_control.add(&s);
+            oled_control.add(&t);
+            oled_control.add(&u);
 
             sleep(1 * rtos::s);
+            oled_control.flush();
+
         }
     };
 
 public:
-    Main(oled_controller &oled_contol, oled &oled_screen) : 
+    Main(oled_controller & oled_control, oled & oled_screen) : 
         task((char *)"Maintask"), 
-        oled_contol(oled_contol),
+        oled_control(oled_control),
         oled_screen(oled_screen)
     {};
 };
@@ -36,16 +54,11 @@ int main()
 
     oled oled_screen = oled();
 
-    oled_controller oled_contol(oled_screen);
-    Main m(oled_contol, oled_screen);
+    oled_controller oled_control(oled_screen);
+    Main m(oled_control, oled_screen);
 
-    text s((char *)"Text 1", 1);
-    text t((char *)"Text 2", 2);
-    text u((char *)"Text 3", 3);
-    oled_contol.add(&s);
-    oled_contol.add(&t);
-    oled_contol.add(&u);
-
+    Player player;
+    oled_controller oled_control(player);
     rtos::run();
     hwlib::cout << "Written";
     return 0;

@@ -14,8 +14,8 @@ void text::draw(oled &oled_screen){
         hwlib::location( 96, 32));
     auto window3 = hwlib::window_part( 
         oled, 
-        hwlib::location( 96, 64 ),
-        hwlib::location( 32, 64));
+        hwlib::location( 96, 0   ),
+        hwlib::location( 128, 64));
      
 
     auto font_small = hwlib::font_default_8x8();
@@ -24,11 +24,11 @@ void text::draw(oled &oled_screen){
 
     auto outstream1 = hwlib::window_ostream( window1, font_big );
     auto outstream2 = hwlib::window_ostream( window2, font_small );
-    auto outstream3 = hwlib::window_ostream( window3, font_small );
+    auto outstream3 = hwlib::window_ostream( window3, font_big );
 
     if(getScreenNumber() == 1){
     	outstream1 	<< "\f"
-    				<< given_text << "HI" << "\n";  
+    				<< (int)given_text << "HI" << "\n";  
 	}
     else if(getScreenNumber() == 2){
 	    outstream2 	<< "\f"
@@ -36,7 +36,7 @@ void text::draw(oled &oled_screen){
     }
     else if(getScreenNumber() == 3){
 	    outstream3 	<< "\f"
-	        		<< given_text << "hi" << "\n";
+	        		<< "\n05\n13" << "\n";
     }
     else {
 		outstream1 	<< "\f"
@@ -50,5 +50,8 @@ void text::flush(oled &oled_screen){
     auto & oled = oled_screen.oled_buffered;
 
     oled.flush();
+}
 
+void text::update(char * update_text){
+    given_text = update_text;
 }
