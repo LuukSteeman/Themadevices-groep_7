@@ -24,6 +24,11 @@ class TransferController
     */
     void run(rtos::task_base *task)
     {
+        
+
+    ds.addDamage(10,5);
+    ds.addDamage(10,5);
+    ds.addDamage(10,5);
         do
         {
             while (!hwlib::cin.char_available())
