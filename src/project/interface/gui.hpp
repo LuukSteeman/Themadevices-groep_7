@@ -4,8 +4,10 @@
 #include <hwlib.hpp>
 #include "../boundary/oled.hpp"
 
-class gui {
-	virtual void draw(oled oled_screen, int screen) = 0;
+class gui
+{
+  public:
+    virtual void draw(oled oled_screen, int i) = 0;
 };
 
 

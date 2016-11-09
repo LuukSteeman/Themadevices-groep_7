@@ -9,10 +9,10 @@
 #############################################################################
 
 # source files in this project (main.cpp is automatically assumed)
-SOURCES := controllers/oled_controller.cpp drawables/string.cpp
+SOURCES := controllers/oled_controller.cpp drawables/text.cpp
 
 # header files in this project
-HEADERS := controllers/oled_controller.hpp interface/gui.hpp drawables/string.hpp boundary/oled.hpp
+HEADERS := controllers/oled_controller.hpp interface/gui.hpp drawables/text.hpp boundary/oled.hpp
 
 # other places to look for files for this project
 SEARCH  := 

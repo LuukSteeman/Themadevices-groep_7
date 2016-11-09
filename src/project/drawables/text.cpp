@@ -1,6 +1,6 @@
-#include "string.hpp"
+    #include "text.hpp"
 
-void string::draw(oled oled_screen, int screen){
+void text::draw(oled oled_screen, int screen){
     auto & oled = oled_screen.oled_buffered;
 
 
@@ -43,4 +43,7 @@ void string::draw(oled oled_screen, int screen){
     		outstream1 	<< "\f"
         				<< "Error 1" << "\n";  // Outstream bestaat niet
     }
+
+    oled.flush();
+
 }
