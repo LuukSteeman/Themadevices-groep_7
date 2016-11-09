@@ -10,15 +10,17 @@
 #include "../boundary/playerID.hpp"
 #include "../applicationLogic/messageLogic.hpp"
 
-class setupController : public rtos::task<>, public KeypadListener, public ReceiverListener{
+class SetupController : public rtos::task<>, public KeypadListener, public ReceiverListener{
 private:
-	rtos::channel< char, 1024 > key_channel;
 	rtos::channel< MessageLogic, 1024 > message_channel;
+	rtos::channel< char, 1024 > key_channel;
+    rtos::flag gameStartedFlag;
 	char pressed_key;
 	MessageLogic received_message;
-	Player thePlayer;
+    bool gotMessage;
+	Player &thePlayer;
 public:
-	setupController();
+    SetupController(Player &thePlayer);
 
 	void keyPressed(char x);
 
@@ -30,11 +32,15 @@ public:
 
 	void read_message_channel();
 
-	void determineWeapon(Player &thePlayer);
+	void determineWeapon();
 
 	void determineTime(int timeValue);	// To be added
 
-	void determinePlayerID(Player &thePlayer);
+	void determinePlayerID();
+
+    void setGameFlag();
+
+	void main();
 };
 
 #endif //SETUPCONTROLLER_HPP

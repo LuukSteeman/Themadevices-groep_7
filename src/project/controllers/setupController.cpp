@@ -1,38 +1,65 @@
 #include "setupController.hpp"
 
-setupController::setupController():task(), message_channel(this, "Setup MessageLogic Channel"), key_channel(this, "Setup Key Channel"){
-	thePlayer = Player();
+SetupController::SetupController(Player &thePlayer):task(), message_channel(this, "Setup MessageLogic Channel"), key_channel(this, "Setup Key Channel"), gameStartedFlag(this, "Game Started Flag"), thePlayer(thePlayer){
+	gotMessage = 0;
 }
 
-void setupController::keyPressed(char x){
+void SetupController::keyPressed(char x){
 	key_channel.write(x);
 }
 
-void setupController::read_key_channel(){
+void SetupController::read_key_channel(){
 	pressed_key = key_channel.read();
 }
 
-char setupController::get_key(){
+char SetupController::get_key(){
 	return pressed_key;
 }
 
-void setupController::msgReceived(MessageLogic msg){
+void SetupController::msgReceived(MessageLogic msg){
 	message_channel.write(msg);
 }
 
-void setupController::read_message_channel(){
+void SetupController::read_message_channel(){
 	received_message = message_channel.read();
+	gotMessage = 1;
 }
 
-void setupController::determineWeapon(Player &thePlayer){
+void SetupController::determineWeapon(){
 	if (pressed_key > 0 && pressed_key < 10){
 		thePlayer.setWeapon(pressed_key);
 	}
 }
 
-void setupController::determineTime(int timeValue){}	// To be added
+void SetupController::determineTime(int timeValue){}	// To be added
 
-void setupController::determinePlayerID(Player &thePlayer){
-	//int ID = PlayerID::getID();
-	//thePlayer.setPlayerID(ID);		// Function needs to be added still
+void SetupController::determinePlayerID(){
+	int receivedID = PlayerID::getID();
+	thePlayer.setPlayerID(receivedID);
+}
+
+void SetupController::setGameFlag(){
+    gameStartedFlag.set();
+}
+
+void SetupController::main(){
+	determinePlayerID();
+	while(1){
+		read_key_channel();
+		if (pressed_key){
+			thePlayer.setWeapon(pressed_key);
+			pressed_key = 0;
+		}
+		read_message_channel();
+		if (gotMessage){
+			int received_data = received_message.getData();
+			if (received_data == 0){
+				setGameFlag();
+			}
+			else{
+				determineTime(received_data);
+			}
+			gotMessage = 0;
+		}
+	}
 }

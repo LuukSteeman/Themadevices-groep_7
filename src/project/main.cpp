@@ -6,6 +6,7 @@
 #include "receiverHandler.hpp"
 #include "receiverListener.hpp"
 #include "speakercontroller.hpp"
+#include "setupController.hpp"
 #include "messageLogic.hpp"
 #include "damageStorage.hpp"
 #include "Damage.hpp"
@@ -63,7 +64,6 @@ int main()
 {
   WDT->WDT_MR = WDT_MR_WDDIS;
   hwlib::wait_ms(500);
-
   Transmitter trans;
   Transmitterctrl transctrl((char *)"Transmittercontroller and task", trans);
   MessageLogic message(10, 5);
