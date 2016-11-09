@@ -23,6 +23,6 @@ void HitController::main()
         play.updateHP(damage);
         hwlib::cout << play.getHP();
         ds.addDamage(damage, message.getId());
-        sp.add(10);
+        sp.add(100);
     }
 }

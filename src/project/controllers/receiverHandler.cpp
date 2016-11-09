@@ -20,12 +20,12 @@ void ReceiverHandler::listenForMessage()
         {
             sleep(pollTimeout);
             waits++;
-            if (waits<maxWaits) // if fail timeout is reached fail
+            if (waits > maxWaits) // if fail timeout is reached fail
             {
+                // hwlib::cout << "Fail";
                 return;
             }
         }
-
         //sample the pin x times and calculate if it was a 1 or 0
         int highs = 0;
         for (int i = 0; i < samplesPerBit; i++)
@@ -44,8 +44,8 @@ void ReceiverHandler::listenForMessage()
             data |= (1 << (bits - bit));
         }
     }
+    hwlib::cout << data; //magicekrererererer cout dont touch
     MessageLogic m(data);
-    hwlib::cout <<bit << "\n";
     if (!m.getError())
     {
         rec.update(m);
@@ -53,6 +53,6 @@ void ReceiverHandler::listenForMessage()
     else
     {
         hwlib::cout << "error " << hwlib::boolalpha << (bool)(m.getError() & MessageLogic::CHECKSUMERROR) << " "
-                    << hwlib::boolalpha <<(bool) (m.getError() & MessageLogic::STARTBITERROR) << "\n";
+                    << hwlib::boolalpha << (bool)(m.getError() & MessageLogic::STARTBITERROR) << "\n";
     }
 }

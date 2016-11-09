@@ -17,7 +17,7 @@
 class X :public ReceiverListener{
   public:
     void msgReceived(MessageLogic msg){
-      hwlib::cout << "i\n";
+      hwlib::cout << "message received\n";
     }
 };
 
