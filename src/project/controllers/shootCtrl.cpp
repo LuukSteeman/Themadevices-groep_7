@@ -12,7 +12,7 @@ void shootCtrl::main()
 {
 	weaponId = player.getWeapon();
 	shotdelay = GunLogic::calcShootDelay(weaponId);
-	msg = MessageLogic(10, weaponId);
+	msg = MessageLogic(player.getPlayerID(), weaponId);
 	while(1)
 	{
 		// wait(keychannel);

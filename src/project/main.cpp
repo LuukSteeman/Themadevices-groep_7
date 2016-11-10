@@ -11,6 +11,7 @@
 #include "Damage.hpp"
 #include "controllers/transferController.hpp"
 #include "hitController.hpp"
+#include "boundary/playerID.hpp"
 #include "Player.hpp"
 #include "receiverHandler.hpp"
 #include "applicationLogic/messageLogic.hpp"
@@ -30,10 +31,6 @@ public:
     {
       rtos::display_statistics();
     }
-    else if (key == 'B')
-    {
-      rtos::do_statistics_clear();
-    }
   }
 };
 
@@ -46,20 +43,23 @@ int main()
   Receiver r(hwlib::target::pins::d12);
   ReceiverHandler rh(r);
 
-  auto speak_pin = hwlib::target::pin_out(hwlib::target::pins::d52);
+  auto speak_pin = hwlib::target::pin_out(hwlib::target::pins::d13);
   auto speak = Speaker(speak_pin);
   auto speakctrl = Speakercontroller((char *)"speaker", speak);
   speakctrl.set_frequency(1500);
   Player player;
+  player.setPlayerID(PlayerID::getID());
 
   Keypad pad;
   Transmitter trans;
   Transmitterctrl transctrl(trans);
-  player.setWeapon(5);
+  player.setWeapon(1);
   shootCtrl shoot((char *)"task for shooting", transctrl, player);
   pad.addKeypadListener(&shoot);
   KeypadHandler handler(pad);
   HitController h(speakctrl, d, r, player);
+  TransferController trsaa(d);
+  pad.addKeypadListener(&trsaa);
   X x;
   pad.addKeypadListener(&x);
   rtos::run();
