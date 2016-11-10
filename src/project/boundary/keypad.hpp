@@ -9,6 +9,7 @@
 class Keypad
 {
   private:
+    public:
     hwlib::target::pin_oc out0;
     hwlib::target::pin_oc out1;
     hwlib::target::pin_oc out2;

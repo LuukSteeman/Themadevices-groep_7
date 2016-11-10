@@ -81,4 +81,8 @@ class MessageLogic
         Value to be used for checking for checksum error
     */
     static const unsigned int CHECKSUMERROR = 4;
+
+    friend bool operator==(MessageLogic& lhs, MessageLogic& rhs){
+        return lhs._id == rhs._id && lhs._data == rhs._data;
+    }
 };
