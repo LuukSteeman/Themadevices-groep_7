@@ -47,7 +47,7 @@ void SetupController::addGameTime(int timeAdded){
 
 void SetupController::startTimer(){
     timeSet *= 60000;
-    gameTimer.set(timeSet);
+    hwlib::cout << timeSet;
 }
 
 void SetupController::determinePlayerID(){
@@ -66,14 +66,13 @@ void SetupController::main(){
 		thePlayer.setWeapon( pressed_key - '0' );
 		pressed_key = 0;
 		hwlib::cout << thePlayer.getWeapon();
-        hwlib::cout << "Goed zo!\n Je hebt je wapen gekozen!!!!11!!1!!22$#";
+        hwlib::cout << "Goed zo!\n Je hebt je wapen gekozen!!!!11!!1!!22$#\n";
 	}
     while(1){
         read_message_channel();
         if (gotMessage){
     		int received_data = received_message.getData();
     		if (received_data == 0){
-                hwlib::cout << "game startd";
                 gameEndedPool.write(0);
     			setGameFlag();
                 startTimer();
@@ -86,12 +85,14 @@ void SetupController::main(){
     		gotMessage = 0;
     	}
     }
-    // gameEndedPool.write(1);
-    // hwlib::cout << "Game finished";
+    gameEndedPool.write(1);
+    hwlib::cout << "game startd\n";
+    sleep(timeSet * rtos::ms);
+    hwlib::cout << "Game finished";
     // read_key_channel();
     // if (pressed_key){
     //     transferctrl.run(this);
     //     hwlib::cout << "Transferred";
     // }
-    // suspend();
+    suspend();
 }
