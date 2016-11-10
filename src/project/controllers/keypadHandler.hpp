@@ -8,7 +8,7 @@
 
     Updates the keypad periodicly
 */
-class KeypadHandler : public rtos::task<>{
+class KeypadHandler : public rtos::task<512>{
     private:
         Keypad& keypad;
         void main();

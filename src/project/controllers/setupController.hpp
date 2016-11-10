@@ -11,22 +11,20 @@
 #include "../applicationLogic/messageLogic.hpp"
 #include "../controllers/transferController.hpp"
 
-class SetupController : public rtos::task<>, public KeypadListener, public ReceiverListener{
+class SetupController : public rtos::task<1024>, public KeypadListener, public ReceiverListener{
 private:
-	rtos::channel< MessageLogic, 1024 > message_channel;
-	rtos::channel< char, 1024 > key_channel;
-    rtos::flag& gameStartedFlag;
+	rtos::channel< MessageLogic, 16 > message_channel;
+	rtos::channel< char, 16 > key_channel;
+    rtos::flag gameStartedFlag;
     rtos::timer gameTimer;
     rtos::pool< bool > gameEndedPool;
 	char pressed_key;
 	MessageLogic received_message;
     bool gotMessage;
 	Player &thePlayer;
-	PlayerID & id;
-    TransferController & transferctrl;
     int timeSet;
 public:
-    SetupController(Player &thePlayer, PlayerID & id, TransferController & transferctrl, rtos::flag& gameStartedFlag);
+    SetupController(Player &thePlayer);
 
 	void keyPressed(char x);
 

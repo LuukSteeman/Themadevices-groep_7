@@ -1,15 +1,13 @@
 #include "setupController.hpp"
 
-SetupController::SetupController(Player &thePlayer, PlayerID & id, TransferController & transferctrl, rtos::flag& gameStartedFlag):
+SetupController::SetupController(Player &thePlayer):
 task("Setuptask"),
 message_channel(this, "Setup MessageLogic Channel"),
 key_channel(this, "Setup Key Channel"),
-gameStartedFlag(gameStartedFlag),
+gameStartedFlag(this, "Start up flag"),
 gameTimer(this, "Game Length Timer"),
 gameEndedPool("Game Ended Pool"),
-thePlayer(thePlayer),
-id(id),
-transferctrl(transferctrl)
+thePlayer(thePlayer)
 {
 	gotMessage = 0;
 }
@@ -51,7 +49,7 @@ void SetupController::startTimer(){
 }
 
 void SetupController::determinePlayerID(){
-	int receivedID = id.getID();
+	int receivedID = PlayerID::getID();
 	thePlayer.setPlayerID(receivedID);
 }
 
@@ -61,14 +59,15 @@ void SetupController::setGameFlag(){
 
 void SetupController::main(){
 	determinePlayerID();
+	hwlib::cout << "Select weapon\n";
 	read_key_channel();
 	if (pressed_key){
 		thePlayer.setWeapon( pressed_key - '0' );
 		pressed_key = 0;
-		hwlib::cout << thePlayer.getWeapon();
-        hwlib::cout << "Goed zo!\n Je hebt je wapen gekozen!!!!11!!1!!22$#\n";
+		hwlib::cout << "You've selected: " << thePlayer.getWeapon() << "\n";
 	}
     while(1){
+		hwlib::cout << "waiting for message from gamemaster\n";
         read_message_channel();
         if (gotMessage){
     		int received_data = received_message.getData();
@@ -85,12 +84,19 @@ void SetupController::main(){
     		gotMessage = 0;
     	}
     }
-    gameEndedPool.write(1);
-    hwlib::cout << "game startd\n";
-    sleep(timeSet * rtos::ms);
-    hwlib::cout << "Game finished";
+    hwlib::cout << "\n=====================\ngame started\n";
+	// hwlib::cout << sleep_timer << "\n";
+	hwlib::cout << "Time: " << hwlib::now_us() << "\n";
+	hwlib::cout << *this << "\n";
+    sleep(4294967295);
+    hwlib::cout << "Game finished\n";
+	// hwlib::cout << sleep_timer << "\n";
+	hwlib::cout << *this << "\n";
+	hwlib::cout << "Time: " << hwlib::now_us() << "\n";
+	gameEndedPool.write(1);
     // read_key_channel();
     // if (pressed_key){
+	//     TransferController transferctrl(ds);
     //     transferctrl.run(this);
     //     hwlib::cout << "Transferred";
     // }

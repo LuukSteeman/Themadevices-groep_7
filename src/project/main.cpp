@@ -46,7 +46,6 @@ int main()
 {
   WDT->WDT_MR = WDT_MR_WDDIS;
   hwlib::wait_ms(500);
-  DamageStorage d;
 
   auto speak_pin = hwlib::target::pin_out(hwlib::target::pins::d52);
   auto speak = Speaker(speak_pin);
@@ -54,17 +53,12 @@ int main()
   speakctrl.set_frequency(1500);
 
   Player player;
-  PlayerID id;
-
   DamageStorage ds;
-
-  TransferController transferctrl(ds);
 
   Keypad pad;
   KeypadHandler handle(pad);
-  rtos::flag startFlag(nullptr, "StartFlag");
-  SetupController sctrl(player, id, transferctrl, startFlag);
-
+  hwlib::cout << "sizeof setup controller" << sizeof(SetupController) << "\n";
+  SetupController sctrl(player);
   Receiver receive(hwlib::target::pins::d12);
   ReceiverHandler rhandle(receive);
 
@@ -74,10 +68,9 @@ int main()
   Transmitter trans;
   Transmitterctrl transctrl(trans);
   player.setWeapon(5);
-  shootCtrl shoot((char *)"task for shooting", transctrl, player, startFlag);
+  shootCtrl shoot((char *)"task for shooting", transctrl, player);
   pad.addKeypadListener(&shoot);
-  KeypadHandler handler(pad);
-  HitController h(speakctrl, d, receive, player, startFlag);
+  HitController h(speakctrl, ds, receive, player);
   X x;
   pad.addKeypadListener(&x);
   rtos::run();

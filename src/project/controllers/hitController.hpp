@@ -8,16 +8,15 @@
 #include "damageStorage.hpp"
 #include "gunLogic.hpp"
 
-class HitController : public rtos::task<>, public ReceiverListener
+class HitController : public rtos::task<128>, public ReceiverListener
 {
 public:
-    HitController(Speakercontroller& sp,DamageStorage& ds,Receiver& rs,Player& play, rtos::flag& gameStartedFlag);
+    HitController(Speakercontroller& sp,DamageStorage& ds,Receiver& rs,Player& play);
     void msgReceived(MessageLogic msg);
     void main();
-    rtos::channel<MessageLogic, 1> hitchannel;
+    rtos::channel<MessageLogic, 16> hitchannel;
 private:
     Speakercontroller& sp;
     DamageStorage& ds;
     Player& play;
-    rtos::flag& gameStartedFlag;
 };

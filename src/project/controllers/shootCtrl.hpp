@@ -39,14 +39,12 @@ private:
 	int shotdelay;
 
 	bool shoot = false;
-
-	rtos::flag& gameStartedFlag;
 public:
 
 	///@param name is the name of the task for debugging purposes.
 	///@param transc is the transmittercontroller used to send the messages when told to.
 	///@param player is the player that uses the arduino, only the weaponID is required.
-	shootCtrl(char * name, Transmitterctrl & transc, Player & player, rtos::flag& gameStartedFlag);
+	shootCtrl(char * name, Transmitterctrl & transc, Player & player);
 
 	///Keypressed is the interface function for communicating with this task through the keypad
 	///@param key is the button that's pressed.

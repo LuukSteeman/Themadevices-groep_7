@@ -1,10 +1,9 @@
 #include "hitController.hpp"
-HitController::HitController(Speakercontroller &sp, DamageStorage &ds, Receiver &rs, Player &play, rtos::flag &gameStartedFlag) : task((char *)"HitController"),
+HitController::HitController(Speakercontroller &sp, DamageStorage &ds, Receiver &rs, Player &play) : task((char *)"HitController"),
                                                                                                                                   hitchannel(this, "Channel for hits"),
                                                                                                                                   sp(sp),
                                                                                                                                   ds(ds),
-                                                                                                                                  play(play),
-                                                                                                                                  gameStartedFlag(gameStartedFlag)
+                                                                                                                                  play(play)
 {
     rs.addReceiverListener(this);
 }
@@ -16,9 +15,8 @@ void HitController::msgReceived(MessageLogic msg)
 
 void HitController::main()
 {
-    hwlib::cout << HERE << " " << gameStartedFlag << "\n";
-    wait(gameStartedFlag);
-    hwlib::cout << HERE << " Game Started\n";
+    // hwlib::cout << HERE << " " << gameStartedFlag << "\n";
+    // hwlib::cout << HERE << " Game Started\n";
     while (1)
     {
         MessageLogic message = hitchannel.read();
