@@ -19,7 +19,7 @@ void HitController::main()
     {
         MessageLogic message = hitchannel.read();
         hwlib::cout << play.getPlayerID() << "," << message.getId() << "\n";
-        // if (play.getPlayerID() != message.getId())
+        if (play.getPlayerID() != message.getId())
         {
             int damage = GunLogic::calcDamage(message.getData());
             play.updateHP(1);
