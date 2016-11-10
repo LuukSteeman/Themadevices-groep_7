@@ -6,7 +6,7 @@ def getGameDataFromSerial(serialPort):
     raw_input("Press enter to retrieve data\n")
     x.write("\n")
     length = x.readline()
-    while "dataLength" not in length:
+    while "dataLength:" not in length:
         x.write("\n")
         length = x.readline()
     length = int(length.split(':')[1])

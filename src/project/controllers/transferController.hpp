@@ -26,7 +26,7 @@ class TransferController : public rtos::task<>, public KeypadListener
         {
             while (!hwlib::cin.char_available())
             {
-                sleep(10 * rtos::ms);
+                sleep(10 * rtos::us);
             }
         } while (hwlib::cin.getc() != '\n');
         USB::writeToUSB(ds);
