@@ -20,7 +20,10 @@ def showScore():
 	global score
 	t = PrettyTable(['PlayerID','Score'])
 	for i in range(1,len(score)):
-		t.add_row([i,score[i]])
+		if score[i] is not 0:
+			t.add_row([i,score[i]])
+	t.sortby = "Score"
+	t.reversesort = True
 	print t
 
 level1menu = [['Import Data',importData],['Show score',showScore],['Exit',exit]]
