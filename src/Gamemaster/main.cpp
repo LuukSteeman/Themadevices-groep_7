@@ -18,7 +18,7 @@ int main()
   Transmitter transmitter;
   Transmitterctrl transmitterctrl(transmitter);
 
-  Gamemasterctrl gamemasterctrl(transmitterctrl);
+  GamemasterCtrl gamemasterctrl(transmitterctrl, (char *) "Gamemaster Task");
   pad.addKeypadListener(&gamemasterctrl);
 
   rtos::run();

@@ -15,8 +15,8 @@ SOURCES  := messageLogic.cpp keypad.cpp keypadHandler.cpp transmitterctrl.cpp ga
 HEADERS := bitTools.hpp messageLogic.hpp keypad.hpp transmitter.hpp keypadHandler.hpp transmitterctrl.hpp keypadListener.hpp gamemasterctrl.hpp
 
 # other places to look for files for this project
-SEARCH  := ../boundary/ ../controllers/ ../applicationLogic/ ../entity/ ../interfaces/ ../nanopb/
+SEARCH  := boundary/ controllers/ applicationLogic/ entity/ interfaces/ nanopb/
 
 # set BMPTK to the next higher directory and defer to the Makefile.due
-BMPTK := $(BMPTK)../../
+BMPTK := $(BMPTK)../
 include $(BMPTK)Makefile.due
