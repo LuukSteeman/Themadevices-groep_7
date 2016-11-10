@@ -19,7 +19,7 @@ class GamemasterCtrl : public rtos::task<>, public KeypadListener
 private:
 
 	///Channel on which the keypresses are received.
-	rtos::channel<char, 10> commandChannel;
+	rtos::channel<char, 1> commandChannel;
 
 	///The message send when calling transmitterctrl.run();
 	MessageLogic msg;
