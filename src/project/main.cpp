@@ -50,9 +50,10 @@ int main()
   oled oled_screen;
   oled_controller oled_control(oled_screen);
 
-  text t((char*)"Hi", 1);
+  text t((char*)"Dirruk", 2);
   t.draw(oled_screen);
 
+  oled_screen.flush();
 
   Receiver r(hwlib::target::pins::d12);
   ReceiverHandler rh(r);
@@ -73,7 +74,6 @@ int main()
   HitController h(speakctrl, d, r, player);
   X x;
   pad.addKeypadListener(&x);
-  oled_screen.flush();
   rtos::run();
   return 0;
 }

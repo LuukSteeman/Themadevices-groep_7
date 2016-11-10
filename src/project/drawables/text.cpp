@@ -38,11 +38,11 @@ void text::draw(oled &oled_screen){
     /// Get the Screen_Number given to the Text-Object as parameter, this number is used to determine on which Outstream the text from the object is being written to
     if(getScreenNumber() == 1){
     	outstream1 	<< "\f"
-    				<< (int)given_text << "HI" << "\n";  
+    				<< (int)given_text << "\n";  
 	}
     else if(getScreenNumber() == 2){
 	    outstream2 	<< "\f"
-	        		<< given_text << "Hi" << "\n";
+	        		<< given_text << "\n";
     }
     else if(getScreenNumber() == 3){
 	    outstream3 	<< "\f"
