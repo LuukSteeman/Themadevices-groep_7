@@ -16,30 +16,21 @@
 #include "Keypad.hpp"
 #include "keypadHandler.hpp"
 #include "PlayerID.hpp"
+#include "gamemasterctrl.hpp"
 
 int main()
 {
   WDT->WDT_MR = WDT_MR_WDDIS;
   hwlib::wait_ms(500);
 
-
-  Player pyer;
-  PlayerID id;
-
-  DamageStorage ds;
-
-  TransferController transferctrl(ds);
-
   Keypad pad;
   KeypadHandler handle(pad);
-  SetupController sctrl(pyer, id, transferctrl);
+  Transmitter transmitter;
+  Transmitterctrl transmitterctrl(transmitter);
 
-  Receiver receive(hwlib::target::pins::d12);
-  ReceiverHandler rhandle(receive);
+  GamemasterCtrl gamemasterctrl(transmitterctrl, (char *)"Gamemaster task");
 
-
-  receive.addReceiverListener(&sctrl);
-  pad.addKeypadListener(&sctrl);
+  pad.addKeypadListener(&gamemasterctrl);
 
 
   rtos::run();

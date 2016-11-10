@@ -9,10 +9,10 @@
 #############################################################################
 
 # source files in this project (main.cpp is automatically assumed)
-SOURCES := speaker.cpp speakercontroller.cpp receiver.cpp receiverHandler.cpp messageLogic.cpp damageStorage.cpp transmitterctrl.cpp transferController.cpp usb.cpp game.pb.c pb_encode.c pb_common.c setupController.cpp Keypad.cpp KeypadHandler.cpp playerID.cpp
+SOURCES := speaker.cpp speakercontroller.cpp receiver.cpp receiverHandler.cpp messageLogic.cpp damageStorage.cpp transmitterctrl.cpp transferController.cpp usb.cpp game.pb.c pb_encode.c pb_common.c setupController.cpp Keypad.cpp KeypadHandler.cpp playerID.cpp gamemasterctrl.cpp
 
 # header files in this project
-HEADERS := speaker.hpp receiver.hpp receiverListener.hpp damage.hpp messageLogic.hpp damageStorage.hpp transmitter.hpp transmitterctrl.hpp transferController.hpp usb.hpp pb_common.h pb_encode.h game.pb.h pb.h Player.hpp gunLogic.hpp setupController.hpp Keypad.hpp KeypadHandler.hpp keypadListener.hpp playerID.hpp
+HEADERS := speaker.hpp receiver.hpp receiverListener.hpp damage.hpp messageLogic.hpp damageStorage.hpp transmitter.hpp transmitterctrl.hpp transferController.hpp usb.hpp pb_common.h pb_encode.h game.pb.h pb.h Player.hpp gunLogic.hpp setupController.hpp Keypad.hpp KeypadHandler.hpp keypadListener.hpp playerID.hpp gamemasterctrl.hpp
 
 # other places to look for files for this project
 SEARCH  := boundary/ controllers/ applicationLogic/ entity/ interfaces/ nanopb/
