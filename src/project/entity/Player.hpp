@@ -11,6 +11,9 @@ private:
 
 	//! The player's chosen weapon, which is used to calculate damage and rate of fire
 	int weaponID;
+
+    //! The player's unique ID
+	int playerID;
 public:
 	//! An constuctor without parameters that initializes hitPoints at a value of 100
 	Player(){hitPoints = 100;};
@@ -28,6 +31,13 @@ public:
 
 	//! Returns the ID of the player's chosen weapon
 	int getWeapon(){return weaponID;};
+
+	//! Sets the player ID
+    //! @param receivedID The ID the SetupController receives from the PlayerID class
+	void setPlayerID(int receivedID){playerID = receivedID;};
+
+    //! Returns the player ID
+	int getPlayerID(){return playerID;};
 };
 
 #endif // PLAYER_HPP
