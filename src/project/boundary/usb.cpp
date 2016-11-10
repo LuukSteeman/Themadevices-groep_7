@@ -6,7 +6,7 @@
 bool USB::damageCallback(pb_ostream_t *stream, const pb_field_t *field, void *const *arg)
 {
   Damage damage = Damage_init_zero;
-  for (int i = 0; i < 3; i++)
+  for (int i = 0; i < 100; i++)
   {
     if (!pb_encode_tag_for_field(stream, field))
     {

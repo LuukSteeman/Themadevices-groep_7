@@ -13,10 +13,8 @@ void Receiver::addReceiverListener(ReceiverListener *listener)
 
 void Receiver::update(MessageLogic msg)
 {
-    {
         for (int i = 0; i < listenerCount; i++)
         {
             listeners[i]->msgReceived(msg);
         }
-    }
 }
