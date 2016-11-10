@@ -41,9 +41,12 @@ void SetupController::determineWeapon(){
 	}
 }
 
+void SetupController::addGameTime(int timeAdded){
+    timeSet += timeAdded;
+}
+
 void SetupController::startTimer(){
     timeSet *= 60000;
-    timeSet = 1000;
     gameTimer.set(timeSet);
 }
 
@@ -77,8 +80,8 @@ void SetupController::main(){
                 break;
     		}
     		else{
-    			timeSet = received_data;
-                hwlib::cout << received_data;
+    			addGameTime(received_data);
+                hwlib::cout << received_data << "added \n";
     		}
     		gotMessage = 0;
     	}

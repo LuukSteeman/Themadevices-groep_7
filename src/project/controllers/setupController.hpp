@@ -40,6 +40,8 @@ public:
 
 	void determineWeapon();
 
+    void addGameTime(int timeAdded);
+
 	void startTimer();
 
 	void determinePlayerID();
