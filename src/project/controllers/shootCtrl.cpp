@@ -10,18 +10,23 @@ player(player)
 
 void shootCtrl::main()
 {
-
 	weaponId = player.getWeapon();
-	shotdelay = calcShootDelay(weaponId);
+	shotdelay = GunLogic::calcShootDelay(weaponId);
 	msg = MessageLogic(10, weaponId);
 	while(1)
 	{
-		if (keychannel.read() == '*')
-		{
-			transc.run(msg, this);
-			sleep(shotdelay * rtos::ms);
-		}
-
-		sleep(1 * rtos::ms);
+		// wait(keychannel);
+		// char x = keychannel.read();
+		// if ( x == '*')
+		// {
+			if(shoot){
+				transc.run(msg, this);
+				shoot=false;
+			}else{
+				sleep(1*rtos::ms);
+			}
+			// sleep(shotdelay * rtos::ms);
+		// }
+		sleep(10 * rtos::ms);
 	}
 }
