@@ -1,24 +1,22 @@
 #include <hwlib.hpp>
-#include "transmitterctrl.hpp"
-#include "transmitter.hpp"
 #include <rtos.hpp>
 #include "receiver.hpp"
 #include "receiverHandler.hpp"
 #include "receiverListener.hpp"
 #include "speakercontroller.hpp"
-#include "messageLogic.hpp"
 #include "damageStorage.hpp"
 #include "Damage.hpp"
 #include "controllers/transferController.hpp"
+#include "setupController.hpp"
+#include "keypadHandler.hpp"
+#include "playerID.hpp"
+#include "gamemasterctrl.hpp"
 #include "hitController.hpp"
-#include "Player.hpp"
-#include "receiverHandler.hpp"
 #include "applicationLogic/messageLogic.hpp"
 #include "controllers/shootCtrl.hpp"
 #include "boundary/transmitter.hpp"
 #include "controllers/transmitterctrl.hpp"
 #include "boundary/keypad.hpp"
-#include "controllers/keypadHandler.hpp"
 #include "entity/Player.hpp"
 
 class X : public KeypadListener
@@ -62,6 +60,7 @@ int main()
   HitController h(speakctrl, d, r, player);
   X x;
   pad.addKeypadListener(&x);
+
   rtos::run();
   return 0;
 }

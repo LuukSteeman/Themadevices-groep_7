@@ -3,6 +3,6 @@
 
 class KeypadListener
 {
-public:
-	virtual void keyPressed(char key) = 0;
+  public:
+    virtual void keyPressed(char key) = 0;
 };
