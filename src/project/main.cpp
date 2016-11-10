@@ -1,25 +1,29 @@
-#include <hwlib.hpp>
-#include "transmitterctrl.hpp"
-#include "transmitter.hpp"
-#include <rtos.hpp>
+#include "Damage.hpp"
+#include "Player.hpp"
+#include "applicationLogic/messageLogic.hpp"
+#include "boundary/keypad.hpp"
+#include "boundary/oled.hpp"
+#include "boundary/transmitter.hpp"
+#include "controllers/keypadHandler.hpp"
+#include "controllers/oled_controller.hpp"
+#include "controllers/shootCtrl.hpp"
+#include "controllers/transferController.hpp"
+#include "controllers/transmitterctrl.hpp"
+#include "damageStorage.hpp"
+#include "drawables/text.hpp"
+#include "entity/Player.hpp"
+#include "hitController.hpp"
+#include "interface/gui.hpp"
+#include "messageLogic.hpp"
 #include "receiver.hpp"
+#include "receiverHandler.hpp"
 #include "receiverHandler.hpp"
 #include "receiverListener.hpp"
 #include "speakercontroller.hpp"
-#include "messageLogic.hpp"
-#include "damageStorage.hpp"
-#include "Damage.hpp"
-#include "controllers/transferController.hpp"
-#include "hitController.hpp"
-#include "Player.hpp"
-#include "receiverHandler.hpp"
-#include "applicationLogic/messageLogic.hpp"
-#include "controllers/shootCtrl.hpp"
-#include "boundary/transmitter.hpp"
-#include "controllers/transmitterctrl.hpp"
-#include "boundary/keypad.hpp"
-#include "controllers/keypadHandler.hpp"
-#include "entity/Player.hpp"
+#include "transmitter.hpp"
+#include "transmitterctrl.hpp"
+#include <hwlib.hpp>
+#include <rtos.hpp>
 
 class X : public KeypadListener
 {
@@ -43,6 +47,13 @@ int main()
   hwlib::wait_ms(500);
   DamageStorage d;
 
+  oled oled_screen;
+  oled_controller oled_control(oled_screen);
+
+  text t((char*)"Hi", 1);
+  t.draw(oled_screen);
+
+
   Receiver r(hwlib::target::pins::d12);
   ReceiverHandler rh(r);
 
@@ -62,6 +73,7 @@ int main()
   HitController h(speakctrl, d, r, player);
   X x;
   pad.addKeypadListener(&x);
+  oled_screen.flush();
   rtos::run();
   return 0;
 }

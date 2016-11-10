@@ -46,7 +46,7 @@ void text::draw(oled &oled_screen){
     }
     else if(getScreenNumber() == 3){
 	    outstream3 	<< "\f"
-	        		<< "\n05\n13" << "\n";
+	        		<< given_text << "\n";
     }
     /// If the number is not legit, give an error
     else {
