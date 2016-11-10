@@ -64,7 +64,9 @@ void SetupController::main(){
 	if (pressed_key){
 		thePlayer.setWeapon( pressed_key - '0' );
 		pressed_key = 0;
+
 		hwlib::cout << "You've selected: " << thePlayer.getWeapon() << "\n";
+
 	}
     while(1){
 		hwlib::cout << "waiting for message from gamemaster\n";
@@ -72,9 +74,11 @@ void SetupController::main(){
         if (gotMessage){
     		int received_data = received_message.getData();
     		if (received_data == 0){
+                hwlib::cout << "game startd";
                 gameEndedPool.write(0);
     			setGameFlag();
                 startTimer();
+                hwlib::wait_ms(timeSet);
                 break;
     		}
     		else{
@@ -88,12 +92,14 @@ void SetupController::main(){
 	// hwlib::cout << sleep_timer << "\n";
 	hwlib::cout << "Time: " << hwlib::now_us() << "\n";
 	hwlib::cout << *this << "\n";
-    sleep(4294967295);
+    sleep(timeSet);
     hwlib::cout << "Game finished\n";
 	// hwlib::cout << sleep_timer << "\n";
 	hwlib::cout << *this << "\n";
 	hwlib::cout << "Time: " << hwlib::now_us() << "\n";
 	gameEndedPool.write(1);
+
+
     // read_key_channel();
     // if (pressed_key){
 	//     TransferController transferctrl(ds);
