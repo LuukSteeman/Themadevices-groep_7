@@ -15,7 +15,7 @@ class SetupController : public rtos::task<>, public KeypadListener, public Recei
 private:
 	rtos::channel< MessageLogic, 1024 > message_channel;
 	rtos::channel< char, 1024 > key_channel;
-    rtos::flag gameStartedFlag;
+    rtos::flag& gameStartedFlag;
     rtos::timer gameTimer;
     rtos::pool< bool > gameEndedPool;
 	char pressed_key;
@@ -26,7 +26,7 @@ private:
     TransferController & transferctrl;
     int timeSet;
 public:
-    SetupController(Player &thePlayer, PlayerID & id, TransferController & transferctrl);
+    SetupController(Player &thePlayer, PlayerID & id, TransferController & transferctrl, rtos::flag& gameStartedFlag);
 
 	void keyPressed(char x);
 

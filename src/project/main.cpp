@@ -62,23 +62,22 @@ int main()
 
   Keypad pad;
   KeypadHandler handle(pad);
-  SetupController sctrl(player, id, transferctrl);
+  rtos::flag startFlag(nullptr, "StartFlag");
+  SetupController sctrl(player, id, transferctrl, startFlag);
 
   Receiver receive(hwlib::target::pins::d12);
   ReceiverHandler rhandle(receive);
 
-
   receive.addReceiverListener(&sctrl);
   pad.addKeypadListener(&sctrl);
-
 
   Transmitter trans;
   Transmitterctrl transctrl(trans);
   player.setWeapon(5);
-  shootCtrl shoot((char *)"task for shooting", transctrl, player);
+  shootCtrl shoot((char *)"task for shooting", transctrl, player, startFlag);
   pad.addKeypadListener(&shoot);
   KeypadHandler handler(pad);
-  HitController h(speakctrl, d, receive, player);
+  HitController h(speakctrl, d, receive, player, startFlag);
   X x;
   pad.addKeypadListener(&x);
   rtos::run();

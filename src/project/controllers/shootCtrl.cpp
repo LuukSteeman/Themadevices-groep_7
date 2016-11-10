@@ -1,15 +1,17 @@
 #include "shootCtrl.hpp"
 #include "gunLogic.hpp"
 
-shootCtrl::shootCtrl(char * name, Transmitterctrl & transc, Player & player) :
+shootCtrl::shootCtrl(char * name, Transmitterctrl & transc, Player & player, rtos::flag& gameStartedFlag) :
 task(name),
 keychannel(this, "channel for keypresses"),
 transc(transc),
-player(player)
+player(player),
+gameStartedFlag(gameStartedFlag)
 {}
 
 void shootCtrl::main()
 {
+	wait(gameStartedFlag);
 	weaponId = player.getWeapon();
 	shotdelay = GunLogic::calcShootDelay(weaponId);
 	msg = MessageLogic(10, weaponId);

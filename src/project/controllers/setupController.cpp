@@ -1,10 +1,10 @@
 #include "setupController.hpp"
 
-SetupController::SetupController(Player &thePlayer, PlayerID & id, TransferController & transferctrl):
+SetupController::SetupController(Player &thePlayer, PlayerID & id, TransferController & transferctrl, rtos::flag& gameStartedFlag):
 task("Setuptask"),
 message_channel(this, "Setup MessageLogic Channel"),
 key_channel(this, "Setup Key Channel"),
-gameStartedFlag(this, "Game Started Flag"),
+gameStartedFlag(gameStartedFlag),
 gameTimer(this, "Game Length Timer"),
 gameEndedPool("Game Ended Pool"),
 thePlayer(thePlayer),
@@ -83,12 +83,12 @@ void SetupController::main(){
     		gotMessage = 0;
     	}
     }
-    gameEndedPool.write(1);
-    hwlib::cout << "Game finished";
-    read_key_channel();
-    if (pressed_key){
-        transferctrl.run(this);
-        hwlib::cout << "Transferred";
-    }
-    suspend();
+    // gameEndedPool.write(1);
+    // hwlib::cout << "Game finished";
+    // read_key_channel();
+    // if (pressed_key){
+    //     transferctrl.run(this);
+    //     hwlib::cout << "Transferred";
+    // }
+    // suspend();
 }
