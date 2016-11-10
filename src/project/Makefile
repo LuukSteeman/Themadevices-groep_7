@@ -9,13 +9,13 @@
 #############################################################################
 
 # source files in this project (main.cpp is automatically assumed)
-SOURCES := controllers/oled_controller.cpp drawables/text.cpp
+SOURCES := speaker.cpp speakercontroller.cpp receiver.cpp receiverHandler.cpp messageLogic.cpp damageStorage.cpp transmitterctrl.cpp transferController.cpp usb.cpp game.pb.c pb_encode.c pb_common.c oled_controller.cpp text.cpp
 
 # header files in this project
-HEADERS := controllers/oled_controller.hpp interface/gui.hpp drawables/text.hpp boundary/oled.hpp
+HEADERS := gui.hpp speaker.hpp receiver.hpp text.hpp oled.hpp receiverListener.hpp damage.hpp messageLogic.hpp oled_controller.hpp damageStorage.hpp transmitter.hpp transmitterctrl.hpp  transferController.hpp usb.hpp pb_common.h pb_encode.h game.pb.h pb.h Player.hpp gunLogic.hpp 
 
 # other places to look for files for this project
-SEARCH  := 
+SEARCH  := boundary/ controllers/ interface/ applicationLogic/ entity/ interfaces/ nanopb/ drawables/ 
 
 # set BMPTK to the next higher directory and defer to the Makefile.due
 BMPTK := $(BMPTK)../

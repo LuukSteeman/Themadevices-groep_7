@@ -32,7 +32,7 @@ class oled_controller : public rtos::task<>
     {};
 
     /// Declare Add() function
-    void add(gui *e);
+    void add(gui *object);
 
     /// Declare Flush() function
     void flush();

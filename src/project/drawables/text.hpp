@@ -11,7 +11,7 @@ class text : public gui{
 public:
 	/// The given text is the text we get as parameter when creating a Text-Object
 	char * given_text;
-
+	
 	/// This is the Outstream the object has to be written to
 	int screen_number;
 
@@ -36,7 +36,7 @@ public:
 		return screen_number;
 	}
 
-	/// Declare Update() Function
+	/// Declare Update() function
 	void update(char * update_text);
 };
 
