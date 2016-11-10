@@ -10,6 +10,7 @@
 #include "../boundary/playerID.hpp"
 #include "../applicationLogic/messageLogic.hpp"
 #include "../controllers/transferController.hpp"
+#include "../entity/damageStorage.hpp"
 
 class SetupController : public rtos::task<1024>, public KeypadListener, public ReceiverListener{
 private:
@@ -23,8 +24,9 @@ private:
     bool gotMessage;
 	Player &thePlayer;
     int timeSet;
+	DamageStorage& ds;
 public:
-    SetupController(Player &thePlayer);
+    SetupController(Player &thePlayer,DamageStorage& ds);
 
 	void keyPressed(char x);
 

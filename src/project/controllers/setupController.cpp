@@ -1,13 +1,14 @@
 #include "setupController.hpp"
 
-SetupController::SetupController(Player &thePlayer):
+SetupController::SetupController(Player &thePlayer,DamageStorage& ds):
 task("Setuptask"),
 message_channel(this, "Setup MessageLogic Channel"),
 key_channel(this, "Setup Key Channel"),
 gameStartedFlag(this, "Start up flag"),
 gameTimer(this, "Game Length Timer"),
 gameEndedPool("Game Ended Pool"),
-thePlayer(thePlayer)
+thePlayer(thePlayer),
+ds(ds)
 {
 	gotMessage = 0;
 }
@@ -102,11 +103,13 @@ void SetupController::main(){
 	gameEndedPool.write(1);
 
 
-    // read_key_channel();
-    // if (pressed_key){
-	//     TransferController transferctrl(ds);
-    //     transferctrl.run(this);
-    //     hwlib::cout << "Transferred";
-    // }
-    suspend();
+    read_key_channel();
+    if (pressed_key == '#'){
+	    TransferController transferctrl(ds);
+        transferctrl.run(this);
+        hwlib::cout << "Transferred";
+    }
+	while(1){
+		sleep(1*rtos::s);
+	}
 }

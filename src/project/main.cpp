@@ -58,7 +58,7 @@ int main()
   Keypad pad;
   KeypadHandler handle(pad);
   hwlib::cout << "sizeof setup controller" << sizeof(SetupController) << "\n";
-  SetupController sctrl(player);
+  SetupController sctrl(player, ds);
   Receiver receive(hwlib::target::pins::d12);
   ReceiverHandler rhandle(receive);
 
