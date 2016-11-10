@@ -13,6 +13,8 @@ class Receiver : public hwlib::target::pin_in
     static const int maxListeners = 10;
     ReceiverListener *listeners[maxListeners];
     int listenerCount = 0;
+    MessageLogic lastReceived = MessageLogic();
+    long long int lastReceivedTime = 0;
   public:
     /**
       Create a receiver

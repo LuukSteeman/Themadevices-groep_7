@@ -1,7 +1,8 @@
 #include "receiver.hpp"
 
-void Receiver::addReceiverListener(ReceiverListener* listener){
-     {
+void Receiver::addReceiverListener(ReceiverListener *listener)
+{
+    {
         if (listenerCount < maxListeners)
         {
             listeners[listenerCount] = listener;
@@ -10,7 +11,8 @@ void Receiver::addReceiverListener(ReceiverListener* listener){
     }
 }
 
-void Receiver::update(MessageLogic msg){
+void Receiver::update(MessageLogic msg)
+{
     {
         for (int i = 0; i < listenerCount; i++)
         {

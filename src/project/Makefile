@@ -8,11 +8,11 @@
 # 
 #############################################################################
 
-# source files in this project (main.cpp is automatically assumed)
-SOURCES := speaker.cpp speakercontroller.cpp receiver.cpp receiverHandler.cpp messageLogic.cpp damageStorage.cpp transmitterctrl.cpp transferController.cpp usb.cpp game.pb.c pb_encode.c pb_common.c oled_controller.cpp text.cpp
-
+SOURCES  := messageLogic.cpp keypad.cpp oled_controller.cpp playerID.cpp receiver.cpp speaker.cpp speakercontroller.cpp usb.cpp hitController.cpp keypadHandler.cpp receiverHandler.cpp shootCtrl.cpp transferController.cpp transmitterctrl.cpp damageStorage.cpp game.pb.c pb_common.c pb_decode.c pb_encode.c
 # header files in this project
-HEADERS := gui.hpp speaker.hpp receiver.hpp text.hpp oled.hpp receiverListener.hpp damage.hpp messageLogic.hpp oled_controller.hpp damageStorage.hpp transmitter.hpp transmitterctrl.hpp  transferController.hpp usb.hpp pb_common.h pb_encode.h game.pb.h pb.h Player.hpp gunLogic.hpp 
+
+HEADERS := bitTools.hpp gunLogic.hpp messageLogic.hpp oled.hpp oled_controller.hpp keypad.hpp playerID.hpp receiver.hpp speaker.hpp speakercontroller.hpp transmitter.hpp usb.hpp hitController.hpp keypadHandler.hpp receiverHandler.hpp shootCtrl.hpp transferController.hpp transmitterctrl.hpp Damage.hpp damageStorage.hpp Player.hpp keypadListener.hpp receiverListener.hpp game.pb.h pb.h pb_common.h pb_decode.h pb_encode.h
+
 
 # other places to look for files for this project
 SEARCH  := boundary/ controllers/ interface/ applicationLogic/ entity/ interfaces/ nanopb/ drawables/ 

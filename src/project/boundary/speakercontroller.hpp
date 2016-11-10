@@ -8,7 +8,7 @@
 ///The speakertask is an implementation of the rtos::task template.
 ///This task is the controller of the speaker.
 
-class Speakercontroller : public rtos::task<>
+class Speakercontroller : public rtos::task<128>
 {
 private:
 	///The Speakercontroller has a reference to its speaker.

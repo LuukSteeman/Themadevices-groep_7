@@ -287,8 +287,9 @@ private:
    static bool must_clear;
 
       /// used by statistics clearance
+  public:
    static void do_statistics_clear (void);
-
+  private:
      /// this is a static class, prevent instantiation
    rtos( void ) {}
 

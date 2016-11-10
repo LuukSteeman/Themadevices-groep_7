@@ -12,7 +12,7 @@ class KeypadHandler : public rtos::task<>{
     private:
         Keypad& keypad;
         void main();
-        static const int pollTimeout = 100 * rtos::us;
+        static const int pollTimeout = 40 * rtos::ms;
     public:
         /**
             Create KeypadHandler
