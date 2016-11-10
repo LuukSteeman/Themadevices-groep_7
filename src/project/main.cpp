@@ -47,7 +47,7 @@ int main()
   WDT->WDT_MR = WDT_MR_WDDIS;
   hwlib::wait_ms(500);
 
-  auto speak_pin = hwlib::target::pin_out(hwlib::target::pins::d52);
+  auto speak_pin = hwlib::target::pin_out(hwlib::target::pins::d13);
   auto speak = Speaker(speak_pin);
   auto speakctrl = Speakercontroller((char *)"speaker", speak);
   speakctrl.set_frequency(1500);

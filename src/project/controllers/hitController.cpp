@@ -20,7 +20,7 @@ void HitController::main()
     while (1)
     {
         MessageLogic message = hitchannel.read();
-        if (play.getPlayerID() != message.getId())
+        // if (play.getPlayerID() != message.getId() && message.getId() != 0)
         {
 
             int damage = GunLogic::calcDamage(message.getData());

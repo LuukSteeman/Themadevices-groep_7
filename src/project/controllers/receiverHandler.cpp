@@ -46,7 +46,7 @@ void ReceiverHandler::listenForMessage()
     }
     // hwlib::cout << data; //magicekrererererer cout dont touch
     MessageLogic m(data);
-    // hwlib::cout << HERE << " data=" << data << "\n";
+    hwlib::cout << HERE << " data=" << data << "\n";
     if (!m.getError())
     {
         rec.update(m);

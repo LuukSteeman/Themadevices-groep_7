@@ -44,7 +44,7 @@ void SetupController::addGameTime(int timeAdded){
 }
 
 void SetupController::startTimer(){
-    timeSet *= 60000;
+    timeSet *= 60;
     hwlib::cout << timeSet;
 }
 
@@ -74,7 +74,7 @@ void SetupController::main(){
         if (gotMessage){
     		int received_data = received_message.getData();
     		if (received_data == 0){
-                hwlib::cout << "game startd";
+                hwlib::cout << "game started\n";
                 gameEndedPool.write(0);
     			setGameFlag();
                 startTimer();
@@ -92,7 +92,9 @@ void SetupController::main(){
 	// hwlib::cout << sleep_timer << "\n";
 	hwlib::cout << "Time: " << hwlib::now_us() << "\n";
 	hwlib::cout << *this << "\n";
-    sleep(timeSet);
+    for(int i = 0; i < timeSet; i++){
+		sleep(1*rtos::s);
+	}
     hwlib::cout << "Game finished\n";
 	// hwlib::cout << sleep_timer << "\n";
 	hwlib::cout << *this << "\n";
